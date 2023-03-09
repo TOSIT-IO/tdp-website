@@ -5,227 +5,739 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Trunk Data Platform</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<meta property="og:title" content="Trunk Data Platform" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://trunkdataplatform.io" />
-		<meta name="image" property="og:image" content="https://trunkdataplatform.io/images/TDP_LOGO.png" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Header -->
-			<div id="header">
+<head>
+	<title>Trunk Data Platform</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<meta property="og:title" content="Trunk Data Platform" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://trunkdataplatform.io" />
+	<meta name="image" property="og:image" content="https://trunkdataplatform.io/images/TDP_LOGO.png" />
+</head>
 
-				<div class="top">
+<body class="is-preload">
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image featured"><img src="images/TDP_LOGO_INVERSE.png" alt="" /></span>
-							<!--
+	<!-- Header -->
+	<div id="header">
+
+		<div class="top">
+
+			<!-- Logo -->
+			<div id="logo">
+				<span class="image featured"><img src="images/TDP_LOGO_INVERSE.png" alt="" /></span>
+				<!--
 							<h1 id="title">Trunk Data Platform</h1>
 							<p>Open Source Hadoop Distribution</p>
 							-->
-						<h1 id="logo"><p><br /></p></h1>
-						<p><br /></p>
-						</div>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#tdp" id="tdp-link"><span>Qu'est-ce que TDP ?</span></a></li>
-								<li><a href="#contexte" id="contexte-link"><span>Contexte</span></a></li>
-								<li><a href="#tosit" id="tosit-link"><span>Tosit</span></a></li>
-								<li><a href="#avantages" id="avantages-link"><span>Avantages</span></a></li>
-								<li><a href="#code" id="code-link"><span>Code</span></a></li>
-								<li><a href="#participation" id="participation-link"><span>Participation</span></a></li>
-							</ul>
-						</nav>
-
-				</div>
-
-				<div class="bottom">
-
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://twitter.com/TOSITOpenSource" class="icon brands fa-twitter" target=_blank><span class="label">Twitter</span></a></li>
-							<li><a href="https://discord.gg/UBgeHyDm" class="icon brands fa-discord" target=_blank><span class="label">Discord</span></a></li>
-							<li><a href="https://www.linkedin.com/company/asso-tosit/" class="icon brands fa-linkedin" target=_blank><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/TOSIT-IO" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="mailto:contact@tosit.fr" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-
-				</div>
-
+				<h1 id="logo">
+					<p><br /></p>
+				</h1>
+				<p><br /></p>
 			</div>
 
-		<!-- Main -->
-			<div id="main">
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="#tdp" id="tdp-link"><span>Qu'est-ce-que TDP</span></a></li>
+					<li><a href="#caracteristiques" id="caracteristiques-link"><span>Caractéristiques</span></a></li>
+					<li><a href="#fonctionnalites" id="fonctionnalites-link"><span>Fonctionnalités</span></a></li>
+					<li><a href="#architecture" id="architecture-link"><span>Architecture et Composants</span></a></li>
+					<li><a href="#roadmap" id="raodmap-link"><span>Roadmap et Nouveautés</span></a></li>
+					<li><a href="#contributions" id="contributions-link"><span>Contributions et Contact</span></a></li>
+				</ul>
+			</nav>
 
-				<!-- tdp -->
-					<section id="tdp" class="one">
-						<div class="container">
+		</div>
 
-							<header>
-								<h2><img src="images/TDP_LOGO.png" style="width: 10.5em" alt="" /></h2>
-								<br /><a href="english.html" class="image centered"><img src="images/us-en-tiny.png" style="width: 2em;margin-right:0.2em;" alt="" /></a><br />
-								<h2>Qu'est-ce que TDP?</h2>
-							</header>
+		<div class="bottom">
 
-								<p>Trunk Data Platform est une distribution Hadoop, Open Source, totalement libre de droits.<br />
-								<br />
-								La distribution est co-construite par EDF & La DGFIP (Direction Générale des Finances Publiques), via l'association TOSIT.<br />
-								<br />
-								TDP est construite à partir des sources Apache des différents composants.<br />
-								<br />
-								<br />
-								<br />
-								Et pourquoi Trunk?<br />
-								En référence à la trompe de l'éléphant, logo d'Hadoop.<br />
-								</p>
+			<!-- Social Icons -->
+			<ul class="icons">
+				<li><a href="https://twitter.com/TOSITOpenSource" class="icon brands fa-twitter" target=_blank><span
+							class="label">Twitter</span></a></li>
+				<li><a href="https://discord.gg/UBgeHyDm" class="icon brands fa-discord" target=_blank><span
+							class="label">Discord</span></a></li>
+				<li><a href="https://www.linkedin.com/company/asso-tosit/" class="icon brands fa-linkedin"
+						target=_blank><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/TOSIT-IO" class="icon brands fa-github"><span
+							class="label">Github</span></a></li>
+				<li><a href="mailto:contact@tosit.fr" class="icon solid fa-envelope"><span
+							class="label">Email</span></a></li>
+			</ul>
 
-						</div>
-					</section>
+		</div>
 
-				<!-- contexte -->
-					<section id="contexte" class="four">
-						<div class="container">
+	</div>
 
-							<header>
-								<h2>Contexte</h2>
-							</header>
+	<!-- Main -->
+	<div id="main">
 
-							<p>Qu'est-ce qu'Hadoop ?<br />
-							Hadoop est un écosystème permettant de faire de l'analytique, de la BI*, voir du temps réel,<br />
-							sur des gros volumes de données.<br />
-							<br />
-							Qu'est-ce qu'une distribution Hadoop ?<br />
-							Une distribution est un ensemble cohérent de versions de projets Open Source, fonctionnant parfaitement entre eux.<br />
-							<br />
-							Que faisons-nous dans TDP ?<br />
-							Nous partons des sources Apache, nous alignons les versions, compilons les sources,<br />
-							jouons les tests d'intégrations, générons les binaires et déployons les composants.<br />
-							<br />
-							Qui utilise Hadoop ?<br />
-							Hadoop est très utilisé par les grands comptes et les administrations françaises, depuis une dizaine d'années.<br />
-							Aujourd'hui, Hadoop est principalement utilisé par ceux qui n'ont pas souhaité basculer dans le Cloud Public.<br />
+		<!-- tdp -->
+		<section id="tdp" class="one">
+			<div class="container">
+
+				<header>
+					<h2><img src="images/TDP_LOGO.png" style="width: 10.5em" alt="" /></h2>
+					<br /><a href="english.html" class="image centered"><img src="images/us-en-tiny.png"
+							style="width: 2em;margin-right:0.2em;" alt="" /></a><br />
+					<h2>Qu'est-ce que TDP?</h2>
+				</header>
+
+				<p>Trunk Data Platform est une distribution Data et Open Source avec une licence Apache V2.<br />
+					<br />
+					La distribution est co-construite par EDF & La DGFIP (Direction Générale des Finances Publiques),
+					via l'association TOSIT.<br />
+					<br />
+					TDP est construite à partir des sources Apache des différents composants.<br />
+					<br />
+					Et pourquoi Trunk?<br />
+					En référence à la trompe de l'éléphant, logo d'Hadoop.<br />
+					<br />
+					Que faisons-nous dans TDP ?<br />
+					Nous partons des sources Apache, nous alignons les versions, compilons les sources,<br />
+					jouons les tests d'intégrations, générons les binaires et déployons les composants.<br />
+					<br />
+
+				</p>
+
+			</div>
+		</section>
+
+
+		<!-- caracteristiques -->
+		<section id="caracteristiques" class="four">
+			<div class="container">
+
+				<header>
+					<h2>Caractéristiques</h2>
+				</header>
+				<!--
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+							-->
+				<ul>
+					<li>
+						<p><strong>Open source&nbsp;</strong>: le code de toutes les technologies utilis&eacute;es est
+							disponible sur notre Github publique avec une licence Apache.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Gratuite&nbsp;</strong>: vous pouvez utiliser toutes les technologies et tous les
+							services et composants de TDP de fa&ccedil;on gratuite.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Data Centric&nbsp;</strong>: TDP respecte le cycle de vie de la donn&eacute;e en
+							proposant des technologies et des patterns pour g&eacute;rer la donn&eacute;e de
+							bout-en-bout.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Hybridation environnement :&nbsp;</strong>compatible &agrave; la fois avec des
+							d&eacute;ploiements sur le cloud priv&eacute;, public ou on-premise.</p>
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+		<!-- fonctionnalites -->
+		<section id="fonctionnalites" class="four">
+			<div class="container">
+
+				<header>
+					<h2>Fonctionnalités</h2>
+				</header>
+				<!--
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+							-->
+				<ul>
+					<li>
+						<p><strong>D&eacute;ploiement automatique&nbsp;</strong>: d&eacute;ploiement automatique avec
+							des standards DevOps accessibles &agrave; la fois pour l&rsquo;utilisation et la
+							contribution en se basant principalement sur des collections Ansible.</p>
+					</li>
+					<li>
+						<p><strong>Ma&icirc;trise du cycle de Build :</strong> nous proposons une image docker avec
+							toutes les d&eacute;pendances et commandes requises afin de lancer des builds automatiques
+							sur toutes les technologies de TDP Core.</p>
+					</li>
+					<li>
+						<p><strong>Gestion de cycle de vie des composants :&nbsp;</strong>gr&acirc;ce &agrave; TDP
+							Manager, vous aurez une gestion compl&egrave;te de tous les services et composants de TDP
+							Core en prenant en compte leurs d&eacute;pendances sur l&rsquo;ensemble des
+							op&eacute;rations&nbsp;telles que gestion de la configuration, arr&ecirc;t, relance, etc.
+						</p>
+					</li>
+					<li>
+						<p><strong>Int&eacute;gration native entre les technologies de la stack&nbsp;</strong>: une fois
+							TDP install&eacute;, vous aurez une int&eacute;gration native entre tous les composants et
+							services sans aucun effort d&rsquo;int&eacute;gration de votre part.</p>
+					</li>
+					<li>
+						<p><strong>Multi Tenancy&nbsp;</strong>: tous les services et composants de TDP sont
+							int&eacute;gr&eacute;s avec une configuration permettant l&rsquo;h&eacute;bergement de
+							plusieurs applications, utilisateurs et projets sur le m&ecirc;me cluster avec une forte
+							segmentation en termes de s&eacute;curit&eacute; et de gestion de ressources.</p>
+					</li>
+					<li>
+						<p><strong>Gestion des ressources statiques et dynamiques :&nbsp;</strong>une centralisation et
+							unification de la gestion de toutes les ressources (comme la m&eacute;moire, cpu, disques,
+							ports, etc) entre les composants.</p>
+					</li>
+					<li>
+						<p><strong>Haute disponibilit&eacute; :&nbsp;</strong>TDP offre un mode de d&eacute;ploiement en
+							haute disponibilit&eacute; permettant d&rsquo;avoir une forte r&eacute;silience suite
+							&agrave; la perte d&rsquo;un &eacute;quipement physique (e.g. disque, machine, rack,
+							&eacute;quipement r&eacute;seau, etc)</p>
+					</li>
+					<li>
+						<p><strong>S&eacute;curit&eacute; :&nbsp;</strong>TDP est une stack s&eacute;curis&eacute;e by
+							design, ce qui signifie l&rsquo;obligation de respecter les patterns et contraintes de
+							s&eacute;curit&eacute; &agrave; travers :</p>
+						<ul>
+							<li>
+								<p><strong>Authentification Kerberos&nbsp;</strong>sur tous les composants avec une
+									int&eacute;gration native via tous les protocoles propos&eacute;s (e.g. HTTPS via
+									SPNEGO, RPC, etc).</p>
+							</li>
+							<li>
+								<p><strong>Gestion des autorisations et Audit :&nbsp;</strong>une gestion
+									centralis&eacute;e avec Apache Ranger permettant d&rsquo;unifier et tracer
+									l&rsquo;ensemble des acc&egrave;s et de r&egrave;gles d&rsquo;autorisation sur
+									l&rsquo;ensemble des ressources du cluster (e.g. table Hive, table HBase, queues
+									YARN, etc).</p>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<p><strong>Protection des donn&eacute;es :&nbsp;</strong>le chiffrement des
+									donn&eacute;es est impl&eacute;ment&eacute; &agrave; la fois pour les
+									&eacute;changes &agrave; travers le TLS, SSL et SASL ainsi qu&rsquo;au stockage
+									gr&acirc;ce &agrave; une int&eacute;gration compl&egrave;te de Ranger KMS.</p>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<p><strong>S&eacute;curit&eacute; p&eacute;rim&eacute;trique :</strong> une
+									int&eacute;gration compl&egrave;te de la Gateway Knox qui vous permettra
+									d&rsquo;acc&eacute;der &agrave; tous les services du cluster tout en respectant les
+									principes de la s&eacute;curit&eacute; p&eacute;rim&eacute;trique en
+									d&eacute;finissant un seul point d&rsquo;entr&eacute;e.</p>
+							</li>
+						</ul>
+						<ul></ul>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Monitoring :&nbsp;</strong>toutes les m&eacute;triques applicatives sont
+							expos&eacute;es &agrave; travers des ports JMX permettant une int&eacute;gration
+							simplifi&eacute;e avec votre syst&egrave;me de monitoring ou par le projet
+							tdp-obesrvability.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Logs Management :&nbsp;</strong>une standardisation de la gestion des logs sur
+							l&rsquo;ensemble des technologies de la stack avec une rotation automatique et des options
+							avanc&eacute;es afin de simplifier leur int&eacute;gration avec votre syst&egrave;me de logs
+							Management ou le projet tdp-obesrvability.&nbsp;</p>
+					</li>
+				</ul>
+
+
+			</div>
+		</section>
+
+		<!-- participation -->
+		<section id="architecture" class="four">
+			<div class="container">
+
+				<header>
+					<h2>Architecture et Composants</h2>
+
+					<a class="image centered" style="text-align: center;"><img src="images/TDP_GLOBAL_ARCHITECTURE.png"
+							alt="" />Architecture et
+						composants de TDP</a>
+				</header>
+
+				<p><strong>TDP&nbsp;</strong>int&egrave;gre principalement les modules suivants :&nbsp;</p>
+				<br />
+				<h3><strong>TDP Core</strong></h3>
+				<p>Les composants disponibles et compl&egrave;tement int&eacute;gr&eacute;s &agrave; TDP sont les
+					suivants&nbsp;:</p>
+
+				<ul>
+					<ul>
+						<li>
+							<p><strong>HDFS (Hadoop Distributed File System) :&nbsp;</strong>un syst&egrave;me de
+								fichier distribu&eacute;, r&eacute;silient et con&ccedil;u pour optimiser le stockage
+								des donn&eacute;es massives avec des performances &eacute;lev&eacute;es en
+								&eacute;criture/lecture pour les op&eacute;rations en mode FULL SCAN. Lien: <a
+										href="https://github.com/TOSIT-IO/hadoop">https://github.com/TOSIT-IO/hadoop</a>
+							</p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>YARN :</strong> un gestionnaire de ressources (m&eacute;moire, cpu) pour
+								g&eacute;rer moteur de traitement de donn&eacute;es comme MapReduce, Spark, Tez, etc.
+								Lien: <u><a
+										href="https://github.com/TOSIT-IO/hadoop">https://github.com/TOSIT-IO/hadoop</a></u>
+							</p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>HBase (Hadoop Database) :&nbsp;</strong>une base de donn&eacute;es NoSQL
+								initialement con&ccedil;ue pour Hadoop afin de r&eacute;pondre &agrave; des besoins
+								d&rsquo;acc&egrave;s al&eacute;atoires unitaires (Random Access).Lien : <u><a
+										href="https://github.com/TOSIT-IO/hbase">https://github.com/TOSIT-IO/h</a><a
+										href="https://github.com/TOSIT-IO/hbase">base</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Hive :</strong> une couche de structuration &agrave; la lecture (Schema on Read)
+								des donn&eacute;es g&eacute;r&eacute;es par les diff&eacute;rents syst&egrave;mes de
+								stockage (e.g. HDFS, HBase, etc.) afin de simplifier leur requ&ecirc;tage avec des
+								standards comme HQL (SQL like). Lien: <u><a
+										href="https://github.com/TOSIT-IO/hive">https://github.com/TOSIT-IO/h</a><a
+										href="https://github.com/TOSIT-IO/hive">ive</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Kerberos :&nbsp;</strong>le standard d&rsquo;authentification permettant
+								l&rsquo;optimisation des op&eacute;rations distribu&eacute;es avec des machinismes comme
+								le Delegation Token.</p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Knox :&nbsp;</strong>un service Gateway proposant un point d&rsquo;entr&eacute;e
+								vers toutes les technologies de la stack pour vos besoins de s&eacute;curit&eacute;
+								p&eacute;rim&eacute;triques. Lien: <u><a
+										href="https://github.com/TOSIT-IO/knox">https://github.com/TOSIT-IO/</a><a
+										href="https://github.com/TOSIT-IO/knox">knox</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Ranger :&nbsp;</strong> une gestion des autorisations et de l&rsquo;audit
+								centralis&eacute;e. Lien: <u><a
+										href="https://github.com/TOSIT-IO/ranger">https://github.com/TOSIT-IO/</a><a
+										href="https://github.com/TOSIT-IO/ranger">ranger</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Spark :&nbsp;</strong>un framework de traitement distribu&eacute; avec des
+								modules SQL et de Machine Learning. Lien: <u><a
+										href="https://github.com/TOSIT-IO/spark">https://github.com/TOSIT-IO/</a><a
+										href="https://github.com/TOSIT-IO/spark">spark</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Tez :&nbsp;</strong>un framework de traitement distribu&eacute; optimis&eacute;
+								et utilis&eacute; par Hive. Lien: <u><a
+										href="https://github.com/TOSIT-IO/tez">https://github.com/TOSIT-IO/</a><a
+										href="https://github.com/TOSIT-IO/tez">tez</a></u></p>
+						</li>
+					</ul>
+				</ul>
+				<ul>
+					<ul>
+						<li>
+							<p><strong>Zookeeper :&nbsp;</strong>permettant d&rsquo;assurer le consensus et le partage
+								de la configuration et des &eacute;tats des composants et services core d&rsquo;un
+								cluster TDP. Lien: <u><a
+										href="https://github.com/TOSIT-IO/zookeeper-release">https://github.com/TOSIT-IO/zookeeper-release</a></u>
 							</p>
 
-						</div>
-					</section>
 
-				<!-- tosit -->
-					<section id="tosit" class="two dark">
-						<div class="container">
 
-							<header>
-								<h2>TOSIT</h2>
-							</header>
-							<a href="http://tosit.fr" class="image centered"><img src="images/logo-complet-tosit-v3.png" style="width: 14em" alt="" /></a>
-							<p>TOSIT est une association française, Loi 1901.<br />
+
+							<h3><strong>TDP Ansible Collections</strong></h3>
+							<p>Le standard DevOps de d&eacute;ploiement qui a &eacute;t&eacute; choisi pour TDP est
+								Ansible.</p>
+							<p>Nous vous proposons donc un ensemble de collections et de projets Ansible pour faciliter
+								le d&eacute;ploiement des diff&eacute;rents services et composants :</p>
+							<ul>
+								<li>
+									<p><strong>tdp-getting-started :</strong> (<u><a
+												href="https://github.com/TOSIT-IO/tdp-getting-started">https://github.com/TOSIT-IO/tdp-getting-started</a></u>)
+										un projet ansible pour d&eacute;ployer TDP sur n&rsquo;importe quel
+										environnement. Ce projet vous permet aussi de faire un d&eacute;ploiement en
+										mode Sandbox &agrave; travers des VMs g&eacute;r&eacute;es par Vagrant pour des
+										tests en local. Il fait appel &agrave; d&rsquo;autres collections Ansible&nbsp;:
+									</p>
+								</li>
+							</ul>
+							<ul>
+								<ul>
+									<li>
+										<p><strong>tdp-collection :</strong> (<u><a
+													href="https://github.com/TOSIT-IO/tdp-collection">https://github.com/TOSIT-IO/tdp-collection</a></u>)
+											une collection ansible pour d&eacute;ployer et g&eacute;rer le cycle de vie
+											des services et composants de TDP Core.</p>
+									</li>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<li>
+										<p><strong>tdp-collection-prerequisites(optionnel)&nbsp;</strong>: (<u><a
+													href="https://github.com/TOSIT-IO/tdp-collection-prerequisites"><strong>https://github.com/TOSIT-IO/tdp-collection-prerequisites</strong></a></u>)
+											une collection ansible pour d&eacute;ployer les pr&eacute;-requis de la
+											tdp-collections comme KDC, LDAP, etc.</p>
+									</li>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<li>
+										<p><strong>tdp-collection-extras(optionnel)&nbsp;</strong>:(<u><a
+													href="https://github.com/TOSIT-IO/tdp-collection-extras">https://github.com/TOSIT-IO/tdp-collection-extras</a></u>)une
+											collection ansible pour d&eacute;ployer quelques technologies sans avoir
+											forc&eacute;ment le m&ecirc;me niveau d&rsquo;int&eacute;gration que celle
+											du TDP Core&nbsp;comme&nbsp;:</p>
+									</li>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<ul>
+										<ul>
+											<li>
+												<p><strong>Hue (Hadoop User Experience)&nbsp;</strong>: une interface
+													web open source vers les services de TDP Core.</p>
+											</li>
+										</ul>
+									</ul>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<ul>
+										<ul>
+											<li>
+												<p><strong>Livy</strong>: une interface REST pour Spark afin de
+													faciliter son int&eacute;gration dans votre
+													&eacute;cosyst&egrave;me.</p>
+											</li>
+											<li>
+												<p><strong>JupyterHub&nbsp;</strong>: pour des d&eacute;ploiements
+													dynamiques de JupyterLab sur yarn proposant des notebooks python,
+													pyspark, shell, etc.</p>
+											</li>
+										</ul>
+									</ul>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<ul>
+										<ul>
+											<li>
+												<p><strong>Kafka&nbsp;</strong>: un bus de message distribu&eacute;
+													orient&eacute; &eacute;v&eacute;nements pour vos besoins en
+													streaming.</p>
+											</li>
+										</ul>
+									</ul>
+								</ul>
+							</ul>
+							<ul>
+								<ul>
+									<ul>
+										<ul>
+											<li>
+												<p><strong>Airflow :&nbsp;</strong>un orchestrateur pour concevoir,
+													impl&eacute;menter et planifier vos pipelines data</p>
+											</li>
+										</ul>
+									</ul>
+								</ul>
+							</ul>
+
+
+
+							<h3><strong>TDP Manager&nbsp;</strong><strong>(optionnel)</strong></h3>
 							<br />
-							C'est une structure de soutien à l'Open Source, qui vise à soutenir l'émergence de codes, <br />
-							logiciels et solutions informatiques libres.<br />
-							<!--
+							<a class="image centered" style="text-align: center;"><img
+									src="images/TDP_MANAGER_ARCHITECTURE.png" alt="" />Architecture de TDP Manager</a>
+							<p>Jusqu&rsquo;&agrave; cette &eacute;tape, les projets/collections Ansible utilis&eacute;s
+								permettent de d&eacute;ployer les technologies et de g&eacute;rer leurs cycles de vie de
+								fa&ccedil;on unitaire. Afin de pouvoir g&eacute;rer les composants et services entre
+								eux, de pouvoir s&eacute;curiser les op&eacute;rations d&rsquo;administration et
+								d&rsquo;am&eacute;liorer leur accessibilit&eacute; &agrave; travers une interface REST
+								et graphique, nous vous proposons TDP Manager avec ses composants :</p>
+							<ul>
+								<li>
+									<p><strong>TDP-LIB :</strong> (<u><a
+												href="https://github.com/TOSIT-IO/tdp-lib">https://github.com/TOSIT-IO/tdp-lib</a></u>)
+										code python permettant le versioning de la configuration par service et de
+										g&eacute;rer les d&eacute;pendances entre les diff&eacute;rentes
+										op&eacute;rations.</p>
+								</li>
+								<li>
+									<p><strong>TDP-SERVER&nbsp;</strong>: (<u><a
+												href="https://github.com/TOSIT-IO/tdp-server">https://github.com/TOSIT-IO/tdp-server</a></u>)
+										une interface REST vers TDP-LIB ajoutant une couche d&rsquo;authentification et
+										d&rsquo;audit pour plus de tra&ccedil;abilit&eacute;.</p>
+								</li>
+								<li>
+									<p><strong>TDP-UI&nbsp;:</strong> (<u><a
+												href="https://github.com/TOSIT-IO/tdp-ui">https://github.com/TOSIT-IO/tdp-ui</a></u>)
+										une interface graphique pour faciliter l&rsquo;utilisation de TDP-SERVER</p>
+								</li>
+							</ul>
+							<p>L&rsquo;utilisation de TDP Manager est optionnelle et non obligatoire. Les collections
+								Ansible peuvent suffire dans certains cas suivant votre contexte.</p>
+
+
+
+							<h3><strong>TDP Observability&nbsp;</strong><strong>(optionnel)</strong></h3>
+							<p>Ce projet vous propose une architecture de r&eacute;f&eacute;rence pour g&eacute;rer les
+								logs et les m&eacute;triques des composants/services TDP de la collecte
+								jusqu&rsquo;&agrave; la restitution &agrave; travers les technologies suivantes&nbsp;:
+							</p>
+							<ul>
+								<li>
+									<p><strong>Prometheus&nbsp;</strong>: pour la collecte des m&eacute;triques et la
+										gestion des m&eacute;triques</p>
+								</li>
+								<li>
+									<p><strong>promtail&nbsp;</strong>: pour la collecte des logs</p>
+								</li>
+								<li>
+									<p><strong>Locki&nbsp;</strong>: pour l&rsquo;entreposage des logs</p>
+								</li>
+								<li>
+									<p><strong>Grafana&nbsp;</strong>: pour la restitution des tableaux de bord
+										d&rsquo;observabilit&eacute;</p>
+								</li>
+							</ul>
+							<p>TDP Obervability propose une architecture d&rsquo;observabilit&eacute;
+								g&eacute;n&eacute;rique et modulaire qui peut s&rsquo;int&eacute;grer avec votre
+								contexte avec des contraintes technologiques. Dans ce sens, vous pourriez remplacer
+								n&rsquo;importe quel composant par une autre alternative ou bien int&eacute;grer
+								l&rsquo;ensemble avec votre existant.</p>
+							<p>Lien :&nbsp;<u><a
+										href="https://github.com/TOSIT-IO/tdp-observability"><strong>https://github.com/TOSIT-IO/tdp-observability</strong></a></u>&nbsp;
+							</p>
+
+							<h3><strong>TDP Build</strong></h3>
+							<p>Ce projet propose principalement une image docker avec toutes les d&eacute;pendances pour
+								pouvoir compiler, tester et reconstruire les services/composants de TDP Core. Il peut
+								&ecirc;tre tr&egrave;s utile dans le cas o&ugrave; vous souhaitez apporter des
+								modifications &agrave; ces technologies.</p>
+							<p>Lien:&nbsp;<a
+									href="https://github.com/TOSIT-IO/TDP">https://github.com/TOSIT-IO/TDP</a>&nbsp;</p>
+
+						</li>
+					</ul>
+				</ul>
+			</div>
+		</section>
+
+
+		<!-- roadmap -->
+		<section id="roadmap" class="four">
+			<div class="container">
+
+				<header>
+					<h2>Roadmap et Nouveautés</h2>
+				</header>
+
+				<ul>
+					<li>
+						<p>Pr&eacute;sentation au salon Big Data &amp; AI Paris &ndash; septembre 2022&nbsp;:</p>
+					</li>
+				</ul>
+				<p>Lien : <u><a
+							href="https://www.bigdataparis.com/conferences?open=3414">https://www.bigdataparis.com/conferences?open=3414</a></u>&nbsp;
+				</p>
+				<p>Lien : <u><a
+							href="https://www.bigdataparis.com/conferences?open=2910">https://www.bigdataparis.com/conferences?open=2910</a></u>&nbsp;
+				</p>
+				<ul>
+					<li>
+						<p>Pr&eacute;sentation au QA Financial London 2022 : 18 octobre 2022</p>
+					</li>
+				</ul>
+				<p>Lien:<a href="https://www.qa-financial.com/events/qa-financial-forum-london-2022">&nbsp;https
+						://www.qa-financial.com/events/qa-financial-forum-london-2022</a></p>
+				<ul>
+					<li>
+						<p>Pr&eacute;sentation au salon Big Data &amp; AI Paris World &ndash; novembre 2022</p>
+					</li>
+				</ul>
+				<p>Lien : <a
+						href="https://www.bigdataworld.fr/programme-de-conferences-2022/tdp-trunk-data-platform-une-plateforme-data-100-gratuite-et-open-source">https://www.bigdataworld.fr/programme-de-conferences-2022/tdp-trunk-data-platform-une-plateforme-data-100-gratuite-et-open-source</a>
+				</p>
+				<p>Lien : <u><a
+							href="https://www.bigdataworld.fr/programme-de-conferences-2022/panel-debate-navigating-the-changing-data-privacy-landscape">https://www.bigdataworld.fr/programme-de-conferences-2022/panel-debate-navigating-the-changing-data-privacy-landscape</a></u>&nbsp;
+				</p>
+				<ul>
+					<li>
+						<p>R&eacute;union (F&eacute;vrier 2023) avec les membres et partenaires ToSIT afin
+							d&rsquo;&eacute;tudier et planifier des futurs travaux pour une potentielle
+							int&eacute;gration avec les architectures Cloud Native &agrave; base de Kubernetes, stockage
+							objet, etc. </p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p>Mise en production chez RTE et l&rsquo;OCDE : Janvier 2023</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p>Publication de la premi&egrave;re RELEASE stable de TDP : Avril 2023</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p>Pr&eacute;sentation de TDP au World Data Summit &agrave; Amsterdam : Mai 2023</p>
+					</li>
+				</ul>
+				<p>Lien: <u><a href="https://worlddatasummit.com/">https://worlddatasummit.com</a></u>&nbsp;</p>
+				<ul>
+					<li>
+						<p>Salon Big-Data - AI Paris (Palais des Congr&egrave;s) pr&eacute;vu les 25 et 26/09/2023 (au
+							stand TOSiT/TDP)</p>
+					</li>
+					<li>
+						<p>Salon Big-Data &amp; AI World (Porte de Versailles) pr&eacute;vu les 15 et 16/11/2023 (au
+							stand TOSiT/TDP)</p>
+					</li>
+				</ul>
+				<p><br></p>
+
+			</div>
+		</section>
+
+
+		<!-- contributions -->
+		<section id="contributions" class="four">
+			<div class="container">
+
+				<header>
+					<h2>Contributions et Contact</h2>
+				</header>
+
+				<p>Pour contribuer &agrave; TDP, nous vous proposons de passer par le github du TOSIT sous plusieurs
+					panels :</p>
+				<ul>
+					<li>
+						<p><strong>Discussions GitHub</strong> : <u><a
+									href="https://github.com/orgs/TOSIT-IO/discussions">https://github.com/orgs/TOSIT-IO/discussions</a></u>.
+							Toutes les prises de d&eacute;cision et les choix de technologies sont faits &agrave;
+							travers ces discussions. Vous pouvez &agrave; tout moment, nous faire des propositions ou
+							contribuer &agrave; nos discussions en cours.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Issues GitHub : </strong>Vous pouvez ouvrir une ou plusieurs issues pour chaque
+							projet GitHub en d&eacute;taillant le probl&egrave;me recentr&eacute; ou la
+							fonctionnalit&eacute; que vous souhaitiez avoir.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p><strong>Pull Requests :</strong>Nous &eacute;tudions aussi vos Pull Requests que vous
+							pourriez soumettre par projet GitHub afin de r&eacute;pondre &agrave; une Issue
+							pr&eacute;c&eacute;demment cr&eacute;&eacute;e et qui doit &ecirc;tre
+							r&eacute;f&eacute;renc&eacute;e dans cette PR.</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<p>Pour finir, vous pouvez toujours aussi y contribuer par une simple utilisation de TDP en mode
+							Sandbox ou sur des environnements distribu&eacute;s.</p>
+					</li>
+				</ul>
+				<p><br></p>
+
+
+			</div>
+		</section>
+
+
+		<!-- tosit -->
+		<section id="tosit" class="two dark">
+			<div class="container">
+
+				<header>
+					<h2>TOSIT</h2>
+				</header>
+				<a href="http://tosit.fr" ><img src="images/Logo_TOSIT-picto.svg"
+						style="width: 6em" alt="" /></a>
+				<p>TOSIT est une association française, Loi 1901.<br />
+					<br />
+					C'est une structure de soutien à l'Open Source, qui vise à soutenir l'émergence de codes, <br />
+					logiciels et solutions informatiques libres.<br />
+					<!--
 							<a href="http://tosit.fr">https://tosit.fr</a>
 							-->
-							</p>
-
-						</div>
-					</section>
-
-				<!-- avantages -->
-					<section id="avantages" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Avantages</h2>
-							</header>
-							<!--
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-							-->
-							<p>Avec TDP, vous maîtrisez le cycle de vie de vos infrastructures et de vos applications.<br />
-							<br />
-							De plus, vous avez la possibilité de définir l'orientation stratégique, en choisissant les projets Apache à intégrer.<br />
-							<br />
-							TDP est entièrement sécurisé par défaut (SSL/TLS, Kerberos, Ranger, Knox).
-						  </p>
-
-						</div>
-					</section>
-
-				<!-- code -->
-					<section id="code" class="three">
-						<div class="container">
-
-							<header>
-								<h2>Code</h2>
-							</header>
-							<!--
-							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
-							-->
-							<p>Le code de TDP est disponible ici:<br />
-							<a href="https://github.com/TOSIT-IO">https://github.com/TOSIT-IO</a>
-
-						</div>
-					</section>
-
-				<!-- participation -->
-					<section id="participation" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Participation</h2>
-							</header>
-
-							<p>Il y a 5 façons de participer à TDP.<br />
-							<br />
-							Le plus simple, pour démarrer, est de télécharger notre sandbox et de déployer TDP localement.<br />
-							Pour cela, il vous faudra un PC sous Linux ou un MacOS avec au minimum 32GB de RAM.<br />
-							Les compétences nécessaires sont la maîtrise de Linux, de Vagrant, de Virtualbox et d'Hadoop. 
-							<a href="https://github.com/TOSIT-IO/tdp-getting-started" class="icon brands fa-github"><span class="label">Github</span></a><br />
-							<br />La seconde façon de participer à TDP est d'être utilisateur final.<br />
-							Pour cela, nous vous recommandons de vous procurer les services d'un intégrateur, qui se chargera de vous mettre à disposition TDP.<br />
-							<br />
-							La troisième façon de participer à TDP est de l'installer vous même en Datacenter ou dans le Cloud Public, et d'en être l'administrateur.<br />
-							<br />
-							La quatrième façon de participer est de devenir contributeur sur le projet.<br />
-							Nous accueillons tous les bras!<br />
-							<br />
-							La cinquième et dernière façon de participer est d'en parler autour de vous.<br />
-							<br />
-							<br />
-							A très vite,<br />
-							Cordialement,<br />
-							L'équipe TDP.
-						  </p>
-
-						</div>
-					</section>
+				</p>
 
 			</div>
+		</section>
 
-		<!-- Footer -->
-			<div id="footer">
 
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; TOSIT 2022</li><li>Photo: <a href="http://unsplash.com">Unsplash</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Logo & Graphisme: <a href="https://fr.linkedin.com/in/thomas-assadourian-6a22146a">T. Assadourian</a></li>
-					</ul>
+	</div>
 
-			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
-	</body>
+	<!-- Footer -->
+	<div id="footer">
+
+		<!-- Copyright -->
+		<ul class="copyright">
+			<li>&copy; TOSIT 2022</li>
+			<li>Photo: <a href="http://unsplash.com">Unsplash</a></li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			<li>Logo & Graphisme: <a href="https://fr.linkedin.com/in/thomas-assadourian-6a22146a">T. Assadourian</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
