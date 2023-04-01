@@ -23,7 +23,6 @@ describe('engine.source', async () => {
       ['./blog/article_2.mdx', '# Some content'],
       ['./blog/article_3.ko', '# Some content'],
     ])
-    // console.log('source', source)
     await source(tmpdir).should.be.finally.match([
       { path_relative: 'blog/article_1.md' },
       { path_relative: 'blog/article_2.mdx' },

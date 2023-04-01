@@ -9,7 +9,7 @@ describe('engine.collection.list', async () => {
   let tmpdir
   let count = 0
   beforeEach(async () => {
-    tmpdir = `${os.tmpdir()}/tdp-test-collection-${count++}`
+    tmpdir = `${os.tmpdir()}/tdp-test-collection-list-${count++}`
     try{ await fs.rm(tmpdir, { recursive: true }) } catch {}
     await fs.mkdir(`${tmpdir}`)
   })

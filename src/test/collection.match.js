@@ -9,7 +9,7 @@ describe('engine.collection.match', async () => {
   let tmpdir
   let count = 0
   beforeEach(async () => {
-    tmpdir = `${os.tmpdir()}/tdp-test-collection-${count++}`
+    tmpdir = `${os.tmpdir()}/tdp-test-collection-match-${count++}`
     try{ await fs.rm(tmpdir, { recursive: true }) } catch {}
     await fs.mkdir(`${tmpdir}`)
   })
@@ -31,6 +31,26 @@ describe('engine.collection.match', async () => {
       collection: 'blog',
       slug: ['article_2'],
     })
+  })
+  it('match a document by lang', async () => {
+    await mklayout(tmpdir, [
+      ['./blog/article_1.en.md', '# Some content'],
+      ['./blog/article_1.fr.md', '# Some content'],
+      ['./blog/article_2.en.mdx', '# Some content'],
+      ['./blog/article_2.fr.mdx', '# Some content'],
+    ])
+    ;(await engine(tmpdir).from('blog').match('fr').list()).should.match([
+      {
+        collection: 'blog',
+        lang: 'fr',
+        slug: ['article_1'],
+      },
+      {
+        collection: 'blog',
+        lang: 'fr',
+        slug: ['article_2'],
+      },
+    ])
   })
   it('match a document by object', async () => {
     await mklayout(tmpdir, [
