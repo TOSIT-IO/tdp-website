@@ -26,10 +26,13 @@ describe('engine.parse', async () => {
         ## Heading 2
       `],
     ])
-    let entries = await source(tmpdir)
-    entries = enrich(entries)
-    entries = await parse(entries)
-    entries.should.match([
+    ;(
+      await parse(
+        enrich(
+          await source(tmpdir)
+        )
+      )
+    ).should.match([
       {
         content_md: 'Some content\n\n## Heading 2\n',
         data: {

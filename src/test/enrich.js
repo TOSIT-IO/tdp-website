@@ -23,8 +23,9 @@ describe('engine.enrich', async () => {
       ['./blog/article_2.md', '# Some content'],
       ['./pages/page_1.mdx', '# Some content'],
     ])
-    const entries = await source(tmpdir)
-    enrich(entries).should.match([
+    enrich(
+      await source(tmpdir)
+    ).should.match([
       { collection: "blog" },
       { collection: "blog" },
       { collection: "pages" },
@@ -39,9 +40,9 @@ describe('engine.enrich', async () => {
       ['./blog/path/to/article_4.fr.mdx', '# Some content'],
       ['./blog/path/to/02.article_5.fr.mdx', '# Some content'],
     ])
-    const entries = await source(tmpdir)
-    const result = enrich(entries)
-    enrich(entries).should.match([
+    enrich(
+      await source(tmpdir)
+    ).should.match([
       { slug: ['path', 'to', 'article_3'] },
       { slug: ['path', 'to', 'article_5'] },
       { slug: ['article_1'] },
@@ -58,9 +59,9 @@ describe('engine.enrich', async () => {
       ['./blog/path/to/article_4.fr.mdx', '# Some content'],
       ['./blog/path/to/02.article_5.fr.mdx', '# Some content'],
     ])
-    const entries = await source(tmpdir)
-    const result = enrich(entries)
-    enrich(entries).should.match([
+    enrich(
+      await source(tmpdir)
+    ).should.match([
       { lang: "fr" },
       { lang: "fr" },
       { lang: "en" },
