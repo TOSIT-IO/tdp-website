@@ -6,26 +6,51 @@
     "Mohamed Mehdi BEN AISSA <mehdi_benissa@yahoo.fr>"
   ],
   "dependencies": {
-    "clsx": "^1.2.1",
-    "eslint": "8.37.0",
-    "eslint-config-next": "13.2.4",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.2.4",
     "@svgr/webpack": "^7.0.0",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
+    "clsx": "^1.2.1",
+    "dedent": "^0.7.0",
+    "each": "^2.4.0",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "glob": "^9.3.2",
+    "mixme": "^0.5.9",
+    "next": "13.2.4",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.0",
-    "tailwindcss-font-inter": "^3.0.1"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rehype-mdx-title": "^2.0.0",
+    "remark-extract-frontmatter": "^3.2.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-mdx-frontmatter": "^2.1.1",
+    "remark-parse": "^10.0.1",
+    "remark-stringify": "^10.0.2",
+    "remark-table-of-content": "^0.1.0",
+    "remark-title-to-frontmatter": "^0.1.7",
+    "shiki": "^0.14.1",
+    "tailwindcss": "^3.3.1",
+    "tailwindcss-font-inter": "^3.0.1",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.2",
+    "yaml": "^2.2.1"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^2.3.0",
+    "should": "^13.2.3"
   },
   "postcss": {
     "plugins": {
       "tailwindcss": {},
       "autoprefixer": {}
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "repository": {
     "type": "git",
