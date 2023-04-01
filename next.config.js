@@ -1,10 +1,15 @@
 
+import mdx from '@next/mdx'
+import remark from './src/mdx/remark.js'
+import rehype from './src/mdx/rehype.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     appDir: true,
   },
+  output: 'export',
+  // distDir: 'dist',
   // Disable the 'x-powered-by' header
   // https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
   poweredByHeader: false,
@@ -39,4 +44,14 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+const withMDX = mdx({
+  options: {
+    remarkPlugins: remark,
+    rehypePlugins: rehype,
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+})
+
+// export default nextConfig
+export default withMDX(nextConfig)
