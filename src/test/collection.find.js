@@ -23,7 +23,7 @@ describe('engine.collection.find', async () => {
       ['./pages/page_1.mdx', '# Some content'],
     ])
     ;(
-      await engine(tmpdir).collection('blog').find()
+      await engine(tmpdir).from('blog').find()
     ).should.match([
       {
         collection: 'blog',
@@ -31,6 +31,34 @@ describe('engine.collection.find', async () => {
       },
       {
         collection: 'blog',
+        slug: ['article_2'],
+      },
+    ])
+  })
+  it('with `.filter`', async () => {
+    await mklayout(tmpdir, [
+      ['./blog/article_1.fr.md', '# Some content'],
+      ['./blog/article_1.en.md', '# Some content'],
+      ['./blog/article_1.de.md', '# Some content'],
+      ['./blog/article_2.fr.md', '# Some content'],
+      ['./blog/article_2.en.md', '# Some content'],
+    ])
+    ;(
+      await engine(tmpdir)
+        .from('blog')
+        .find()
+        .filter((document) => (['fr', 'de'].includes(document.lang)))
+    ).should.match([
+      {
+        lang: 'de',
+        slug: ['article_1'],
+      },
+      {
+        lang: 'fr',
+        slug: ['article_1'],
+      },
+      {
+        lang: 'fr',
         slug: ['article_2'],
       },
     ])

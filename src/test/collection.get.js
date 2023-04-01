@@ -23,7 +23,7 @@ describe('engine.collection.get', async () => {
       ['./pages/page_1.mdx', '# Some content'],
     ])
     ;(
-      await engine(tmpdir).collection('blog').get({
+      await engine(tmpdir).from('blog').get({
         slug: ['article_2'],
       })
     ).should.match({
@@ -38,12 +38,31 @@ describe('engine.collection.get', async () => {
       ['./pages/page_1.mdx', '# Some content'],
     ])
     ;(
-      await engine(tmpdir).collection('blog').get({
+      await engine(tmpdir).from('blog').get({
         slug: ['article_2'],
       })
     ).should.match({
       collection: 'blog',
       slug: ['article_2']
+    })
+  })
+  it('with `.map`', async () => {
+    await mklayout(tmpdir, [
+      ['./blog/article_1.md', '# Some content'],
+      ['./blog/article_2.md', '# Some content'],
+      ['./pages/page_1.mdx', '# Some content'],
+    ])
+    ;(
+      await engine(tmpdir)
+        .from('blog')
+        .get({
+          slug: ['article_2'],
+        })
+        .map((entry) => ({
+          slug: entry.slug,
+        }))
+    ).should.eql({
+      slug: ['article_2'],
     })
   })
 })
