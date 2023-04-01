@@ -5,7 +5,7 @@ import 'should'
 import mklayout from '../engine/utils/mklayout.js'
 import engine from '../engine/index.js'
 
-describe('engine.collection.find', async () => {
+describe('engine.collection.list', async () => {
   let tmpdir
   let count = 0
   beforeEach(async () => {
@@ -16,14 +16,14 @@ describe('engine.collection.find', async () => {
   afterEach(() => {
     fs.rm(tmpdir, { recursive: true })
   })
-  it('find all documents, no filter', async () => {
+  it('list all documents, no filter', async () => {
     await mklayout(tmpdir, [
       ['./blog/article_1.md', '# Some content'],
       ['./blog/article_2.md', '# Some content'],
       ['./pages/page_1.mdx', '# Some content'],
     ])
     ;(
-      await engine(tmpdir).from('blog').find()
+      await engine(tmpdir).from('blog').list()
     ).should.match([
       {
         collection: 'blog',
@@ -46,8 +46,8 @@ describe('engine.collection.find', async () => {
     ;(
       await engine(tmpdir)
         .from('blog')
-        .find()
         .filter((document) => (['fr', 'de'].includes(document.lang)))
+        .list()
     ).should.match([
       {
         lang: 'de',

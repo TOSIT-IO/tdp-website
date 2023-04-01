@@ -30,7 +30,7 @@ describe('engine.source', async () => {
     ])
   })
 
-  it('accept multiple stores as string and object', async () => {
+  it('as a list of string and object', async () => {
     await mklayout(tmpdir, [
       ['./store_1/blog/article_1.md', '# Some content'],
       ['./store_2/blog/article_2.md', '# Some content'],
@@ -44,7 +44,7 @@ describe('engine.source', async () => {
     ])
   })
 
-  it('entries are filled with properties', async () => {
+  it('as an object', async () => {
     await mklayout(tmpdir, [
       ['./my_store/blog/article.md', '# Some content'],
     ])

@@ -16,53 +16,36 @@ describe('engine.collection.get', async () => {
   afterEach(() => {
     fs.rm(tmpdir, { recursive: true })
   })
-  it('get a document by array', async () => {
-    await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
-    ])
-    ;(
-      await engine(tmpdir).from('blog').get({
-        slug: ['article_2'],
-      })
-    ).should.match({
-      collection: 'blog',
-      slug: ['article_2']
-    })
+  it('return undefined if not found', async () => {
+    await mklayout(tmpdir, [])
+    should(
+      await engine(tmpdir)
+        .from('blog')
+        .match(['invalid'])
+        .get()
+    ).be.undefined()
   })
-  it('get a document by array', async () => {
+  it('return document if single match', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
-    ])
-    ;(
-      await engine(tmpdir).from('blog').get({
-        slug: ['article_2'],
-      })
-    ).should.match({
-      collection: 'blog',
-      slug: ['article_2']
-    })
-  })
-  it('with `.map`', async () => {
-    await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
+      ['./blog/article.md', '# Some content'],
     ])
     ;(
       await engine(tmpdir)
         .from('blog')
-        .get({
-          slug: ['article_2'],
-        })
-        .map((entry) => ({
-          slug: entry.slug,
-        }))
-    ).should.eql({
-      slug: ['article_2'],
+        .get()
+    )
+    .should.match({
+      slug: ['article'],
     })
+  })
+  it('error if more than one document', async () => {
+    await mklayout(tmpdir, [
+      ['./blog/article.en.md', '# Some content'],
+      ['./blog/article.fr.md', '# Some content'],
+    ])
+    engine(tmpdir)
+      .from('blog')
+      .get()
+    .should.be.rejectedWith('Invalid Query: found more than one element matching the filter.')
   })
 })

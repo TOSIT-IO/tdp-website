@@ -8,10 +8,10 @@ export { enrich, parse, source }
 const init = (stores) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let entries = await source(stores)
-      entries = enrich(entries)
-      entries = await parse(entries)
-      resolve(entries)
+      let documents = await source(stores)
+      documents = enrich(documents)
+      documents = await parse(documents)
+      resolve(documents)
     } catch (error) {
       reject(error)
     }
