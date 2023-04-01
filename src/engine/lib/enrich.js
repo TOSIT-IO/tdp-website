@@ -9,9 +9,7 @@ export default (entries) => {
       const [collection, ...slug] = path_relative.split(path.sep)
       entry.collection = collection
       let lastSlugElement = slug[slug.length - 1]
-      // console.info('slug', slug, lastSlugElement)
       let lastSlugElements = lastSlugElement.split('.')
-      let position = undefined
       let lang = undefined
       // Remove extension
       lastSlugElements.pop()

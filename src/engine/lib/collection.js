@@ -1,4 +1,5 @@
 import { is_object_literal } from 'mixme'
+import tree from '../utils/tree.js'
 
 export default function collection(engine, collection) {
   const stack = []
@@ -17,7 +18,7 @@ export default function collection(engine, collection) {
   })
   promise.match = (...args) => {
     let lang, filter
-    if (args.length === 2 && typeof args[0] === 'string') {
+    if (typeof args[0] === 'string') {
       lang = args.shift()
       filter = args[0]
     } else if (args.length !== 1) {
@@ -27,7 +28,9 @@ export default function collection(engine, collection) {
     } else {
       filter = args[0]
     }
-    if (!is_object_literal(filter)) {
+    if (!filter) {
+      filter = {}
+    }else if (!is_object_literal(filter)) {
       filter = { slug: filter }
     }
     if (lang) {
@@ -84,9 +87,15 @@ export default function collection(engine, collection) {
     return promise
   }
   promise.list = () => {
-    stack.push(async (documents) => {
-      return documents
-    })
+    stack.push(async (documents) => 
+      documents
+    )
+    return promise
+  }
+  promise.tree = () => {
+    stack.push(async (documents) =>
+      tree(documents)
+    )
     return promise
   }
   return promise
