@@ -27,10 +27,13 @@ describe('engine.enrich.lang', async () => {
     ])
     enrich(
       await source(tmpdir)
-    ).should.match([
+    ).map(document => ({
+      lang: document.lang,
+      slug: document.slug,
+    })).should.match([
+      { lang: "en", slug: ['article_1'] },
       { lang: "fr", slug: ['path', 'to', 'article_3'] },
       { lang: "fr", slug: ['path', 'to', 'article_5'] },
-      { lang: "en", slug: ['article_1'] },
       { lang: "fr", slug: ['path', 'to', 'article_2'] },
       { lang: "fr", slug: ['path', 'to', 'article_4'] },
     ])
