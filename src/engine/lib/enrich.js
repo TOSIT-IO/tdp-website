@@ -1,15 +1,14 @@
 
 import path from 'path'
 
-export default (entries) => {
+export default function enrich (entries) {
   return entries
     .map((entry) => {
       const { path_relative } = entry
       // First element is the collection name
       const [collection, ...slug] = path_relative.split(path.sep)
       entry.collection = collection
-      let lastSlugElement = slug[slug.length - 1]
-      let lastSlugElements = lastSlugElement.split('.')
+      let lastSlugElements = slug[slug.length - 1].split('.')
       let lang = undefined
       // Remove extension
       lastSlugElements.pop()
@@ -27,14 +26,15 @@ export default (entries) => {
           return {
             ...entry,
             lang: lang || 'en',
-            sort: collection,
+            // sort [collection]
+            sort: '',
             slug: slug,
           }
         }
-        lastSlugElement = slug[slug.length - 1]
-        lastSlugElements = lastSlugElement.split('.')
+        lastSlugElements = slug[slug.length - 1].split('.')
       }
       // Extract sorting key
+      // const sort = [collection, ...slug.slice(0, slug.length - 1), lastSlugElements.join('.')]
       const sort = lastSlugElements.join('.')
       if (/^\d+$/.test(lastSlugElements[0])) {
         lastSlugElements.shift()
@@ -44,6 +44,16 @@ export default (entries) => {
         lang = lastSlugElements.pop()
       }
       slug[slug.length - 1] = lastSlugElements.join('.')
+      // Normalize parent slug
+      slug
+        .slice(0, slug.length - 1)
+        .map((element, i) => {
+          const elements = element.split('.')
+          if (/^\d+$/.test(elements[0])) {
+            elements.shift()
+            slug[i] = elements.join('.')
+          }
+        })
       return {
         ...entry,
         lang: lang || 'en',
@@ -51,5 +61,4 @@ export default (entries) => {
         slug: slug,
       }
     })
-    .sort((a, b) => (a.sort > b.sort ? 1 : -1))
 }
