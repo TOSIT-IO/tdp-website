@@ -18,9 +18,9 @@ describe('engine.collection.map', async () => {
   })
   it('tranform document with one property', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
+      ['./blog/article_1.md'],
+      ['./blog/article_2.md'],
+      ['./pages/page_1.mdx'],
     ])
     ;(
       await engine(tmpdir)

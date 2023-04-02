@@ -19,9 +19,9 @@ describe('engine.source', async () => {
 
   it('filter .md and .mdx extension', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.mdx', '# Some content'],
-      ['./blog/article_3.ko', '# Some content'],
+      ['./blog/article_1.md'],
+      ['./blog/article_2.mdx'],
+      ['./blog/article_3.ko'],
     ])
     await source(tmpdir).should.be.finally.match([
       { path_relative: 'blog/article_1.md' },
@@ -31,8 +31,8 @@ describe('engine.source', async () => {
 
   it('as a list of string and object', async () => {
     await mklayout(tmpdir, [
-      ['./store_1/blog/article_1.md', '# Some content'],
-      ['./store_2/blog/article_2.md', '# Some content'],
+      ['./store_1/blog/article_1.md'],
+      ['./store_2/blog/article_2.md'],
     ])
     await source([
       `${tmpdir}/store_1`,
@@ -45,7 +45,7 @@ describe('engine.source', async () => {
 
   it('as an object', async () => {
     await mklayout(tmpdir, [
-      ['./my_store/blog/article.md', '# Some content'],
+      ['./my_store/blog/article.md'],
     ])
     await source({
       cwd: `${tmpdir}/my_store`,

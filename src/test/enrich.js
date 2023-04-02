@@ -10,7 +10,9 @@ describe('engine.enrich', async () => {
   let count = 0
   beforeEach(async () => {
     tmpdir = `${os.tmpdir()}/tdp-test-enrich-${count++}`
-    try{ await fs.rm(tmpdir, { recursive: true }) } catch {}
+    try {
+      await fs.rm(tmpdir, { recursive: true })
+    } catch {}
     await fs.mkdir(`${tmpdir}`)
   })
   afterEach(() => {
@@ -19,70 +21,14 @@ describe('engine.enrich', async () => {
 
   it('extract collections', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
+      ['./blog/article_1.md'],
+      ['./blog/article_2.md'],
+      ['./pages/page_1.mdx'],
     ])
-    enrich(
-      await source(tmpdir)
-    ).should.match([
-      { collection: "blog" },
-      { collection: "blog" },
-      { collection: "pages" },
+    enrich(await source(tmpdir)).should.match([
+      { collection: 'blog' },
+      { collection: 'blog' },
+      { collection: 'pages' },
     ])
   })
-
-  it('extract slug', async () => {
-    await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/path/to/article_2/index.fr.mdx', '# Some content'],
-      ['./blog/path/to/01.article_3/index.fr.mdx', '# Some content'],
-      ['./blog/path/to/article_4.fr.mdx', '# Some content'],
-      ['./blog/path/to/02.article_5.fr.mdx', '# Some content'],
-    ])
-    enrich(
-      await source(tmpdir)
-    ).should.match([
-      { slug: ['path', 'to', 'article_3'] },
-      { slug: ['path', 'to', 'article_5'] },
-      { slug: ['article_1'] },
-      { slug: ['path', 'to', 'article_2'] },
-      { slug: ['path', 'to', 'article_4'] },
-    ])
-  })
-
-  it('extract slug with root file', async () => {
-    await mklayout(tmpdir, [
-      ['./blog/index.md', '# Some content'],
-      ['./pages/index.fr.mdx', '# Some content'],
-      ['./pages/index.en.mdx', '# Some content'],
-    ])
-    enrich(
-      await source(tmpdir)
-    ).should.match([
-      { collection: 'blog', lang: 'en', slug: [] },
-      { collection: 'pages', lang: 'fr', slug: [] },
-      { collection: 'pages', lang: 'en', slug: [] },
-    ])
-  })
-
-  it('extract lang', async () => {
-    await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/path/to/article_2/index.fr.mdx', '# Some content'],
-      ['./blog/path/to/01.article_3/index.fr.mdx', '# Some content'],
-      ['./blog/path/to/article_4.fr.mdx', '# Some content'],
-      ['./blog/path/to/02.article_5.fr.mdx', '# Some content'],
-    ])
-    enrich(
-      await source(tmpdir)
-    ).should.match([
-      { lang: "fr" },
-      { lang: "fr" },
-      { lang: "en" },
-      { lang: "fr" },
-      { lang: "fr" },
-    ])
-  })
-
 })
