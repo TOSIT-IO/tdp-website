@@ -32,8 +32,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-fira)', ...defaultTheme.fontFamily.mono],
       },
     },
   },
 }
-

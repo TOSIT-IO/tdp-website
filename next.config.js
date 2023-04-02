@@ -45,10 +45,19 @@ const nextConfig = {
 }
 
 const withMDX = mdx({
+  extension: /\.(md|mdx)$/,
+  experimental: {
+    // Rust based MDX compiler 
+    // https://nextjs.org/docs/advanced-features/using-mdx#using-rust-based-mdx-compiler-experimental
+    // mdxRs: true,
+  },
   options: {
     remarkPlugins: remark,
     rehypePlugins: rehype,
+    // Custom Elements
+    // https://nextjs.org/docs/advanced-features/using-mdx#custom-elements
     // If you use `MDXProvider`, uncomment the following line.
+    // Use this to create your own custom components that map to HTML elements
     // providerImportSource: "@mdx-js/react",
   },
 })

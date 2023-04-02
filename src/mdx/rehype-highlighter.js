@@ -1,5 +1,5 @@
 import shiki from 'shiki'
-import { visit } from 'visit'
+import { visit } from 'unist-util-visit'
 
 let highlighter
 
@@ -15,6 +15,7 @@ export default function rehypeShiki() {
 
         node.properties.code = textNode.value
 
+        console.log('!!!!found', node.properties)
         if (node.properties.language) {
           let tokens = highlighter.codeToThemedTokens(
             textNode.value,
