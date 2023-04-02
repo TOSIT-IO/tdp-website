@@ -18,7 +18,27 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout ({ children }) {
+  const db = engine('./content')
+  const menuTop = await db
+    .from('pages')
+    .filter( page => page.slug.length === 1)
+    .map( page => ({
+      lang: page.lang,
+      title: page.data.nav_title || page.data.title,
+      slug: page.slug,
+    }))
+  const menuLeft = await db
+    .from('pages')
+    .filter((page) => page.lang === 'en' && page.slug[0] === 'docs')
+    .map(page => ({
+      lang: page.lang,
+      title: page.data.nav_title || page.data.title,
+      section: page.data.section,
+      slug: page.slug,
+    }))
+    .tree()
+    .get()
   return (
     <html lang="en">
       <body
@@ -29,6 +49,7 @@ export default function RootLayout({ children }) {
         )}
       >
         <Header
+          menuTop={menuTop}
           style={{
             background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
           }}
@@ -41,6 +62,7 @@ export default function RootLayout({ children }) {
         >
           <Left
             className="w-[300px]"
+            menuLeft={menuLeft}
             style={{
               background: `rgba(0, 0, 0, 0.13)`,
             }}
