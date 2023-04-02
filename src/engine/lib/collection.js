@@ -16,6 +16,12 @@ export default function collection(engine, collection) {
       resolve(documents)
     })
   })
+  // Start by filter out non collection documents
+  stack.push( (documents) => (
+    documents.filter( document => 
+      document.collection === collection
+    )
+  ))
   promise.match = (...args) => {
     let lang, filter
     if (typeof args[0] === 'string') {
@@ -38,9 +44,6 @@ export default function collection(engine, collection) {
     }
     stack.push((documents) => {
       return documents.filter((document) => {
-        if (document.collection !== collection) {
-          return false
-        }
         for (const k in filter) {
           if (JSON.stringify(document[k]) !== JSON.stringify(filter[k])) {
             return false
