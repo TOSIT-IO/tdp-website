@@ -22,7 +22,15 @@ export default (entries) => {
           lang = lastSlugElements[1]
         }
         slug.pop()
-        // Treat parent dir
+        // Treat root dir
+        if(slug.length === 0){
+          return {
+            ...entry,
+            lang: lang || 'en',
+            sort: collection,
+            slug: slug,
+          }
+        }
         lastSlugElement = slug[slug.length - 1]
         lastSlugElements = lastSlugElement.split('.')
       }

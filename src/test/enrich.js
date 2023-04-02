@@ -51,6 +51,21 @@ describe('engine.enrich', async () => {
     ])
   })
 
+  it('extract slug with root file', async () => {
+    await mklayout(tmpdir, [
+      ['./blog/index.md', '# Some content'],
+      ['./pages/index.fr.mdx', '# Some content'],
+      ['./pages/index.en.mdx', '# Some content'],
+    ])
+    enrich(
+      await source(tmpdir)
+    ).should.match([
+      { collection: 'blog', lang: 'en', slug: [] },
+      { collection: 'pages', lang: 'fr', slug: [] },
+      { collection: 'pages', lang: 'en', slug: [] },
+    ])
+  })
+
   it('extract lang', async () => {
     await mklayout(tmpdir, [
       ['./blog/article_1.md', '# Some content'],
