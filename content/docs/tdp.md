@@ -1,8 +1,6 @@
 
 # Documentation
 
-## Layout
-
 Content is located inside the `./content` folder and it is organized by collections.
 
 Available collections include:
@@ -12,7 +10,7 @@ Available collections include:
 - post
   Blog articles and announcements.
 
-The documents inside a collection are written in MDX, a Mardown derivative. Filename must end with either the `.md` or `.mdx` extension. A document slug is extracted from parent directories preceding the collection directory as well as from the document name unless it matches the `index[.{lang}].md[x]` expression.
+The documents inside a collection are written in MDX, a Mardown derivative. Filename ends with either the `.md` or the `.mdx` extension. A document slug is extracted from parent directories preceding the collection directory as well as from the document name unless it matches the `index[.{lang}].md[x]` expression.
 
 For example, `./content/pages/parent/child/page.en.md` is equivalent to `./content/pages/parent/child/page/index.en.md` and yields to:
 
