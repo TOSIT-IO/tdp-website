@@ -1,45 +1,53 @@
 
 import clsx from 'clsx'
+import Link from 'next/link'
+
+const Ul = function ({
+  level,
+  page,
+}) {
+  return (
+    <ul>
+      { page.children.map(page => (
+        <Li page={page} level={level} />
+      ))}
+    </ul>
+  )
+}
+
+const Li = function ({
+  level,
+  page,
+}) {
+  return (
+    <li>
+      { page.section
+        ? <h2 className="italic font-extralight text-slate-400">{page.title}</h2>
+        : <Link
+          href={`/${page.lang}/${page.slug.join('/')}`}
+        >
+          {page.title}
+        </Link>
+      }
+
+      <Ul page={page} level={level+1} />
+    </li>
+  )
+}
 
 export default function Left({
   className,
-}){
+  menuLeft:page,
+  level=0,
+}) {
   return (
     <aside
       className={clsx(
         className,
       )}
     >
-      <ul>
-        <li>
-          <h2 className="italic font-extralight text-slate-400">Class aptent taciti</h2>
-          <ul>
-            <li>Morbi sed ligula non</li>
-            <li>Sed suscipit sodales efficitur</li>
-            <li>Etiam volutpat</li>
-            <li>Velit sed lacus gravida</li>
-            <li>Teleifend</li>
-          </ul>
-        </li>
-        <li>
-          <h2 className="italic font-extralight text-slate-400">Sociosqu ad litora torquent</h2>
-          <ul>
-            <li className="text-2xl">Nulla sagittis accumsan pretium</li>
-            <li>Phasellus sit amet posuere sapien</li>
-            <li>Pretium efficitur</li>
-            <li>Magna egestas viverra</li>
-            <li>Nam fermentum est sit amet</li>
-          </ul>
-        </li>
-        <li>
-          <h2 className="italic font-extralight text-slate-400">Per conub</h2>
-          <ul>
-            <li>Sed sed massa in mauris</li>
-            <li>Fend odio euismod</li>
-            <li>Pretium efficitur</li>
-          </ul>
-        </li>
-      </ul>
+      <h1 className="sr-only">Menu for {page.title}</h1>
+      <Ul page={page} level={level+1} />
     </aside>
   )
 }
