@@ -1,12 +1,14 @@
 import './globals.css'
 
 import clsx from 'clsx'
-import { Inter } from 'next/font/google'
+import engine from '/src/engine/index.js'
+import { Inter, Fira_Code } from 'next/font/google'
 import Footer from './layout/footer'
 import Header from './layout/header'
 import Left from './layout/left'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const fira = Fira_Code({ subsets: ['latin'], variable: '--font-fira' })
 
 export const metadata = {
   title: 'Create Next App',
@@ -23,6 +25,7 @@ export default function RootLayout({ children }) {
         className={clsx(
           'relative text-slate-200',
           inter.variable, 'font-sans',
+          fira.variable,
         )}
       >
         <Header
