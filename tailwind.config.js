@@ -28,7 +28,7 @@ export default {
       xs: '480px',
       ...defaultTheme.screens,
     },
-    fontSize: {},
+    // fontSize: {},
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
