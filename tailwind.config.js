@@ -9,8 +9,8 @@ export default {
     // "./app/**/*.{js,ts,jsx,tsx}",
     // "./pages/**/*.{js,ts,jsx,tsx}",
     // "./components/**/*.{js,ts,jsx,tsx}",
+    "./content/**/*.{md,mdx}",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "!./node_modules",
   ],
   darkMode: 'class',
   theme: {
