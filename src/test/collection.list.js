@@ -18,9 +18,9 @@ describe('engine.collection.list', async () => {
   })
   it('list all documents, no filter', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.md', '# Some content'],
-      ['./blog/article_2.md', '# Some content'],
-      ['./pages/page_1.mdx', '# Some content'],
+      ['./blog/article_1.md'],
+      ['./blog/article_2.md'],
+      ['./pages/page_1.mdx'],
     ])
     ;(
       await engine(tmpdir).from('blog').list()
@@ -37,11 +37,11 @@ describe('engine.collection.list', async () => {
   })
   it('with `.filter`', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article_1.fr.md', '# Some content'],
-      ['./blog/article_1.en.md', '# Some content'],
-      ['./blog/article_1.de.md', '# Some content'],
-      ['./blog/article_2.fr.md', '# Some content'],
-      ['./blog/article_2.en.md', '# Some content'],
+      ['./blog/article_1.fr.md'],
+      ['./blog/article_1.en.md'],
+      ['./blog/article_1.de.md'],
+      ['./blog/article_2.fr.md'],
+      ['./blog/article_2.en.md'],
     ])
     ;(
       await engine(tmpdir)

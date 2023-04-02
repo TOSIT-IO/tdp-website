@@ -27,7 +27,7 @@ describe('engine.collection.get', async () => {
   })
   it('return document if single match', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article.md', '# Some content'],
+      ['./blog/article.md'],
     ])
     ;(
       await engine(tmpdir)
@@ -40,8 +40,8 @@ describe('engine.collection.get', async () => {
   })
   it('error if more than one document', async () => {
     await mklayout(tmpdir, [
-      ['./blog/article.en.md', '# Some content'],
-      ['./blog/article.fr.md', '# Some content'],
+      ['./blog/article.en.md'],
+      ['./blog/article.fr.md'],
     ])
     engine(tmpdir)
       .from('blog')
