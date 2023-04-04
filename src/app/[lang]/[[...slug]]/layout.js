@@ -50,7 +50,7 @@ export default async function RootLayout({ children, params }) {
     <html lang="en">
       <body
         className={clsx(
-          'relative text-slate-200',
+          'relative text-slate-200 dark',
           inter.variable,
           'font-sans',
           fira.variable
