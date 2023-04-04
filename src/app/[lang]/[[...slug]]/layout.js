@@ -21,7 +21,6 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children, params }) {
-  console.log('!!!params', params)
   const db = engine('./content')
   const menuTop = await db
     .from('pages')

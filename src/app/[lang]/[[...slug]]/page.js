@@ -66,6 +66,7 @@ export default async function Page({ params }) {
         JSON.stringify(page.slug) === JSON.stringify(params.slug)
     )
     .get()
+  console.log('components', components)
   return (
     <div className="prose prose-invert max-w-none">
       <h1>{page.data.title}</h1>
