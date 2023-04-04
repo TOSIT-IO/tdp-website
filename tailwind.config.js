@@ -1,6 +1,7 @@
 
 import inter from 'tailwindcss-font-inter'
-import typography from '@tailwindcss/typography'
+import typographyPlugin from '@tailwindcss/typography'
+import typography from './typography'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
@@ -18,7 +19,7 @@ export default {
   },
   plugins: [
     // inter,
-    typography,
+    typographyPlugin,
     // require('@tailwindcss/forms'),
     // require('@tailwindcss/aspect-ratio'),
     // require('@headlessui/tailwindcss'),
@@ -29,7 +30,9 @@ export default {
       ...defaultTheme.screens,
     },
     // fontSize: {},
+    // typography: typography,
     extend: {
+      typography: typography,
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
         mono: ['var(--font-fira)', ...defaultTheme.fontFamily.mono],
