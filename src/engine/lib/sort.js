@@ -10,14 +10,10 @@ export default function sort (documents) {
       }
       const slugA = [...a.slug.slice(0, a.slug.length-1), a.sort]
       const slugB = [...b.slug.slice(0, b.slug.length-1), b.sort]
-      // console.log('==', slugA, slugB)
       for (let i = 0; i < min; i++) {
         // Last element, use the sort key
         const itemA = slugA[i]
         const itemB = slugB[i]
-        // if (i === min - 1){
-        //   return itemA > itemB ? 1 : - 1
-        // }
         // Keep going if parent is shared
         if(itemA === itemB){
           continue
