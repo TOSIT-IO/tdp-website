@@ -7,15 +7,11 @@ export default function rehypeShiki() {
   return async (tree) => {
     highlighter =
       highlighter ?? (await shiki.getHighlighter({ theme: 'css-variables' }))
-
     visit(tree, 'element', (node) => {
       if (node.tagName === 'pre' && node.children[0]?.tagName === 'code') {
         let codeNode = node.children[0]
         let textNode = codeNode.children[0]
-
         node.properties.code = textNode.value
-
-        console.log('!!!!found', node.properties)
         if (node.properties.language) {
           let tokens = highlighter.codeToThemedTokens(
             textNode.value,

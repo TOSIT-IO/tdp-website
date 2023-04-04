@@ -31,7 +31,20 @@ export const dynamicParams = false
 
 // export default function Page({ params, searchParams }: Props) {}
 
-// Parame
+export async function generateMetadata({ params }) {
+  return await engine('./content')
+    .from('pages')
+    .filter(
+      (page) =>
+        page.lang === params.lang &&
+        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+    )
+    .map(async (page) => ({
+      title: page.data.title,
+      description: page.data.description,
+    }))
+    .get()
+}
 
 export async function generateStaticParams() {
   const pages = await engine('./content')
@@ -44,34 +57,17 @@ export async function generateStaticParams() {
   return pages
 }
 
-// const ServerComponent = dynamic(async (...args) => {
-//   console.log('!!!!!dynamic', args)
-//   // const page = await engine('./content')
-//   //   .from('pages')
-//   //   .filter((page) => page.lang === 'en' && JSON.stringify(page.slug) === JSON.stringify([ 'docs', 'developers', 'build-release' ]))
-//   //   .get()
-//   // return import(page.path_absolute)
-//   // return import('/Users/david/projects/alliage/tdp-website/content/pages/3.docs/developers/build-release/index.en.md')
-//   const source = 'content/pages/3.docs/developers/build-release/index.en.md'
-//   return import(source)
-// })
-
 export default async function Page({ params }) {
-  // console.log(':params:', params)
   const page = await engine('./content')
     .from('pages')
-    .filter((page) => page.lang === params.lang && JSON.stringify(page.slug) === JSON.stringify(params.slug))
+    .filter(
+      (page) =>
+        page.lang === params.lang &&
+        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+    )
     .get()
-  const test = '/Users/david/projects/alliage/tdp-website/content/pages/3.docs/developers/build-release/index.en.md'
-  // const Component = await import(
-  //   // page.path_absolute
-  //   // '/Users/david/projects/alliage/tdp-website/content/pages/3.docs/developers/build-release/index.en.md'
-  //   // '/Users/david/projects/alliage/tdp-website/content/pages/3.docs/developers/build-release/index.en.md'
-  //   test
-  // )
-  console.log(':components:', components.code)
   return (
-    <div className="prose prose-invert">
+    <div className="prose prose-invert max-w-none">
       <h1>{page.data.title}</h1>
       <MDXRemote
         source={page.content_md}
