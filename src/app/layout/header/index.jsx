@@ -1,7 +1,9 @@
 
 import clsx from 'clsx'
 import Link from 'next/link'
-import Logo from '/src/assets/logo/logo-color-light.svg'
+import Logo from '../logo/logo-color-light.svg'
+import Github from '../icons/github.svg'
+import Lang from '../icons/lang.svg'
 
 export default function Header({
   className,
@@ -10,34 +12,52 @@ export default function Header({
 }) {
   return (
     <header
-      className={clsx(
-        className,
-        'fixed top-0 w-full z-10 h-[60px] border-b border-slate-500',
-        'flex'
-      )}
+      className={className}
       style={style}
-    // style={{
-    //   background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.4) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.35) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 58, 0.33) 0%, rgba(0, 0, 0, 0) 100%), rgba(30, 44, 42, .95);`,
-    // }}
     >
-      <div className="w-[300px] py-[12px]">
+      <div className="w-[400px] py-[12px] bg-black/20 flex border-r border-r-white/10">
         <Logo className="h-full m-auto" />
       </div>
-      <div className="grow" />
-      <ul className={
-        "flex items-center gap-6 mr-[200px]"
-      }>
-        {menuTop.map(page => (
-          <li>
-            <Link
-              className="text-2xl"
-              href={`/${page.lang}/${page.slug.join('/')}`}
+      <div className="grow max-w-4xl m-auto ">
+        <ul className={
+          "w-full flex justify-end"
+        }>
+          {menuTop.map(page => (
+            <li key={page.slug.join('/')} className="flex items-center">
+              <Link
+                className="text-xl px-6 inline-block hover:text-[#00FFFA]"
+                href={`/${page.lang}/${page.slug.join('/')}`}
+              >
+                {page.title}
+              </Link>
+            </li>
+          ))}
+          <li className="flex items-stretch">
+            <a
+              className={clsx(
+                "flex items-center px-6",
+                "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+              )}
+              href="https://github.com/TOSIT-FR/TDP"
+              title="GitHub project repository"
             >
-              {page.title}
-            </Link>
+              <Github className="w-5 h-5" />
+            </a>
           </li>
-        ))}
-      </ul>
+          <li className="flex items-stretch">
+            <a
+              className={clsx(
+                "flex items-center pl-6",
+                "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+              )}
+              href="/"
+              title="Page translatation"
+            >
+              <Lang className="w-5 h-5" />
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
   )
 }
