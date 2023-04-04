@@ -1,7 +1,5 @@
 
-# Developpers documentation
-
-## Tests
+# Unit testing
 
 Tests are written using the Node.js native Test Runner package](https://nodejs.org/api/test.html).
 
