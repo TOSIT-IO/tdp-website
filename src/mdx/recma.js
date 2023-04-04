@@ -12,8 +12,10 @@ import { mdxAnnotations } from 'mdx-annotations'
 //   }
 // }
 
-export const recmaPlugins = [
+const plugins = [
   mdxAnnotations.recma,
   // recmaRemoveNamedExports,
   // recmaNextjsStaticProps,
 ]
+
+export default plugins

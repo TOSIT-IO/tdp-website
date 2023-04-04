@@ -15,18 +15,20 @@ import { create } from 'zustand'
 import { Tag } from '@/mdx/components/Tag'
 
 const languageNames = {
-  js: 'JavaScript',
-  ts: 'TypeScript',
+  go: 'Go',
   javascript: 'JavaScript',
-  typescript: 'TypeScript',
+  js: 'JavaScript',
+  json: 'JSON',
   php: 'PHP',
   python: 'Python',
+  ts: 'TypeScript',
   ruby: 'Ruby',
-  go: 'Go',
+  typescript: 'TypeScript',
+  yaml: 'YAML',
 }
 
 function getPanelTitle({ title, language }) {
-  return title ?? languageNames[language] ?? 'Code'
+  return title ?? languageNames[language] ?? language
 }
 
 function ClipboardIcon(props) {
@@ -141,7 +143,6 @@ function CodeGroupHeader({ title, children, selectedIndex }) {
   if (!title && !hasTabs) {
     return null
   }
-
   return (
     <div className="flex min-h-[calc(theme(spacing.12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent">
       {title && (
