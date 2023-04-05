@@ -11,25 +11,25 @@ import {
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 import { create } from 'zustand'
+import { CodeGroupHeader, getPanelTitle, CodePanelHeader } from './Tabs'
+import { Tag } from './Tag'
 
-import { Tag } from '@/mdx/components/Tag'
+// const languageNames = {
+//   go: 'Go',
+//   javascript: 'JavaScript',
+//   js: 'JavaScript',
+//   json: 'JSON',
+//   php: 'PHP',
+//   python: 'Python',
+//   ts: 'TypeScript',
+//   ruby: 'Ruby',
+//   typescript: 'TypeScript',
+//   yaml: 'YAML',
+// }
 
-const languageNames = {
-  go: 'Go',
-  javascript: 'JavaScript',
-  js: 'JavaScript',
-  json: 'JSON',
-  php: 'PHP',
-  python: 'Python',
-  ts: 'TypeScript',
-  ruby: 'Ruby',
-  typescript: 'TypeScript',
-  yaml: 'YAML',
-}
-
-function getPanelTitle({ title, language }) {
-  return title ?? languageNames[language] ?? language
-}
+// function getPanelTitle({ title, language }) {
+//   return title ?? languageNames[language] ?? language
+// }
 
 function ClipboardIcon(props) {
   return (
@@ -50,7 +50,6 @@ function ClipboardIcon(props) {
 function CopyButton({ code }) {
   let [copyCount, setCopyCount] = useState(0)
   let copied = copyCount > 0
-
   useEffect(() => {
     if (copyCount > 0) {
       let timeout = setTimeout(() => setCopyCount(0), 1000)
@@ -59,7 +58,6 @@ function CopyButton({ code }) {
       }
     }
   }, [copyCount])
-
   return (
     <button
       type="button"
@@ -98,31 +96,8 @@ function CopyButton({ code }) {
   )
 }
 
-function CodePanelHeader({ tag, label }) {
-  if (!tag && !label) {
-    return null
-  }
-
-  return (
-    <div className="flex h-9 items-center gap-2 border-y border-t-transparent border-b-white/7.5 bg-zinc-900 bg-white/2.5 px-4 dark:border-b-white/5 dark:bg-white/1">
-      {tag && (
-        <div className="dark flex">
-          <Tag variant="small">{tag}</Tag>
-        </div>
-      )}
-      {tag && label && (
-        <span className="h-0.5 w-0.5 rounded-full bg-zinc-500" />
-      )}
-      {label && (
-        <span className="font-mono text-sm text-zinc-400">{label}</span>
-      )}
-    </div>
-  )
-}
-
 function CodePanel({ tag, label, code, children }) {
   let child = Children.only(children)
-
   return (
     <div className="group dark:bg-white/2.5">
       <CodePanelHeader
@@ -130,49 +105,20 @@ function CodePanel({ tag, label, code, children }) {
         label={child.props.label ?? label}
       />
       <div className="relative">
-        <pre className="overflow-x-auto p-4 text-sm/8 text-white">{children}</pre>
-        <CopyButton code={child.props.code ?? code} />
+        { (child.props.code || code)
+          ? <>
+              <pre className="overflow-x-auto p-4 text-sm/8 text-white">{children}</pre>
+              <CopyButton code={child.props.code ?? code} />
+            </>
+          : <div className="overflow-x-auto p-4 text-sm/8 text-white">{children}</div>
+        }
       </div>
-    </div>
-  )
-}
-
-function CodeGroupHeader({ title, children, selectedIndex }) {
-  let hasTabs = Children.count(children) > 1
-
-  if (!title && !hasTabs) {
-    return null
-  }
-  return (
-    <div className="flex min-h-[calc(theme(spacing.12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent">
-      {title && (
-        <h3 className="mr-auto pt-3 text-sm font-semibold text-white">
-          {title}
-        </h3>
-      )}
-      {hasTabs && (
-        <Tab.List className="-mb-px flex gap-4 text-sm font-medium">
-          {Children.map(children, (child, childIndex) => (
-            <Tab
-              className={clsx(
-                'border-b py-3 transition focus:[&:not(:focus-visible)]:outline-none',
-                childIndex === selectedIndex
-                  ? 'border-emerald-500 text-emerald-400'
-                  : 'border-transparent text-zinc-400 hover:text-zinc-300'
-              )}
-            >
-              {getPanelTitle(child.props)}
-            </Tab>
-          ))}
-        </Tab.List>
-      )}
     </div>
   )
 }
 
 function CodeGroupPanels({ children, ...props }) {
   let hasTabs = Children.count(children) > 1
-
   if (hasTabs) {
     return (
       <Tab.Panels>
@@ -184,27 +130,22 @@ function CodeGroupPanels({ children, ...props }) {
       </Tab.Panels>
     )
   }
-
   return <CodePanel {...props}>{children}</CodePanel>
 }
 
 function usePreventLayoutShift() {
   let positionRef = useRef()
   let rafRef = useRef()
-
   useEffect(() => {
     return () => {
       window.cancelAnimationFrame(rafRef.current)
     }
   }, [])
-
   return {
     positionRef,
     preventLayoutShift(callback) {
       let initialTop = positionRef.current.getBoundingClientRect().top
-
       callback()
-
       rafRef.current = window.requestAnimationFrame(() => {
         let newTop = positionRef.current.getBoundingClientRect().top
         window.scrollBy(0, newTop - initialTop)
@@ -237,9 +178,7 @@ function useTabGroupProps(availableLanguages) {
   if (newSelectedIndex !== selectedIndex) {
     setSelectedIndex(newSelectedIndex)
   }
-
   let { positionRef, preventLayoutShift } = usePreventLayoutShift()
-
   return {
     as: 'div',
     ref: positionRef,
@@ -263,8 +202,7 @@ export function CodeGroup({ children, title, ...props }) {
   let headerProps = hasTabs
     ? { selectedIndex: tabGroupProps.selectedIndex }
     : {}
-
-  return (
+    return (
     <CodeGroupContext.Provider value={true}>
       <Container
         {...containerProps}
@@ -281,20 +219,16 @@ export function CodeGroup({ children, title, ...props }) {
 
 export function Code({ children, ...props }) {
   let isGrouped = useContext(CodeGroupContext)
-
   if (isGrouped) {
     return <code {...props} dangerouslySetInnerHTML={{ __html: children }} />
   }
-
   return <code {...props}>{children}</code>
 }
 
 export function Pre({ children, ...props }) {
   let isGrouped = useContext(CodeGroupContext)
-
   if (isGrouped) {
     return children
   }
-
   return <CodeGroup {...props}>{children}</CodeGroup>
 }

@@ -59,7 +59,6 @@ export const LiChildOfSection = function ({
   const segment = useSelectedLayoutSegments()
   const href = `/${page.lang}/${page.slug.join('/')}`
   const current = '/'+segment.join('/') === href
-  // console.log('>', process.env.NODE_ENV === 'development')
   return (
     <li key={page.slug.join('/')}>
       <div className="relative pb-2">
