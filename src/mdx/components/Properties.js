@@ -1,16 +1,30 @@
+'use client'
 
+import { useContext } from 'react'
+import { TabsContext } from './Tabs'
 
-export function Properties({ children }) {
+function PropertiesRaw({ children }) {
   return (
-    <div className="my-6 not-prose">
+    <div className="not-prose">
       <ul
         role="list"
-        className="m-0 max-w-[calc(theme(maxWidth.lg)-theme(spacing.8))] list-none divide-y divide-zinc-900/10 p-0 dark:divide-white/10"
+        className="m-0 list-none divide-y divide-zinc-900/20 p-0 dark:divide-white/20"
       >
         {children}
       </ul>
     </div>
   )
+}
+
+export function Properties({ children, ...props }) {
+
+  let isGrouped = useContext(TabsContext)
+  if (isGrouped) {
+    return <PropertiesRaw {...props}>{children}</PropertiesRaw>
+  }
+  return <div className="rounded-2xl border border-zinc-900/20 dark:border-white/20 p-4">
+    <PropertiesRaw {...props}>{children}</PropertiesRaw>
+  </div>
 }
 
 export function Property({ name, type, children }) {
