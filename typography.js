@@ -299,6 +299,7 @@ export default ({ theme }) => ({
       //   color: 'inherit',
       // },
       code: {
+        wordBreak: 'break-word',
         color: 'var(--tw-prose-code)',
         borderRadius: theme('borderRadius.lg'),
         paddingTop: theme('padding.1'),
@@ -308,6 +309,12 @@ export default ({ theme }) => ({
         boxShadow: 'inset 0 0 0 1px var(--tw-prose-code-ring)',
         backgroundColor: 'var(--tw-prose-code-bg)',
         fontSize: theme('fontSize.2xs'),
+      },
+      'code::before': {
+        content: '""'
+      },
+      'code::after': {
+        content: '""'
       },
     //   ':is(a, h1, h2, h3, blockquote, thead th) code': {
     //     color: 'inherit',
