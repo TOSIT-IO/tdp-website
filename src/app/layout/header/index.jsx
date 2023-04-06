@@ -7,6 +7,7 @@ import Lang from '../icons/lang.svg'
 
 export default function Header({
   className,
+  current,
   menuTop,
   style,
 }) {
@@ -25,7 +26,12 @@ export default function Header({
           {menuTop.map(page => (
             <li key={page.slug.join('/')} className="flex items-center">
               <Link
-                className="text-xl px-6 inline-block hover:text-[#00FFFA]"
+                className={clsx(
+                  "text-xl px-6 inline-block hover:text-[#00FFFA]",
+                  JSON.stringify(current) === JSON.stringify(page.slug)
+                  ? "text-white"
+                  : "text-white/70 hover:text-[#00FFFA]"
+                )}
                 href={`/${page.lang}/${page.slug.join('/')}`}
               >
                 {page.title}
@@ -47,7 +53,7 @@ export default function Header({
           <li className="flex items-stretch">
             <a
               className={clsx(
-                "flex items-center pl-6",
+                "flex items-center pl-3",
                 "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
               )}
               href="/"
