@@ -21,12 +21,13 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body
         className={clsx(
-          'relative text-slate-200 dark',
+          'relative h-full text-slate-200 dark',
           inter.variable,
           'font-sans',
           fira.variable
         )}
       >
+        {/* <Drawer open={true}/> */}
         {children}
       </body>
     </html>
