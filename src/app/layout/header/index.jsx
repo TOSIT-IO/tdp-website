@@ -1,15 +1,16 @@
-
+import 'server-only'
 import clsx from 'clsx'
 import Link from 'next/link'
 import Logo from '../logo/logo-color-light.svg'
 import Github from '../icons/github.svg'
 import Lang from '../icons/lang.svg'
 import Drawer from '../drawer'
+import Menu from '../drawer/Menu'
 
 export default function Header({
   className,
   current,
-  menuTop,
+  sitemap,
   style,
 }) {
   return (
@@ -33,7 +34,7 @@ export default function Header({
         <ul className={
           "grow flex items-center justify-end"
         }>
-          {menuTop.map(page => (
+          {sitemap.map(page => (
             <li
               key={page.slug.join('/')}
               className={clsx(
@@ -80,7 +81,9 @@ export default function Header({
             </a>
           </li>
           <li className="block lg:hidden">
-            <Drawer open={true}/>
+            <Drawer>
+              <Menu pages={sitemap} current={current} />
+            </Drawer>
           </li>
         </ul>
       </header>

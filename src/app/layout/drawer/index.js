@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import Sidebar from './Sidebar'
 
-export default function LayoutDrawer () {
+export default function LayoutDrawer ({children}) {
   const [open, setOpen] = useState(false)
   return (
     <>
@@ -23,7 +23,9 @@ export default function LayoutDrawer () {
       <Sidebar
         open={open}
         onOpen={(open) => setOpen(open)}
-      />
+      >
+        {children}
+      </Sidebar>
     </>
   )
 }

@@ -1,4 +1,4 @@
-
+import 'server-only'
 import clsx from 'clsx'
 
 export default function Footer({
