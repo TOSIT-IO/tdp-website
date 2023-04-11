@@ -1,3 +1,4 @@
+import 'server-only'
 import Footer from '../layout/footer/index.jsx'
 
 export default async function RootLayout({ children }) {

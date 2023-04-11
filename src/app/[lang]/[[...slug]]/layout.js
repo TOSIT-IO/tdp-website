@@ -1,3 +1,4 @@
+import 'server-only'
 import clsx from 'clsx'
 import engine from '/src/engine/index.js'
 import Header from '../../layout/header'
@@ -7,35 +8,23 @@ export default async function ({
   children,
   params
 }) {
-  const menuTop = await engine('./content')
+  const sitemap = await engine('./content')
     .from('pages')
-    .filter(
-      (page) =>
-        page.slug.length === 1 &&
-        (page.slug[0] !== 'instructions' ||
-          process.env.NODE_ENV === 'development')
-    )
     .map((page) => ({
       lang: page.lang,
-      title: page.data.nav_title || page.data.title,
-      slug: page.slug,
-    }))
-  const menuLeft = await engine('./content')
-    .from('pages')
-    .filter((page) => page.lang === 'en' && page.slug[0] === params.slug[0])
-    .map((page) => ({
-      lang: page.lang,
-      title: page.data.nav_title || page.data.title,
       section: page.data.section,
       slug: page.slug,
+      title: page.data.nav_title || page.data.title,
     }))
     .tree()
-    .get()
+  const menuLeft = sitemap.filter( page =>
+    page.lang === 'en' && page.slug[0] === params.slug[0]
+  )[0]
   return (
     <>
       <Header
         current={params.slug}
-        menuTop={menuTop}
+        sitemap={sitemap}
         className={clsx(
           'fixed top-0 w-full z-10 h-[60px]',
         )}

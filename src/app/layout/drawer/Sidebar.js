@@ -1,10 +1,13 @@
+'use client'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import clsx from 'clsx'
 
 export default function Sidebar ({
+  children,
   open,
   onOpen,
 }) {
@@ -43,10 +46,18 @@ export default function Sidebar ({
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                  <button type="button" className="-m-2.5 p-2.5" onClick={() => onOpen(false)}>
+                <div className="absolute left-full">
+                  <button
+                    type="button"
+                    className={clsx(
+                      "m-3 p-2",
+                      'rounded-full dark:bg-green-500/20 hover:dark:bg-green-500/40',
+                      'text-white/80 hover:text-white',
+                    )}
+                    onClick={() => onOpen(false)}
+                  >
                     <span className="sr-only">Close sidebar</span>
-                    <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
               </Transition.Child>
@@ -58,7 +69,7 @@ export default function Sidebar ({
                 }}
               >
                 <div className="flex shrink-0 items-center">
-                  content goes here
+                  {children}
                 </div>
               </div>
             </Dialog.Panel>

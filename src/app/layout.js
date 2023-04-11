@@ -1,3 +1,4 @@
+import 'server-only'
 import clsx from 'clsx'
 import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'

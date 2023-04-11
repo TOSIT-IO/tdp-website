@@ -1,3 +1,4 @@
+import 'server-only'
 import clsx from 'clsx'
 import Link from 'next/link'
 
