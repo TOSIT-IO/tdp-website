@@ -1,15 +1,16 @@
 import 'server-only'
 import clsx from 'clsx'
 import Link from 'next/link'
-import Logo from '../logo/logo-color-light.svg'
-import Github from '../icons/github.svg'
-import Lang from '../icons/lang.svg'
+import Logo from '../assets/LogoColorLight.svg'
+import Github from '../assets/Github.svg'
+import Lang from '../assets/Lang.svg'
 import Drawer from '../drawer'
 import Menu from '../drawer/Menu'
 
 export default function Header({
   className,
   current,
+  link_home,
   sitemap,
   style,
 }) {
@@ -25,11 +26,17 @@ export default function Header({
       >
         <div
           className={clsx(
-            "h-full xl:w-[400px] py-[12px] flex",
-            "xl:bg-black/20 xl:border-r xl:border-r-white/10"
+            "h-full w-auto xl:w-[400px] py-[12px] flex",
+            "xl:bg-black/20 xl:border-r xl:border-r-white/10",
+            // "text-center",
           )}
         >
-          <Logo className="h-full m-auto" />
+          <Link
+            className="relative w-full"
+            href={link_home}
+          >
+            <Logo className="h-full m-auto" />
+          </Link>
         </div>
         <ul className={
           "grow flex items-center justify-end"
