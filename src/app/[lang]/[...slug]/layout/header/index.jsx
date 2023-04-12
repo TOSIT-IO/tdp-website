@@ -52,7 +52,7 @@ export default function Header({
                 )}
                 href={`/${page.lang}/${page.slug.join('/')}`}
               >
-                {page.title}
+                {page.nav_title || page.title}
               </Link>
             </li>
           ))}

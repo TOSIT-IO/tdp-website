@@ -1,8 +1,8 @@
 import 'server-only'
 import clsx from 'clsx'
 import engine from '/src/engine/index.js'
-import Header from '../../layout/header'
-import Left from '../../layout/left'
+import Header from './layout/header'
+import Left from './layout/left'
 
 export default async function ({
   children,
@@ -11,14 +11,18 @@ export default async function ({
   const sitemap = await engine('./content')
     .from('pages')
     .map((page) => ({
+      nav_title: page.data.nav_title,
       lang: page.lang,
       section: page.data.section,
       slug: page.slug,
       title: page.data.nav_title || page.data.title,
     }))
+    .filter( page =>
+      page.lang === params.lang
+    )
     .tree()
   const menuLeft = sitemap.filter( page =>
-    page.lang === 'en' && page.slug[0] === params.slug[0]
+    page.slug[0] === params.slug[0]
   )[0]
   return (
     <>

@@ -47,10 +47,12 @@ export async function generateMetadata({ params }) {
     .get()
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams({ params }) {
   const pages = await engine('./content')
     .from('pages')
-    // .filter((page) => page.lang === 'en' && page.slug[0] === 'docs')
+    .filter((page) =>
+      page.lang === 'en' // && page.slug[0] === 'docs'
+      )
     .map(page => ({
       lang: page.lang,
       slug: page.slug,
