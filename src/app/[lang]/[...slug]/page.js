@@ -6,6 +6,7 @@ import engine from '/src/engine/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
+
 export const dynamicParams = false
 
 // https://beta.nextjs.org/docs/api-reference/metadata#generatemetadata-function
