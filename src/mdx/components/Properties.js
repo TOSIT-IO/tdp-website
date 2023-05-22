@@ -22,7 +22,7 @@ export function Properties({ children, ...props }) {
   if (isGrouped) {
     return <PropertiesRaw {...props}>{children}</PropertiesRaw>
   }
-  return <div className="rounded-2xl border border-zinc-900/20 dark:border-white/20 p-4">
+  return <div className="rounded-2xl border bg-black/20 border-zinc-900/20 dark:border-white/20 p-4">
     <PropertiesRaw {...props}>{children}</PropertiesRaw>
   </div>
 }
