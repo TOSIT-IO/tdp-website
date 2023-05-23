@@ -1,10 +1,11 @@
+import { Code } from './components/Code.js'
 
-import {Code} from './components/Code.js'
-
-export default {
+const Components = {
   h1: ({ children }) => <div>ok</div>,
   code: Code,
   // h1: function(){
   //   return <h1></h1>
   // }
 }
+
+export default Components

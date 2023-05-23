@@ -11,7 +11,7 @@ import stringify from 'remark-stringify'
 import tableOfContent from 'remark-table-of-content'
 import titleToFrontmatter from 'remark-title-to-frontmatter'
 
-export default (entries) => {
+export default function EngineParse (entries) {
   return each(entries, async (entry) => {
     const { value, data, toc} = await unified()
       .use(parse)
