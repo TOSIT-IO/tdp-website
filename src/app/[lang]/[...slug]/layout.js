@@ -4,7 +4,7 @@ import engine from '/src/engine/index.js'
 import Header from './layout/header'
 import Left from './layout/left'
 
-export default async function ({
+export default async function Layout({
   children,
   params
 }) {

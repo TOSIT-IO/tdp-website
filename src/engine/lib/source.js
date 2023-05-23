@@ -5,7 +5,7 @@ import {glob} from 'glob'
 import each from 'each'
 import {merge} from 'mixme'
 
-export default async (stores) => {
+export default async function EngineSource (stores) {
   if (!Array.isArray(stores)) stores = [stores]
   stores = stores
     .map( store => (

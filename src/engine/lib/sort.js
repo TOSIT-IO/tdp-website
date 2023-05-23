@@ -1,5 +1,5 @@
 
-export default function sort (documents) {
+export default function EngineSort (documents) {
   return documents
     .sort( (a, b) => a.slug.length - b.slug.length )
     .sort( (a, b) => {

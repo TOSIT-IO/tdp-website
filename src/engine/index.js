@@ -20,7 +20,7 @@ const init = (stores) => {
   })
 }
 
-export default (stores) => {
+export default function Engine(stores) {
   const engine = {
     db: init(stores),
     from: (name) => collection(engine, name),
