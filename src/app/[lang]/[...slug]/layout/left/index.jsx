@@ -2,6 +2,27 @@ import 'server-only'
 import clsx from 'clsx'
 import Link from 'next/link'
 
+export default function Left({
+  className,
+  current,
+  menuLeft:page,
+  level=0,
+  style,
+}) {
+  const pages = page.children
+  return (
+    <aside
+      className={clsx(
+        className,
+      )}
+      style={style}
+    >
+      <h1 className="sr-only">Menu for {page.title}</h1>
+      <Ul current={current} pages={pages} level={level+1} />
+    </aside>
+  )
+}
+
 export const Ul = function ({
   current,
   level,
@@ -27,7 +48,7 @@ export const Ul = function ({
               level={level}
               last={i === pages.length - 1}
             />
-            : <Li
+            : <LiRoot
               current={current}
               key={page.slug.join('/')}
               page={page}
@@ -39,10 +60,33 @@ export const Ul = function ({
   )
 }
 
+export const LiRoot = function ({
+  current,
+  level,
+  page,
+}) {
+  const href = `/${page.lang}/${page.slug.join('/')}`
+  return (
+    <li className="relative pb-2">
+      <Link
+        className={clsx(
+          "py-4",
+          JSON.stringify(current) === JSON.stringify(page.slug)
+          ? "text-white"
+          : "text-white/70 hover:text-[#00FFFA]"
+        )}
+        href={`/${page.lang}/${page.slug.join('/')}`}
+      >
+        {page.title}
+      </Link>
+      <Ul current={current} pages={page.children} level={level+1} />
+    </li>
+  )
+}
+
 export const LiSection = function ({
   current,
   level,
-  last,
   page,
 }) {
   return (
@@ -50,7 +94,9 @@ export const LiSection = function ({
       <h2 className="italic font-extralight text-white/50 py-4">
         {page.title}
       </h2>
-      <Ul current={current} pages={page.children} level={level+1} parentIsSection={true} />
+      { page.children?.length > 0 &&
+        <Ul current={current} pages={page.children} level={level+1} parentIsSection={true} />
+      }
     </li>
   )
 }
@@ -63,8 +109,7 @@ export const LiChildOfSection = function ({
 }) {
   const href = `/${page.lang}/${page.slug.join('/')}`
   return (
-    <li key={page.slug.join('/')}>
-      <div className="relative pb-2">
+    <li key={page.slug.join('/')} className="relative pb-2">
         {last ||
           <span className="absolute left-1 top-2 -ml-px h-full w-0.5 bg-white/40" aria-hidden="true" />
         }
@@ -89,56 +134,11 @@ export const LiChildOfSection = function ({
             >
               {page.title}
             </Link>
-            <Ul current={current} pages={page.children} level={level+1} />
+            { page.children?.length > 0 &&
+              <Ul current={current} pages={page.children} level={level+1} />
+            }
           </div>
         </div>
-      </div>
     </li>
-  )
-}
-
-export const Li = function ({
-  current,
-  level,
-  last,
-  page,
-}) {
-  const href = `/${page.lang}/${page.slug.join('/')}`
-  return (
-    <li>
-      <Link
-        className={clsx(
-          "py-2",
-          JSON.stringify(current) === JSON.stringify(page.slug)
-          ? "text-white"
-          : "text-white/70 hover:text-[#00FFFA]"
-        )}
-        href={`/${page.lang}/${page.slug.join('/')}`}
-      >
-        {page.title}
-      </Link>
-      <Ul current={current} pages={page.children} level={level+1} />
-    </li>
-  )
-}
-
-export default function Left({
-  className,
-  current,
-  menuLeft:page,
-  level=0,
-  style,
-}) {
-  const pages = page.children
-  return (
-    <aside
-      className={clsx(
-        className,
-      )}
-      style={style}
-    >
-      <h1 className="sr-only">Menu for {page.title}</h1>
-      <Ul current={current} pages={pages} level={level+1} />
-    </aside>
   )
 }
