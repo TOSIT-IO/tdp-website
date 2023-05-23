@@ -1,5 +1,4 @@
 
-import inter from 'tailwindcss-font-inter'
 import typographyPlugin from '@tailwindcss/typography'
 import typography from './typography'
 import defaultTheme from 'tailwindcss/defaultTheme'
@@ -18,7 +17,6 @@ export default {
     extend: {},
   },
   plugins: [
-    // inter,
     typographyPlugin,
     // require('@tailwindcss/forms'),
     // require('@tailwindcss/aspect-ratio'),
