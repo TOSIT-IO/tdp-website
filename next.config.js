@@ -26,10 +26,12 @@ const nextConfig = {
   // https://github.com/tailwindlabs/tailwindcss.com/blob/0bc153eee67b7236e04c392f4bcbab9e36ad9a99/next.config.js#L39
   swcMinify: true,
   // Handle SVG files
+  // Issue after upgrading from 13.2.4
+  // Removed issuer, see https://github.com/vercel/next.js/issues/48177 
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
+      // issuer: /\.[jt]sx?$/,
       use: [
         {
           loader: '@svgr/webpack',
@@ -42,6 +44,14 @@ const nextConfig = {
     })
     return config
   },
+
+  // webpack: (config) => {
+  //   config.module.rules.push({
+  //     test: /\.svg$/i,
+  //     use: ['@svgr/webpack'],
+  //   });
+  //   return config;
+  // },
 }
 
 const withMDX = mdx({
