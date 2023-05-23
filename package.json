@@ -8,6 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
+    "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.4.3",
     "@svgr/webpack": "^8.0.1",
@@ -45,7 +46,6 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^2.3.0",
     "should": "^13.2.3"
   },
   "postcss": {
@@ -64,10 +64,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "test": "npx mocha 'src/test/**/*.js'"
   },
   "type": "module"
 }
