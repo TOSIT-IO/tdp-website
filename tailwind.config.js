@@ -28,7 +28,6 @@ export default {
       ...defaultTheme.screens,
     },
     // fontSize: {},
-    // typography: typography,
     extend: {
       typography: typography,
       fontFamily: {
