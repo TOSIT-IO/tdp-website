@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -13,9 +13,9 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Note
+For a production build, run:
 
-See https://github.com/remcohaszing/rehype-mdx-title
-See https://github.com/remcohaszing/remark-mdx-frontmatter
-See https://github.com/remcohaszing/recma-nextjs-static-props
-See @sindresorhus/slugify
+```bash
+yarn run build
+yarn run start
+```

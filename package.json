@@ -46,6 +46,7 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "serve": "^14.2.0",
     "should": "^13.2.3"
   },
   "postcss": {
@@ -67,7 +68,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start",
+    "start": "serve out",
     "test": "npx mocha 'src/test/**/*.js'"
   },
   "type": "module"
