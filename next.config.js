@@ -8,6 +8,8 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  // Static Exports
+  // See https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
   output: 'export',
   // distDir: 'dist',
   // Disable the 'x-powered-by' header
@@ -44,14 +46,6 @@ const nextConfig = {
     })
     return config
   },
-
-  // webpack: (config) => {
-  //   config.module.rules.push({
-  //     test: /\.svg$/i,
-  //     use: ['@svgr/webpack'],
-  //   });
-  //   return config;
-  // },
 }
 
 const withMDX = mdx({
