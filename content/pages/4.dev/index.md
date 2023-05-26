@@ -1,5 +1,5 @@
 ---
-nav_title: Instructions
+nav_title: Dev
 ---
 
 # Content editor instructions
