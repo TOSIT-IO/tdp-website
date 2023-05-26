@@ -99,7 +99,7 @@ export default async function Page ({params}) {
                 Discover
               </Link>
               <Link
-                href="/en/docs"
+                href="/en/developers"
                 className={clsx(
                   "py-2 px-3",
                   "text-xl text-white/70 hover:text-white/100 font-extralight",
