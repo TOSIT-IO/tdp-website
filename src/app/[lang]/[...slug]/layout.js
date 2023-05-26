@@ -20,6 +20,9 @@ export default async function Layout({
     .filter( page =>
       page.lang === params.lang
     )
+    .filter(
+      (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    )
     .tree()
   const menuLeft = sitemap.filter( page =>
     page.slug[0] === params.slug[0]

@@ -51,10 +51,16 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams({ params }) {
   const pages = await engine('./content')
     .from('pages')
-    .filter((page) =>
-      page.lang === 'en' // && page.slug[0] === 'docs'
-      )
-    .map(page => ({
+    .filter(
+      (page) => page.lang === 'en' // && page.slug[0] === 'docs'
+    )
+    .filter(
+      (page) => page.data.section !== true
+    )
+    .filter(
+      (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    )
+    .map((page) => ({
       lang: page.lang,
       slug: page.slug,
     }))
