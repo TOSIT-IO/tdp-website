@@ -46,6 +46,10 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "husky": "^8.0.3",
+    "pinst": "^3.0.0",
     "serve": "^14.2.0",
     "should": "^13.2.3"
   },
@@ -68,6 +72,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
     "start": "serve out",
     "test": "npx mocha 'src/test/**/*.js'"
   },
