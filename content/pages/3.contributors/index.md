@@ -1,4 +1,0 @@
-
-# For contributors
-
-Welcome
