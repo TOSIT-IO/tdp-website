@@ -99,7 +99,7 @@ export default async function Page ({params}) {
                 Discover
               </Link>
               <Link
-                href="/en/developers"
+                href="/en/learn"
                 className={clsx(
                   "py-2 px-3",
                   "text-xl text-white/70 hover:text-white/100 font-extralight",
@@ -159,8 +159,8 @@ export default async function Page ({params}) {
                 background: 'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
               }}
             >
-              <p>Présentation au salon Big Data & AI Paris, septembre 2022 : Présentation Technique, Présentation Métier</p>
-              <small>Le 18 janvier 2023</small>
+              <p>Come to the TOSIT stand and speak with TDP contributors at the Big Data Summit in Paris next September.</p>
+              <small>25-26 September 2023, Paris, France</small>
             </li>
             <li
               className={clsx(
@@ -172,8 +172,8 @@ export default async function Page ({params}) {
                 background: 'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
               }}
             >
-              <p>Présentation au salon Big Data & AI Paris, septembre 2022 : Présentation Technique, Présentation Métier</p>
-              <small>Le 18 janvier 2023</small>
+              <p>Sinh Chung Nguyen, architect for the French Tax Administration, present TDP and the TOSIT association at the World Data Summit</p>
+              <small>17-19 May 2023 Amsterdam, The Netherlands</small>
             </li>
             <li
               className={clsx(

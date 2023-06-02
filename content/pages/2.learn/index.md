@@ -1,5 +1,5 @@
 
-# For developers
+# Learn
 
 This section guide you through the process of deploying and operating an Hadoop-based Big Data platform with TDP. Whether you're a beginner or have some experience with big data technologies, this section provide you with the knowledge and tools to set up your own scalable and powerful data processing infrastructure.
 
