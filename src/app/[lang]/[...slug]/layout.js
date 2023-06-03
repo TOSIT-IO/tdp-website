@@ -1,6 +1,7 @@
 import 'server-only'
 import clsx from 'clsx'
-import engine from '/src/engine/index.js'
+import redac from 'redac'
+import mdx from 'redac/plugins/mdx'
 import Header from './layout/header'
 import Left from './layout/left'
 
@@ -8,20 +9,23 @@ export default async function Layout({
   children,
   params
 }) {
-  const sitemap = await engine('./content')
+  const sitemap = await redac([
+    {
+      module: mdx,
+      config: './content/pages',
+    },
+  ])
     .from('pages')
     .map((page) => ({
       nav_title: page.data.nav_title,
-      lang: page.lang,
+      lang: page.lang || 'en',
       section: page.data.section,
       slug: page.slug,
       title: page.data.nav_title || page.data.title,
     }))
-    .filter( page =>
-      page.lang === params.lang
-    )
-    .filter(
-      (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    .filter((page) => page.lang === params.lang)
+    .filter((page) =>
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
     .tree()
   const menuLeft = sitemap.filter( page =>
