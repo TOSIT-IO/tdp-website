@@ -1,4 +1,6 @@
 ---
+description: |
+  Learn about TDP, the 100% open source big data platform based on the Hadoop ecosystem.
 nav_title: Discover
 ---
 

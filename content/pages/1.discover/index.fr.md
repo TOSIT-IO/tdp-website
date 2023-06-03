@@ -1,3 +1,6 @@
+---
+nav_title: Découvrir
+---
 
 # Découvrir la plateforme TDP
 

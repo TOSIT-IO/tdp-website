@@ -1,4 +1,6 @@
 ---
+description: |
+  Deploy a local development cluster with Vagrant and virtual machines.
 nav_title: Getting Started
 ---
 
