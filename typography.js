@@ -3,9 +3,9 @@ export default ({ theme }) => ({
     css: {
       // '--tw-prose-body': theme('colors.zinc.700'),
       // '--tw-prose-headings': theme('colors.zinc.900'),
-      // '--tw-prose-links': theme('colors.emerald.500'),
-      // '--tw-prose-links-hover': theme('colors.emerald.600'),
-      // '--tw-prose-links-underline': theme('colors.emerald.500 / 0.3'),
+      '--tw-prose-links': theme('colors.sky.500'),
+      '--tw-prose-links-hover': theme('colors.sky.600'),
+      '--tw-prose-links-underline': theme('colors.sky.500 / 0.3'),
       // '--tw-prose-bold': theme('colors.zinc.900'),
       // '--tw-prose-counters': theme('colors.zinc.500'),
       // '--tw-prose-bullets': theme('colors.zinc.300'),
@@ -21,9 +21,9 @@ export default ({ theme }) => ({
 
       // '--tw-prose-invert-body': theme('colors.zinc.400'),
       // '--tw-prose-invert-headings': theme('colors.white'),
-      // '--tw-prose-invert-links': theme('colors.emerald.400'),
-      // '--tw-prose-invert-links-hover': theme('colors.emerald.500'),
-      // '--tw-prose-invert-links-underline': theme('colors.emerald.500 / 0.3'),
+      '--tw-prose-invert-links': theme('colors.sky.400'),
+      '--tw-prose-invert-links-hover': theme('colors.sky.300'),
+      '--tw-prose-invert-links-underline': theme('colors.sky.300 / 0.3'),
       // '--tw-prose-invert-bold': theme('colors.white'),
       // '--tw-prose-invert-counters': theme('colors.zinc.400'),
       // '--tw-prose-invert-bullets': theme('colors.zinc.600'),
@@ -275,22 +275,22 @@ export default ({ theme }) => ({
       //   paddingRight: '0',
       // },
 
-      // // Inline elements
-      // a: {
-      //   color: 'var(--tw-prose-links)',
-      //   textDecoration: 'underline transparent',
-      //   fontWeight: '500',
-      //   transitionProperty: 'color, text-decoration-color',
-      //   transitionDuration: theme('transitionDuration.DEFAULT'),
-      //   transitionTimingFunction: theme('transitionTimingFunction.DEFAULT'),
-      //   '&:hover': {
-      //     color: 'var(--tw-prose-links-hover)',
-      //     textDecorationColor: 'var(--tw-prose-links-underline)',
-      //   },
-      // },
-      // ':is(h1, h2, h3) a': {
-      //   fontWeight: 'inherit',
-      // },
+      // Inline elements
+      a: {
+        color: 'var(--tw-prose-links)',
+        textDecoration: 'underline transparent',
+        fontWeight: '500',
+        transitionProperty: 'color, text-decoration-color',
+        transitionDuration: theme('transitionDuration.DEFAULT'),
+        transitionTimingFunction: theme('transitionTimingFunction.DEFAULT'),
+        '&:hover': {
+          color: 'var(--tw-prose-links-hover)',
+          textDecorationColor: 'var(--tw-prose-links-underline)',
+        },
+      },
+      ':is(h1, h2, h3) a': {
+        fontWeight: 'inherit',
+      },
       // strong: {
       //   color: 'var(--tw-prose-bold)',
       //   fontWeight: '600',
@@ -344,9 +344,9 @@ export default ({ theme }) => ({
     css: {
       // '--tw-prose-body': 'var(--tw-prose-invert-body)',
       // '--tw-prose-headings': 'var(--tw-prose-invert-headings)',
-      // '--tw-prose-links': 'var(--tw-prose-invert-links)',
-      // '--tw-prose-links-hover': 'var(--tw-prose-invert-links-hover)',
-      // '--tw-prose-links-underline': 'var(--tw-prose-invert-links-underline)',
+      '--tw-prose-links': 'var(--tw-prose-invert-links)',
+      '--tw-prose-links-hover': 'var(--tw-prose-invert-links-hover)',
+      '--tw-prose-links-underline': 'var(--tw-prose-invert-links-underline)',
       // '--tw-prose-bold': 'var(--tw-prose-invert-bold)',
       // '--tw-prose-counters': 'var(--tw-prose-invert-counters)',
       // '--tw-prose-bullets': 'var(--tw-prose-invert-bullets)',
