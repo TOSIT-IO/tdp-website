@@ -1,4 +1,6 @@
 ---
+description: |
+  List of the internal and external ports used by TDP and its components.
 nav_title: Ports and protocols
 ---
 
