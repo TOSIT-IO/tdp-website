@@ -1,40 +1,21 @@
 import 'server-only'
-// import dynamic from 'next/dynamic'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import * as components from '@/mdx/components/index.js'
-import engine from '/src/engine/index.js'
+import redac from 'redac'
+import mdx from 'redac/plugins/mdx'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
 
 export const dynamicParams = false
 
-// https://beta.nextjs.org/docs/api-reference/metadata#generatemetadata-function
-// export async function generateMetadata(
-//   { params, searchParams }: Props,
-//   parent?: ResolvingMetadata,
-// ): Promise<Metadata> {
-//   // read route params
-//   const id = params.id;
-
-//   // fetch data
-//   const product = await fetch(`https://.../${id}`).then((res) => res.json());
-
-//   // optionally access and extend (rather than replace) parent metadata
-//   const previousImages = (await parent).openGraph?.images || [];
-
-//   return {
-//     title: product.title,
-//     openGraph: {
-//       images: ['/some-specific-page-image.jpg', ...previousImages],
-//     },
-//   };
-// }
-
-// export default function Page({ params, searchParams }: Props) {}
-
 export async function generateMetadata({ params }) {
-  return await engine('./content')
+  return await redac([
+    {
+      module: mdx,
+      config: './content/pages',
+    },
+  ])
     .from('pages')
     .filter(
       (page) =>
@@ -49,11 +30,13 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams({ params }) {
-  const pages = await engine('./content')
+  const pages = await redac([
+    {
+      module: mdx,
+      config: './content/pages',
+    },
+  ])
     .from('pages')
-    .filter(
-      (page) => page.lang === 'en' // && page.slug[0] === 'docs'
-    )
     .filter(
       (page) => page.data.section !== true
     )
@@ -61,15 +44,24 @@ export async function generateStaticParams({ params }) {
       (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
     .map((page) => ({
-      lang: page.lang,
+      lang: page.lang || 'en',
       slug: page.slug,
     }))
   return pages
 }
 
 export default async function Page({ params }) {
-  const page = await engine('./content')
+  const page = await redac([
+    {
+      module: mdx,
+      config: './content/pages',
+    },
+  ])
     .from('pages')
+    .map(page => ({
+      ...page,
+      lang: page.lang || 'en'
+    }))
     .filter(
       (page) =>
         page.lang === params.lang &&
@@ -84,9 +76,6 @@ export default async function Page({ params }) {
         components={components}
         options={{
           parseFrontmatter: true,
-          // remarkPlugins: remark,
-          // rehypePlugins: rehype,
-          // format: 'mdx',
           mdxOptions: {
             remarkPlugins: remark,
             rehypePlugins: rehype,
