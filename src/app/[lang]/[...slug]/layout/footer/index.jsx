@@ -48,7 +48,7 @@ export default function Footer({
             <li>
               <Link
                 className="text-white/70 hover:text-[#00FFFA]"
-                href={`#`}
+                href={lang === 'en' ? `/en/discover/sitemap` : `/fr/decouvrir/plan-site`}
               >
                 Sitemap
               </Link>
@@ -125,7 +125,7 @@ export default function Footer({
             <li>
               <a
                 className="text-white/70 hover:text-[#00FFFA]"
-                href="https://github.com/orgs/TOSIT-IO/discussions"
+                href="https://github.com/TOSIT-IO/TDP/blob/main/LICENSE"
                 target="_blank"
               >
                 License
