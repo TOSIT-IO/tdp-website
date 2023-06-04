@@ -48,7 +48,6 @@ export async function generateStaticParams({ params }) {
       lang: report.lang || 'en',
       slug: report.slug,
     }))
-  console.log('>>>', reports)
   return reports
 }
 
