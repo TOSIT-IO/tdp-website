@@ -1,6 +1,5 @@
 import 'server-only'
 import clsx from 'clsx'
-import dedent from 'dedent'
 import redac from 'redac'
 import yaml from 'redac/plugins/yaml'
 import mdx from 'redac/plugins/mdx'
@@ -12,42 +11,49 @@ import FeaturesOpenSource from '../(pages)/layout/assets/FeaturesOpenSource.svg'
 import FeaturesFree from '../(pages)/layout/assets/FeaturesFree.svg'
 import FeaturesDataCentric from '../(pages)/layout/assets/FeaturesDataCentric.svg'
 import FeaturesHybridation from '../(pages)/layout/assets/FeaturesHybridation.svg'
+import Header from '../(pages)/[...slug]/layout/header'
 
 export const dynamicParams = false
 
-export function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
+  const i18n = await redac([
+    {
+      module: yaml,
+      config: './content/i18ns',
+    },
+  ])
+    .from('i18ns')
+    .match(params.lang, [])
+    .get()
   return {
-    en: {
-      title: 'TDP, the open source big data platform',
-      description: dedent`
-      The Trunk Data Platform (TDP) is a data management infrastructure that
-      provides a centralized and scalable solution for storing, processing, and
-      managing large volumes of data.
-      `,
-    },
-    fr: {
-      title: 'TDP, la plateform big data open source',
-      description: dedent`
-      La plateforme de données Trunk (TDP) est une infrastructure de gestion de
-      données qui fournit une solution centralisée et évolutive pour stocker,
-      traiter et gérer de grands volumes de données.
-      `,
-    },
+    title: i18n.data.title,
+    description: i18n.data.description,
   }
 }
 
 export async function generateStaticParams() {
-  return [
+  return redac([
     {
-      lang: 'en',
+      module: yaml,
+      config: './content/i18ns',
     },
-    {
-      lang: 'fr',
-    },
-  ]
+  ])
+    .from('i18ns')
+    .match([])
+    .map( i18n => i18n.lang)
 }
 
 export default async function Page({ params }) {
+  const i18n = await redac([
+    {
+      module: yaml,
+      config: './content/i18ns',
+    },
+  ])
+    .from('i18ns')
+    .match(params.lang, [])
+    .map(params => params.data)
+    .get()
   const events = await redac([
     {
       module: yaml,
@@ -73,9 +79,28 @@ export default async function Page({ params }) {
       lang: report.lang || 'en',
     }))
     .filter((report) => report.lang === params.lang)
+  const sitemap = await redac([
+    {
+      module: mdx,
+      config: './content/pages',
+    },
+  ])
+    .from('pages')
+    .map((page) => ({
+      nav_title: page.data.nav_title,
+      lang: page.lang || 'en',
+      section: page.data.section,
+      slug: page.slug,
+      title: page.data.nav_title || page.data.title,
+    }))
+    .filter((page) => page.lang === params.lang)
+    .filter((page) =>
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    )
+    .tree()
   return (
     <div>
-      <header
+      <div
         className={clsx(
           'relative h-[500px] xl:h-[600px] 2xl:h-[650px]',
           'border-b border-slate-500'
@@ -104,7 +129,7 @@ export default async function Page({ params }) {
           <Logo className="h-auto" />
           <h1 className="text-xl font-extralight tracking-wider">
             <span className="sr-only">TDP</span>
-            100% open source big data platform
+            {i18n.title}
           </h1>
           <div className="flex flex-col sm:flex-row gap-5 sm:flex justify-center sm:gap-10">
             <div className="flex gap-3 sm:gap-10 justify-center">
@@ -120,7 +145,7 @@ export default async function Page({ params }) {
                     'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
                 }}
               >
-                Discover
+                {i18n.header.discover}
               </Link>
               <Link
                 href="/en/learn"
@@ -134,7 +159,7 @@ export default async function Page({ params }) {
                     'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
                 }}
               >
-                Documentation
+                {i18n.header.doc}
               </Link>
             </div>
             <div className="sm:flex">
@@ -147,12 +172,23 @@ export default async function Page({ params }) {
                   'rounded border border-white/50 hover:border-white/80'
                 )}
               >
-                Getting started
+                {i18n.header.start}
               </Link>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+      <Header
+        current={params.slug}
+        link_home={`/${params.lang}`}
+        sitemap={sitemap}
+        className={clsx(
+          'fixed top-0 w-full z-10 h-[60px]',
+        )}
+        style={{
+          background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
+        }}
+      />
       <section
         className={clsx('py-10', 'border-b border-slate-500')}
         style={{
@@ -161,49 +197,57 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-4xl px-5 m-auto">
-          <h2 className={clsx('mb-5', 'text-xl font-extralight')}>Events</h2>
-          <ul className="grid gap-3 mb-5">
-            {events.map((event) => (
-              <li
-                key={event.slug.join('/')}
-                className={clsx(
-                  'py-2 px-3',
-                  'text-white/70 hover:text-white/100 font-extralight',
-                  'rounded border border-white/40 hover:border-white/80'
-                )}
-                style={{
-                  background:
-                    'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                }}
-              >
-                <p>{event.data.message}</p>
-                <small>{event.data.when}</small>
-              </li>
-            ))}
-          </ul>
-          <h2 className={clsx('mb-5', 'text-xl font-extralight')}>Reports</h2>
-          <ul className="grid gap-3 mb-5">
-            {reports.map((report) => (
-              <li
-                key={report.slug.join('/')}
-                className={clsx(
-                  'py-2 px-3',
-                  'text-white/70 hover:text-white/100 font-extralight',
-                  'rounded border border-white/40 hover:border-white/80'
-                )}
-                style={{
-                  background:
-                    'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                }}
-              >
-                <Link
-                  href={`/${params.lang}/contribute/reports/${report.slug.join('/')}`}
+          {events.length !== 0 &&
+            <>
+            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.events.title}</h2>
+            <ul className="grid gap-3 mb-5">
+              {events.map((event) => (
+                <li
+                  key={event.slug.join('/')}
+                  className={clsx(
+                    'py-2 px-3',
+                    'text-white/70 hover:text-white/100 font-extralight',
+                    'rounded border border-white/40 hover:border-white/80'
+                  )}
+                  style={{
+                    background:
+                      'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
+                  }}
                 >
-                  {report.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <p>{event.data.message}</p>
+                  <small>{event.data.when}</small>
+                </li>
+              ))}
+            </ul>
+            </>
+          }
+          { reports.length !== 0 &&
+            <>
+            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.reports.title}</h2>
+            <ul className="grid gap-3 mb-5">
+              {reports.map((report) => (
+                <li
+                  key={report.slug.join('/')}
+                  className={clsx(
+                    'py-2 px-3',
+                    'text-white/70 hover:text-white/100 font-extralight',
+                    'rounded border border-white/40 hover:border-white/80'
+                  )}
+                  style={{
+                    background:
+                      'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
+                  }}
+                >
+                  <Link
+                    href={`/${params.lang}/contribute/reports/${report.slug.join('/')}`}
+                  >
+                    {report.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            </>
+          }
         </div>
       </section>
       <section
@@ -213,32 +257,28 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-2xl px-5 m-auto py-20 grid gap-20">
-          <FeatureCard Feature={FeaturesOpenSource} title="Open source">
+          <FeatureCard Feature={FeaturesOpenSource} title={i18n.features.open.title}>
             <p>
-              Le code de toutes les technologies utilisées est disponible sur
-              notre Github publique avec une licence Apache.
+              {i18n.features.open.description}
             </p>
           </FeatureCard>
-          <FeatureCard Feature={FeaturesFree} reverse={true} title="Gratuite">
+          <FeatureCard Feature={FeaturesFree} reverse={true} title={i18n.features.cost.title}>
             <p>
-              Vous pouvez utiliser toutes les technologies et tous les services
-              et composants de TDP de façon gratuite.
+            {i18n.features.cost.description}
             </p>
           </FeatureCard>
-          <FeatureCard Feature={FeaturesDataCentric} title="Data centric">
+          <FeatureCard Feature={FeaturesDataCentric} title={i18n.features.endtoend.title}>
             <p>
-              TDP respecte le cycle de vie de la donnée en proposant des
-              technologies et des patterns pour gérer la donnée de bout-en-bout.
+            {i18n.features.endtoend.description}
             </p>
           </FeatureCard>
           <FeatureCard
             Feature={FeaturesHybridation}
             reverse={true}
-            title="Hybridation environnement"
+            title={i18n.features.deploy.title}
           >
             <p>
-              Compatible à la fois avec des déploiements sur le cloud privé,
-              public ou on-premise.
+              {i18n.features.deploy.description}
             </p>
           </FeatureCard>
         </div>
