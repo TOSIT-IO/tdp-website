@@ -4,19 +4,14 @@ import dedent from 'dedent'
 import redac from 'redac'
 import yaml from 'redac/plugins/yaml'
 import mdx from 'redac/plugins/mdx'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import * as components from '@/mdx/components/index.js'
-import rehype from '/src/mdx/rehype.js'
-import remark from '/src/mdx/remark.js'
-import recma from '/src/mdx/recma.js'
 import Link from 'next/link'
-import Logo from './layout/assets/logo.svg'
-import CirclesLeft from './layout/assets/circles-left.svg'
-import CirclesRight from './layout/assets/circles-right.svg'
-import FeaturesOpenSource from './layout/assets/FeaturesOpenSource.svg'
-import FeaturesFree from './layout/assets/FeaturesFree.svg'
-import FeaturesDataCentric from './layout/assets/FeaturesDataCentric.svg'
-import FeaturesHybridation from './layout/assets/FeaturesHybridation.svg'
+import Logo from '../(pages)/layout/assets/logo.svg'
+import CirclesLeft from '../(pages)/layout/assets/circles-left.svg'
+import CirclesRight from '../(pages)/layout/assets/circles-right.svg'
+import FeaturesOpenSource from '../(pages)/layout/assets/FeaturesOpenSource.svg'
+import FeaturesFree from '../(pages)/layout/assets/FeaturesFree.svg'
+import FeaturesDataCentric from '../(pages)/layout/assets/FeaturesDataCentric.svg'
+import FeaturesHybridation from '../(pages)/layout/assets/FeaturesHybridation.svg'
 
 export const dynamicParams = false
 
@@ -72,7 +67,7 @@ export default async function Page({ params }) {
     },
   ])
     .from('reports')
-    .map((report) => (console.log('slug', report.slug) || {
+    .map((report) => ({
       slug: report.slug,
       title: report.data.title,
       lang: report.lang || 'en',
