@@ -1,0 +1,35 @@
+
+title: TDP, la plateform big data entièrement libre de droit
+description: |
+  La plateforme de données Trunk (TDP) est une infrastructure de gestion de
+  données qui fournit une solution centralisée et évolutive pour stocker,
+  traiter et gérer de grands volumes de données.
+header:
+  discover: Découvrir
+  doc: Documentation
+  start: Tutoriel
+events:
+  title: Évènements
+reports:
+  title: Compte rendus
+features:
+  open:
+    title: Open Source
+    description: |
+      Le code de toutes les technologies utilisées est disponible sur
+      notre Github publique avec une licence compatible Apache.
+  cost:
+    title: Gratuit
+    description: |
+      Vous pouvez utiliser toutes les technologies et tous les services
+      et composants de TDP de façon gratuite.
+  endtoend:
+    title: Data centric
+    description: |
+      TDP respecte le cycle de vie de la donnée en proposant des
+      technologies pour gérer la donnée de bout-en-bout.
+  deploy:
+    title: Déploiement
+    description: |
+      Compatible à la fois avec des déploiements sur le cloud privé,
+      public ou on-premise.

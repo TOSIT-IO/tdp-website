@@ -1,12 +1,23 @@
 import 'server-only'
+import redac from 'redac'
+import yaml from 'redac/plugins/yaml'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-export default function Footer({
+export default async function Footer({
   className,
   lang,
-  page,
 }){
+  const i18n = await redac([
+    {
+      module: yaml,
+      config: './content/i18ns',
+    },
+  ])
+    .from('i18ns')
+    .match(lang, ['footer'])
+    .map(params => params.data)
+    .get()
   return (
     <footer
       className={clsx(
@@ -19,7 +30,7 @@ export default function Footer({
         "[&_h2]:mb-3 [&_h2]:italic [&_h2]:font-extralight [&_h2]:text-white/50"
       )}>
         <li>
-          <h2>First steps</h2>
+          <h2>{i18n.firststep}</h2>
           <ul>
             <li>
               <Link
@@ -56,7 +67,7 @@ export default function Footer({
           </ul>
         </li>
         <li>
-          <h2>Advance usage</h2>
+          <h2>{i18n.advanced}</h2>
           <ul>
             <li>
               <Link
@@ -93,7 +104,7 @@ export default function Footer({
           </ul>
         </li>
         <li>
-          <h2>Developper community</h2>
+          <h2>{i18n.community}</h2>
           <ul className="space-y-1">
             <li>
               <a
