@@ -17,66 +17,64 @@ export async function generateMetadata({ params }) {
   return await redac([
     {
       module: mdx,
-      config: './content/pages',
+      config: './content/reports',
     },
   ])
-    .from('pages')
+    .from('reports')
     .filter(
-      (page) =>
-        page.lang === params.lang &&
-        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+      (report) =>
+      report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug)
     )
-    .map(async (page) => ({
-      title: page.data.title,
-      description: page.data.description,
+    .map(async (report) => ({
+      title: report.data.title,
+      description: report.data.description,
     }))
     .get()
 }
 
 export async function generateStaticParams({ params }) {
-  const pages = await redac([
+  const reports = await redac([
     {
       module: mdx,
-      config: './content/pages',
+      config: './content/reports',
     },
   ])
-    .from('pages')
+    .from('reports')
     .filter(
-      (page) => page.data.section !== true
+      (report) => report.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
-    .filter(
-      (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
-    )
-    .map((page) => ({
-      lang: page.lang || 'en',
-      slug: page.slug,
+    .map((report) => ({
+      lang: report.lang || 'en',
+      slug: report.slug,
     }))
-  return pages
+  console.log('>>>', reports)
+  return reports
 }
 
 export default async function Page({ params }) {
-  const page = await redac([
+  const report = await redac([
     {
       module: mdx,
-      config: './content/pages',
+      config: './content/reports',
     },
   ])
-    .from('pages')
-    .map(page => ({
-      ...page,
-      lang: page.lang || 'en'
+    .from('reports')
+    .map(report => ({
+      ...report,
+      lang: report.lang || 'en'
     }))
     .filter(
-      (page) =>
-        page.lang === params.lang &&
-        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+      (report) =>
+      report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug)
     )
     .get()
   return (
     <div className="prose dark:prose-invert max-w-none">
-      <h1>{page.data.title}</h1>
+      <h1>{report.data.title}</h1>
       <MDXRemote
-        source={page.content_md}
+        source={report.content_md}
         components={components}
         options={{
           parseFrontmatter: true,
