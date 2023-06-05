@@ -95,11 +95,16 @@ export default async function Page({ params }) {
   ])
     .from('pages')
     .map((page) => ({
-      nav_title: page.data.nav_title,
+      data: {
+        redirect: page.data.redirect,
+        nav_title: page.data.nav_title,
+        section: page.data.section,
+        nav_title: page.data.nav_title,
+        title: page.data.title,
+      },
       lang: page.lang || 'en',
-      section: page.data.section,
       slug: page.slug,
-      title: page.data.nav_title || page.data.title,
+      
     }))
     .filter((page) => page.lang === params.lang)
     .filter((page) =>
@@ -197,6 +202,13 @@ export default async function Page({ params }) {
         style={{
           background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
         }}
+        t9ns={[{
+          lang: params.lang === 'en' ? 'fr' : 'en',
+          slug: [],
+          data: {
+            title: params.lang === 'en' ? 'Accueil du projet TDP' : 'TDP project homepage',
+          }
+        }]}
       />
       <section
         className={clsx('py-10', 'border-b border-slate-500')}

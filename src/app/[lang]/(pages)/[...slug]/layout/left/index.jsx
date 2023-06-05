@@ -17,7 +17,7 @@ export default function Left({
       )}
       style={style}
     >
-      <h1 className="sr-only">Menu for {page.title}</h1>
+      <h1 className="sr-only">Menu for {page.data.title}</h1>
       <Ul current={current} pages={pages} level={level+1} />
     </aside>
   )
@@ -32,7 +32,7 @@ export const Ul = function ({
   return (
     <ul>
       {pages.map((page, i) => (
-        page.section
+        page.data.section
           ? <LiSection
             current={current}
             key={page.slug.join('/')}
@@ -65,7 +65,6 @@ export const LiRoot = function ({
   level,
   page,
 }) {
-  const href = `/${page.lang}/${page.slug.join('/')}`
   return (
     <li className="relative pb-2">
       <Link
@@ -77,7 +76,7 @@ export const LiRoot = function ({
         )}
         href={`/${page.lang}/${page.slug.join('/')}`}
       >
-        {page.title}
+        {page.data.nav_title || page.data.title}
       </Link>
       <Ul current={current} pages={page.children} level={level+1} />
     </li>
@@ -92,7 +91,7 @@ export const LiSection = function ({
   return (
     <li key={page.slug.join('/')}>
       <h2 className="italic font-extralight text-white/50 py-4">
-        {page.title}
+        {page.data.nav_title || page.data.title}
       </h2>
       { page.children?.length > 0 &&
         <Ul current={current} pages={page.children} level={level+1} parentIsSection={true} />
@@ -107,7 +106,6 @@ export const LiChildOfSection = function ({
   last,
   page,
 }) {
-  const href = `/${page.lang}/${page.slug.join('/')}`
   return (
     <li key={page.slug.join('/')} className="relative pb-2">
         {last ||
@@ -130,9 +128,9 @@ export const LiChildOfSection = function ({
                 ? "text-white"
                 : "text-white/70 hover:text-[#00FFFA]"
               )}
-              href={href}
+              href={`/${page.lang}/${page.slug.join('/')}`}
             >
-              {page.title}
+              {page.data.nav_title || page.data.title}
             </Link>
             { page.children?.length > 0 &&
               <Ul current={current} pages={page.children} level={level+1} />

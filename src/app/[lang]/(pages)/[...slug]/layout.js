@@ -1,33 +1,90 @@
 import 'server-only'
+import path from 'node:path'
 import clsx from 'clsx'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
 import Header from './layout/header'
 import Left from './layout/left'
 
+// Util function
+const extractSharedPath = (name) => {
+  const basename = path.basename(name)
+  if (/^(\d+\.)?index\./.test(basename)){
+    return path.dirname(name)
+  } else {
+    return path.dirname(name) + '/' + /^((\d+\.)?\w+)\./.exec(basename)?.[1]
+  }
+}
+
 export default async function Layout({
   children,
   params
 }) {
-  const sitemap = await redac([
+  const content = redac([
     {
       module: mdx,
       config: './content/pages',
     },
   ])
+  const sitemap = await content
     .from('pages')
     .map((page) => ({
-      nav_title: page.data.nav_title,
+      data: {
+        redirect: page.data.redirect,
+        nav_title: page.data.nav_title,
+        section: page.data.section,
+        nav_title: page.data.nav_title,
+        title: page.data.title,
+      },
       lang: page.lang || 'en',
-      section: page.data.section,
       slug: page.slug,
-      title: page.data.nav_title || page.data.title,
     }))
     .filter((page) => page.lang === params.lang)
     .filter((page) =>
       page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
     .tree()
+  // Current page
+  const currentPage = await content
+    .from('pages')
+    // todo: remove when redac get default values
+    .map((page) => ({
+      ...page,
+      lang: page.lang || 'en',
+    }))
+    // .match(params.lang, params.slug)
+    .filter( page => {
+      if(page.lang !== params.lang) return false
+      if(JSON.stringify(page.slug) !== JSON.stringify(params.slug)) return false
+      return true
+    })
+    .map(page => ({
+      path_t9n: extractSharedPath(page.path_relative)
+    }))
+    .get()
+  // Page translations if any, share the same parent directory
+  const t9ns = await content
+    .from('pages')
+    // todo: remove when redac get default values
+    .map((page) => ({
+      ...page,
+      lang: page.lang || 'en',
+    }))
+    // Redirect pages are no translation
+    .filter(page => !page.data.redirect)
+    // This is a bit touchy, maybe redac could provide with
+    // a parent property, doing it here for now
+    .filter(page => {
+      const path_t9n = extractSharedPath(page.path_relative)
+      return page.lang !== params.lang && currentPage.path_t9n === path_t9n
+    })
+    .map(page => ({
+      lang: page.lang,
+      slug: page.slug,
+      data: {
+        title: page.data.title,
+      },
+    }))
   const menuLeft = sitemap.filter( page =>
     page.slug[0] === params.slug[0]
   )[0]
@@ -43,6 +100,7 @@ export default async function Layout({
         style={{
           background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
         }}
+        t9ns={t9ns}
       />
       <div
         className="w-full h-full flex min-h-screen"

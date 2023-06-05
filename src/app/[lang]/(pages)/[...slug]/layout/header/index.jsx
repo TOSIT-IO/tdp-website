@@ -14,6 +14,7 @@ export default function Header({
   link_home,
   sitemap,
   style,
+  t9ns=[], // Current page translations
 }) {
   return (
     <>
@@ -58,9 +59,13 @@ export default function Header({
                   ? "text-white"
                   : "text-white/70 hover:text-[#00FFFA]"
                 )}
-                href={`/${page.lang}/${page.slug.join('/')}`}
+                href={
+                  page.data.redirect
+                  ? page.data.redirect
+                  : `/${page.lang}/${page.slug.join('/')}`
+                }
               >
-                {page.nav_title || page.title}
+                {page.data.nav_title || page.data.title}
               </Link>
             </li>
           ))}
@@ -76,18 +81,21 @@ export default function Header({
               <Github className="w-5 h-5" />
             </a>
           </li>
-          <li className="flex items-stretch">
-            <a
-              className={clsx(
-                "flex items-center pl-3",
-                "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
-              )}
-              href="/"
-              title="Page translatation"
-            >
-              <Lang className="w-5 h-5" />
-            </a>
-          </li>
+          {/* todo: support multiple language translation with a dropdown menu */ }
+          { t9ns.length > 0 &&
+            <li className="flex items-stretch">
+              <Link
+                className={clsx(
+                  "flex items-center pl-3",
+                  "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+                )}
+                href={`/${t9ns[0].lang}/${t9ns[0].slug.join('/')}`}
+                title={t9ns[0].title}
+              >
+                <Lang className="w-5 h-5" />
+              </Link>
+            </li>
+          }
           <li className="block lg:hidden">
             <Drawer>
               <Menu pages={sitemap} current={current} />

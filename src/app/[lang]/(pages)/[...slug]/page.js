@@ -41,11 +41,9 @@ export async function generateStaticParams({ params }) {
     },
   ])
     .from('pages')
-    .filter(
-      (page) => page.data.section !== true
-    )
-    .filter(
-      (page) => page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    .filter((page) => page.data.section !== true)
+    .filter((page) =>
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
     .map((page) => ({
       lang: page.lang || 'en',
