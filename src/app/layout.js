@@ -28,7 +28,6 @@ export default async function RootLayout({ children }) {
           fira.variable
         )}
       >
-        {/* <Drawer open={true}/> */}
         {children}
       </body>
     </html>
