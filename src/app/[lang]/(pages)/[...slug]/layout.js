@@ -76,7 +76,7 @@ export default async function Layout({
     // a parent property, doing it here for now
     .filter(page => {
       const path_t9n = extractSharedPath(page.path_relative)
-      return page.lang !== params.lang && currentPage.path_t9n === path_t9n
+      return page.lang !== params.lang && currentPage?.path_t9n === path_t9n
     })
     .map(page => ({
       lang: page.lang,
