@@ -188,6 +188,7 @@ export default async function Page({ params }) {
       </div>
       <Header
         current={params.slug}
+        home={true}
         link_home={`/${params.lang}`}
         sitemap={sitemap}
         className={clsx(
