@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body
         className={clsx(
-          'relative h-full text-slate-200 dark',
+          'relative h-full text-slate-200 dark bg-[#263134]',
           inter.variable,
           'font-sans',
           fira.variable
