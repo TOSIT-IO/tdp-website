@@ -10,6 +10,7 @@ import Menu from '../drawer/Menu'
 export default function Header({
   className,
   current,
+  home=false, // left side doesnt get a dark bg in homepage
   link_home,
   sitemap,
   style,
@@ -27,7 +28,7 @@ export default function Header({
         <div
           className={clsx(
             "h-full w-auto xl:w-[400px] py-[12px] flex",
-            "xl:bg-black/20 xl:border-r xl:border-r-white/10",
+            home || "xl:bg-black/20 xl:border-r xl:border-r-white/10",
             // "text-center",
           )}
         >
