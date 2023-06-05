@@ -104,7 +104,6 @@ export default async function Page({ params }) {
       },
       lang: page.lang || 'en',
       slug: page.slug,
-      
     }))
     .filter((page) => page.lang === params.lang)
     .filter((page) =>

@@ -41,7 +41,10 @@ export async function generateStaticParams({ params }) {
     },
   ])
     .from('pages')
+    // Section are not page, only use in left menu
     .filter((page) => page.data.section !== true)
+    // Redirect pages are no translation, only use in header menu
+    .filter(page => !page.data.redirect)
     .filter((page) =>
       page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
