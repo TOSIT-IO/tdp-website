@@ -16,6 +16,10 @@ import Header from '../(pages)/[...slug]/layout/header'
 export const dynamicParams = false
 
 export async function generateMetadata({ params }) {
+  // Fix bug where `dynamicParams = false` is not honored for `[lang]`
+  // and "/favicon.png" is requested.
+  // It might be due to early usage of static exports in Next.js version 13.
+  params.lang = params.lang === 'fr' ? 'fr' : 'en'
   const i18n = await redac([
     {
       module: yaml,
@@ -44,6 +48,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
+  // Fix bug where `dynamicParams = false` is not honored for `[lang]`
+  // and "/favicon.png" is requested.
+  // It might be due to early usage of static exports in Next.js version 13.
+  params.lang = params.lang === 'fr' ? 'fr' : 'en'
   const i18n = await redac([
     {
       module: yaml,

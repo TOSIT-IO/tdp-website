@@ -8,6 +8,10 @@ export default async function Footer({
   className,
   lang,
 }){
+  // Fix bug where `dynamicParams = false` is not honored for `[lang]`
+  // and "/favicon.png" is requested.
+  // It might be due to early usage of static exports in Next.js version 13.
+  lang = lang === 'fr' ? 'fr' : 'en'
   const i18n = await redac([
     {
       module: yaml,
@@ -35,7 +39,7 @@ export default async function Footer({
             <li>
               <Link
                 className="text-white/70 hover:text-[#00FFFA]"
-                href={`/${lang}/discover}`}
+                href={`/${lang}/discover`}
               >
                 Discover
               </Link>
