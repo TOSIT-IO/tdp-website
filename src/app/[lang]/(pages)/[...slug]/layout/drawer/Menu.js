@@ -16,7 +16,7 @@ const Li = function Li({current, page}){
         )}
         href={`/${page.lang}/${page.slug.join('/')}`}
       >
-        {page.title}
+        {page.data.nav_title || page.data.title}
       </Link>
       <Ul pages={page.children} current={current} />
     </li>
