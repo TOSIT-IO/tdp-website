@@ -98,7 +98,11 @@ export default function Header({
           }
           <li className="block lg:hidden">
             <Drawer>
-              <Menu pages={sitemap} current={current} />
+              <Menu
+                current={current}
+                link_home={link_home}
+                pages={sitemap}
+              />
             </Drawer>
           </li>
         </ul>
