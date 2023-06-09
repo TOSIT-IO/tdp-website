@@ -8,7 +8,6 @@ export default function Menu({
   link_home,
   pages
 }) {
-  console.log('pages', pages)
   return (
     <>
       <div
