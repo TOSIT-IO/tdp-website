@@ -221,7 +221,7 @@ export default async function Page({ params }) {
             <>
             <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.events.title}</h2>
             <ul className="grid gap-3 mb-5">
-              {events.map((event) => (
+              {events.reverse().map((event) => (
                 <li
                   key={event.slug.join('/')}
                   className={clsx(
@@ -245,7 +245,7 @@ export default async function Page({ params }) {
             <>
             <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.reports.title}</h2>
             <ul className="grid gap-3 mb-5">
-              {reports.map((report) => (
+              {reports.reverse().map((report) => (
                 <li
                   key={report.slug.join('/')}
                   className={clsx(
