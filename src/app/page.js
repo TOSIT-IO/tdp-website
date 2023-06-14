@@ -18,7 +18,7 @@
 import Layout from './[lang]/layout.js'
 import Page from './[lang]/(home)/page.js'
 
-export default function () {
+export default function RootPage () {
   return (
     <Layout params={{lang: 'en'}}>
       <Page params={{}} />
