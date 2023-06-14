@@ -19,6 +19,7 @@ export async function generateMetadata({ params }) {
   // Fix bug where `dynamicParams = false` is not honored for `[lang]`
   // and "/favicon.png" is requested.
   // It might be due to early usage of static exports in Next.js version 13.
+  const isRoot = !params.lang
   params.lang = params.lang === 'fr' ? 'fr' : 'en'
   const i18n = await redac([
     {
@@ -32,6 +33,9 @@ export async function generateMetadata({ params }) {
   return {
     title: i18n.data.title,
     description: i18n.data.description,
+    alternates: {
+      canonical: !isRoot && params.lang === 'en' ? '/' : undefined,
+    },
   }
 }
 
@@ -193,7 +197,7 @@ export default async function Page({ params }) {
       <Header
         current={params.slug}
         home={true}
-        link_home={`/${params.lang}`}
+        link_home={ params.lang === 'en' ? '/' : `/${params.lang}`}
         sitemap={sitemap}
         className={clsx(
           'fixed top-0 w-full z-10 h-[60px]',

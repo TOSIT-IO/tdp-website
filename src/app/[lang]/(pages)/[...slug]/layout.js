@@ -92,7 +92,7 @@ export default async function Layout({
     <>
       <Header
         current={params.slug}
-        link_home={`/${params.lang}`}
+        link_home={params.lang === 'en' ? '/' : `/${params.lang}`}
         sitemap={sitemap}
         className={clsx(
           'fixed top-0 w-full z-10 h-[60px]',
