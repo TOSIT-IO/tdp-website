@@ -44,7 +44,7 @@ export async function generateStaticParams() {
   ])
     .from('i18ns')
     .match([])
-    .map( i18n => i18n.lang)
+    .map( i18n => ({lang: i18n.lang}))
 }
 
 export default async function Page({ params }) {
