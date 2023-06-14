@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
     .get()
 }
 
-export async function generateStaticParams({ params }) {
+export async function generateStaticParams() {
   const pages = await redac([
     {
       module: mdx,

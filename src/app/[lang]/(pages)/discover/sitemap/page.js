@@ -1,10 +1,9 @@
 import 'server-only'
-import clsx from 'clsx'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
 import Link from 'next/link'
 
-export async function generateStaticParams({ params }) {
+export async function generateStaticParams() {
   return [{
     lang: 'en'
   }, {
