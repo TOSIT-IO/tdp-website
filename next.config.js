@@ -5,9 +5,7 @@ import rehype from './src/mdx/rehype.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  basePath: '/tdp-website',
   // Static Exports
   // See https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
   output: 'export',
