@@ -66,18 +66,18 @@ export default async function Page({ params }) {
     .match(params.lang, [])
     .map(params => params.data)
     .get()
-  const events = await redac([
+  const broadcasts = await redac([
     {
       module: yaml,
-      config: './content/events',
+      config: './content/broadcasts',
     },
   ])
-    .from('events')
-    .map((event) => ({
-      ...event,
-      lang: event.lang || 'en',
+    .from('broadcasts')
+    .map((broadcast) => ({
+      ...broadcast,
+      lang: broadcast.lang || 'en',
     }))
-    .filter((event) => event.lang === params.lang)
+    .filter((broadcast) => broadcast.lang === params.lang)
   const reports = await redac([
     {
       module: mdx,
@@ -221,13 +221,13 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-4xl px-5 m-auto">
-          {events.length !== 0 &&
+          {broadcasts.length !== 0 &&
             <>
-            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.events.title}</h2>
+            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.broadcasts.title}</h2>
             <ul className="grid gap-3 mb-5">
-              {events.reverse().map((event) => (
+              {broadcasts.reverse().map((broadcast) => (
                 <li
-                  key={event.slug.join('/')}
+                  key={broadcast.slug.join('/')}
                   className={clsx(
                     'py-2 px-3',
                     'text-white/70 hover:text-white/100 font-extralight',
@@ -238,8 +238,8 @@ export default async function Page({ params }) {
                       'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
                   }}
                 >
-                  <p>{event.data.message}</p>
-                  <small>{event.data.when}</small>
+                  <p>{broadcast.data.message}</p>
+                  <small>{broadcast.data.when}</small>
                 </li>
               ))}
             </ul>

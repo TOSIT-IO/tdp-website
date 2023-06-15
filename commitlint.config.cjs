@@ -9,7 +9,7 @@ module.exports = {
         'layout',
         'project',
         // Content related
-        'events',
+        'broadcasts',
         'pages',
         'reports',
       ],

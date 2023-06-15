@@ -8,7 +8,7 @@ header:
   discover: Découvrir
   doc: Documentation
   start: Tutoriel
-events:
+broadcasts:
   title: Nouveautés et évènements
 reports:
   title: Compte rendus
