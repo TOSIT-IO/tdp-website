@@ -11,7 +11,26 @@
   --shiki-token-punctuation: theme('colors.zinc.200');
 }
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Anchor style start */
+html {
+  scroll-padding-top: 70px; /* height of sticky header */
+}
+h2,
+h3 {
+  @apply relative;
+}
+.anchor.before {
+  @apply absolute -top-2 left-0 pr-2 -translate-x-full translate-y-[90%]	fill-slate-500	opacity-0 ease-in-out dark:fill-slate-300;
+}
+h2:hover > .anchor.before,
+h3:hover > .anchor.before {
+  @apply opacity-100;
+}
+.anchor.before > svg {
+  @apply h-4;
+}
+/* Anchor style end */

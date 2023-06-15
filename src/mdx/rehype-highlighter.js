@@ -17,7 +17,6 @@ export default function rehypeShiki() {
             textNode.value,
             node.properties.language
           )
-
           textNode.value = shiki.renderToHtml(tokens, {
             elements: {
               pre: ({ children }) => children,
