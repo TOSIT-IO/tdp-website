@@ -24,8 +24,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --frozen-lockfile
     - run: yarn run build
-    - run: touch public/.nojekyll
-    # - run: echo 'www.trunkdataplatform.io' > public/CNAME
+    - run: touch out/.nojekyll
+    # - run: echo 'www.trunkdataplatform.io' > out/CNAME
     - name: Publish
       uses: JamesIves/github-pages-deploy-action@v4
       with:
