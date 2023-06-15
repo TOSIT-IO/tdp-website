@@ -8,6 +8,7 @@ const plugins = [
   remarkFrontmatter,
   remarkGfm,
   remarkMdxFrontmatter,
+  [remarkSmartypants, { dashes: 'oldschool' }],
 ]
 
 export default plugins
