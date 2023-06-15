@@ -4,7 +4,15 @@ module.exports = {
     'scope-enum': [
       2,
       'always',
-      ['events', 'layout', 'pages', 'reports', 'project'],
+      [
+        // Project related
+        'layout',
+        'project',
+        // Content related
+        'events',
+        'pages',
+        'reports',
+      ],
     ],
     'scope-empty': [2, 'never'],
     'type-enum': [
