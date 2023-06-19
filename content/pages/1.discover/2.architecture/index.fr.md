@@ -28,6 +28,8 @@ Apache Spark est un moteur de calcul distribué, rapide et polyvalent qui fourni
 
 Apache HBase est une base de données NoSQL distribuée, évolutive et cohérente qui gère de grandes quantités de données structurées. Il permets des accès aléatoires en lecture et en écriture aux données stockées dans HDFS.
 
+## Composants additionnels
+
 ### Airflow
 
 Apache Airflow est une plate-forme open source conçue pour créer, planifier et surveiller des tâches. Avec Airflow, les utilisateurs conçoivent des flux de travail complexes sous forme de code, définissent des dépendances de tâches et automatisent l'exécution des tâches. Il offre une interface Web conviviale de gestion et de visualisation. Airflow est largement utilisé pour l'orchestration des pipelines de données, les processus ETL et l'automatisation des flux de travail dans les domaines de l'ingénierie des données et de la science des données.

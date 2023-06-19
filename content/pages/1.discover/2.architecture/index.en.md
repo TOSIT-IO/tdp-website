@@ -32,6 +32,8 @@ Apache Spark is a distributed, fast and general-purpose cluster computing engine
 
 Apache HBase is a distributed, scalable, and consistent NoSQL database that handle large amounts of structured data. It provides random read and write access to data stored in HDFS.
 
+## Extra components
+
 ### Airflow
 
 Apache Airflow is a powerful open-source platform designed for programmatically creating, scheduling, and monitoring workflows. With Airflow, users can define complex workflows as code, set task dependencies, and automate the execution of tasks. It offers a web-based user interface that allows easy management and visualization of workflows. Airflow is widely used for data pipeline orchestration, ETL processes, and workflow automation in the data engineering and data science domains.
