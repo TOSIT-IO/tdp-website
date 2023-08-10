@@ -4,7 +4,7 @@ nav_title: Usages
 
 # Platform usages
 
-TDP is based on proven, reliable and scalable components from the Hadoop eco-system. At scale, HDFS and YARN based architectures are economycally cheaper than object storage and offer unmatched massive throughput.
+TDP is based on proven, reliable and scalable components from the Hadoop eco-system.
 
 ## Architectures
 
