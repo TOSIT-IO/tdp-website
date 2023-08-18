@@ -32,4 +32,4 @@ Data analysts leverage TDP to efficiently process and analyze large volumes of s
 
 ### Chief data officer
 
-Chief data officers, data stewarts and other people in charge of data governance utilize TDP to ensure the quality, integrity, and governance of data by implementing data management policies, data lineage tracking, and metadata management, thereby facilitating effective data governance and compliance within an organization.
+Chief data officers, data stewards and other people in charge of data governance utilize TDP to ensure the quality, integrity, and governance of data by implementing data management policies, data lineage tracking, and metadata management, thereby facilitating effective data governance and compliance within an organization.
