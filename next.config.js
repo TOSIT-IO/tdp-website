@@ -5,7 +5,6 @@ import rehype from './src/mdx/rehype.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: process.env.NODE_ENV === 'development' ? undefined : '/tdp-website',
   // Static Exports
   // See https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
   output: 'export',
