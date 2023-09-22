@@ -180,7 +180,7 @@ export default async function Page({ params }) {
             </div>
             <div className="sm:flex">
               <Link
-                href="/en/getting-started"
+                href="/en/learn/getting-started"
                 className={clsx(
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
