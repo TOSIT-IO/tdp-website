@@ -22,6 +22,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --frozen-lockfile
     - run: yarn run build
+    # By default, GH pages support jekyll
+    # and ignore underscore paths such as `_next`
     - run: touch out/.nojekyll
     # - run: echo 'www.trunkdataplatform.io' > out/CNAME
     - name: Publish
