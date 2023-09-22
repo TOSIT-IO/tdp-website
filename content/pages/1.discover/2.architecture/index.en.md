@@ -15,7 +15,7 @@ notes: >
 
 TDP is an open-source data management platform that provides a comprehensive set of tools and services for storing, processing, and analyzing large datasets. It is built on top of the Hadoop ecosystem and other open-source projects, and it enables organizations to effectively manage their big data workloads.
 
-![TDP architecture schema](https://raw.githubusercontent.com/TOSIT-IO/tdp-website/feat/david-page-architecture/content/assets/architecture.png)
+![TDP architecture schema](https://raw.githubusercontent.com/TOSIT-IO/tdp-website/master/content/assets/architecture.png)
 
 ## Key components
 
