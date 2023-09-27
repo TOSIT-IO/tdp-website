@@ -3,7 +3,6 @@ import mdx from '@next/mdx'
 import remark from './src/mdx/remark.js'
 import rehype from './src/mdx/rehype.js'
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   // Static Exports
   // See https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
@@ -63,14 +62,4 @@ const withMDX = mdx({
   },
 })
 
-// const withRedac = (config) => {
-//   // console.log(fn)
-//   // return (...args) => {
-//   //   return fn.apply(null, args)
-//   // }
-//   console.log(':withRedac:', config)
-//   return config
-// }
-
-// export default nextConfig
 export default withMDX(nextConfig)

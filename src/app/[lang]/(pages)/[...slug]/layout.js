@@ -3,8 +3,8 @@ import path from 'node:path'
 import clsx from 'clsx'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
-import Header from './layout/header'
-import Left from './layout/left'
+import Header from '@/layout/header'
+import Left from '@/layout/left'
 
 // Util function
 const extractSharedPath = (name) => {
