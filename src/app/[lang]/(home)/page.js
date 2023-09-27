@@ -314,12 +314,12 @@ const FeatureCard = function ({ children, reverse, Feature, title }) {
   return (
     <div
       className={clsx(
-        'flex gap-3 sm:gap-20 flex-col sm:flex-row',
+        'flex gap-3 gap-y-10 sm:gap-20 flex-col sm:flex-row',
         'text-center sm:text-left',
         reverse && 'sm:flex-row-reverse'
       )}
     >
-      <div className="w-[20%] m-auto flex justify-end">
+      <div className="w-[20%] m-auto flex sm:block">
         <Feature />
       </div>
       <div className="sm:w-[80%]">
