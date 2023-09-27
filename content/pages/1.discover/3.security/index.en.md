@@ -9,7 +9,7 @@ nav_title: Security
     <div className="col-span-2 [&_h2]:mt-0 w-[66%]">
       ## Physical and network security
 
-      TDP is compatible with on-premise and cloud environnments. Its users are in control of the target infrastructure, enabling strong physical security of the data center or server room hosting their big data platform. Robust network security measures are activable, including firewalls, intrusion detection and prevention systems, virtual private networks (VPNs), and secure network segmentation.
+      TDP is compatible with on-premise and cloud environnments. Its users are in control of the target infrastructure, enabling strong physical security of the data center hosting their big data platform. Robust network security measures are activable, including firewalls, intrusion detection and prevention systems, virtual private networks (VPNs), and secure network segmentation.
     </div>
     <div className="px-14 w-[33%]">
       <svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,6 @@ nav_title: Security
         <path d="m95.914 14.148-30.957-8.7969c-1.1367-0.32031-2.3594-0.09375-3.3047 0.62109-0.94531 0.71094-1.5 1.8242-1.5 3.0078v5.7148h-23.648c-1.9531 0-3.5352 1.582-3.5352 3.5352v21.75h3.8516c0.91406-1.3906 1.9961-2.668 3.2188-3.793v-14.422h20.113v56.469h-20.113v-12.328c-1.2227-1.125-2.3047-2.4023-3.2188-3.793h-3.8516v19.656c0 1.9531 1.582 3.5391 3.5352 3.5391h23.648v5.7109c0 1.1836 0.55469 2.2969 1.5 3.0078 0.94531 0.71484 2.168 0.94141 3.3047 0.62109l30.957-8.7969c1.6211-0.46094 2.7383-1.9453 2.7383-3.6289v-64.445c0-1.6836-1.1172-3.168-2.7383-3.6289zm-23.109 42.062c-2.6055 0-4.7148-2.7812-4.7148-6.2109s2.1094-6.2109 4.7148-6.2109c2.6016 0 4.7148 2.7812 4.7148 6.2109s-2.1133 6.2109-4.7148 6.2109z"/>
       </g>
       </svg>
-
     </div>
   </div>
   <div className="flex flex-row-reverse [&_svg]:fill-[#009491]">
@@ -115,7 +114,7 @@ nav_title: Security
     <div className="col-span-2 [&_h2]:mt-0 w-[66%]">
       ## Data Privacy and Compliance
       
-      Organizations must comply with relevant data protection regulations, such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA). It is essential to implement appropriate measures to protect personal data and ensure compliance with privacy requirements.
+      Organizations must comply with relevant data protection regulations, such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA). TDP provide the nécessary building blocks to implement appropriate measures to protect personal data and ensure compliance with privacy requirements.
     </div>
     <div className="px-10 w-[33%]">
       <svg width="100pt" height="100pt" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
