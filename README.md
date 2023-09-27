@@ -6,11 +6,16 @@
 Run the development server:
 
 ```bash
+# Node.js install
+curl -L https://bit.ly/n-install | bash
+. ~/.bashrc
+n latest
+# Repository
+git clone https://github.com/TOSIT-IO/tdp-website.git
+cd tdp-website
+# NPM
 npm install
 npm run dev
-# or
-yarn install
-yarn dev
 ```
 
 Open [http://localhost:3000/en](http://localhost:3000/en) with your browser to see the result.
@@ -18,6 +23,6 @@ Open [http://localhost:3000/en](http://localhost:3000/en) with your browser to s
 For a production build, run:
 
 ```bash
-yarn run build
-yarn run start
+npm run build
+npm run start
 ```
