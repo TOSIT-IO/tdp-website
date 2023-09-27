@@ -7,10 +7,11 @@ import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
 
-// Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
-// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams
-// `true`(default): Dynamic segments not included in generateStaticParams are generated on demand.
-// `false`: Dynamic segments not included in generateStaticParams will return a 404.
+// With Next@13.4.16, unregistered static params are not honored as 404 pages
+// and are treated as dynamic pages. Setting `dynamicParams` to `false` enforce
+// the values returned by `generateStaticParams`.
+// Leaving that settings with Next@13.5.3 generates the error:
+// Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
 export const dynamicParams = false
 
 export async function generateMetadata({ params }) {
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const pages = await redac([
+  return redac([
     {
       module: mdx,
       config: './content/pages',
@@ -52,7 +53,6 @@ export async function generateStaticParams() {
       lang: page.lang || 'en',
       slug: page.slug,
     }))
-  return pages
 }
 
 export default async function Page({ params }) {
