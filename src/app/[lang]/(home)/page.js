@@ -13,14 +13,14 @@ import FeaturesDataCentric from '../(pages)/layout/assets/FeaturesDataCentric.sv
 import FeaturesHybridation from '../(pages)/layout/assets/FeaturesHybridation.svg'
 import Header from '../(pages)/[...slug]/layout/header'
 
+// With Next@13.4.16, unregistered static params are not honored as 404 pages
+// and are treated as dynamic pages. Setting `dynamicParams` to `false` enforce
+// the values returned by `generateStaticParams`.
+// Leaving that settings with Next@13.5.3 generates the error:
+// Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
 export const dynamicParams = false
 
 export async function generateMetadata({ params }) {
-  // Fix bug where `dynamicParams = false` is not honored for `[lang]`
-  // and "/favicon.png" is requested.
-  // It might be due to early usage of static exports in Next.js version 13.
-  const isRoot = !params.lang
-  params.lang = params.lang === 'fr' ? 'fr' : 'en'
   const i18n = await redac([
     {
       module: yaml,
@@ -34,7 +34,8 @@ export async function generateMetadata({ params }) {
     title: i18n.data.title,
     description: i18n.data.description,
     alternates: {
-      canonical: !isRoot && params.lang === 'en' ? '/' : undefined,
+      // Indicates that homepage url prefer `/` over `/en`
+      canonical: params.lang === 'en' ? '/' : undefined,
     },
   }
 }
@@ -52,10 +53,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  // Fix bug where `dynamicParams = false` is not honored for `[lang]`
-  // and "/favicon.png" is requested.
-  // It might be due to early usage of static exports in Next.js version 13.
-  params.lang = params.lang === 'fr' ? 'fr' : 'en'
+  // Homepage prefered address is `/` and not `/en`
+  params.lang = params.lang ?? 'en'
   const i18n = await redac([
     {
       module: yaml,
