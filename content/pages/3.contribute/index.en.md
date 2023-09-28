@@ -17,7 +17,7 @@ We believe in giving back to our contributors. As a token of our appreciation, h
 
 - Recognition: Your contributions will be acknowledged, and you'll have the opportunity to become a core contributor as you gain experience.
 - Learning: Working on this project provides an excellent opportunity to enhance your skills, learn from experienced developers, and gain exposure to cutting-edge technologies.
-- Impact: Your work will have a real-world impact, helping individuals and organizations solve data challenges and gain technological independance.
+- Impact: Your work will have a real-world impact, helping individuals and organizations solve data challenges with no vendor lock-in.
 - Community: Joining our community means connecting with like-minded individuals who are passionate about open-source and data.
 
 ## Let's shape the future of data together
