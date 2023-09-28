@@ -1,3 +1,6 @@
+---
+nav_title: Contribute
+---
 
 # Welcome to the TDP community!
 
