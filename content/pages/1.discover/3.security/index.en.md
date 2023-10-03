@@ -2,7 +2,7 @@
 nav_title: Security
 ---
 
-# Security enforcment
+# Security enforcement
 
 <div className="flex flex-col gap-10 mt-20">
   <div className="flex flex-row-reverse [&_svg]:fill-[#009491]">
