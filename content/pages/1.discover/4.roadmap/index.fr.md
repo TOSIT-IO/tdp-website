@@ -1,5 +1,5 @@
 ---
-nav_title: roadmap
+nav_title: Roadmap
 ---
 
 # Roadmap et prochaines évolutions
