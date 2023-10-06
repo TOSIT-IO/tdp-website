@@ -1,5 +1,6 @@
 ---
 nav_title: Sécurité
+slug: securite
 ---
 
 # Sécurité

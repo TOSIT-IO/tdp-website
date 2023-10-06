@@ -1,4 +1,5 @@
 ---
+slug: decouvrir
 nav_title: Découvrir
 ---
 
