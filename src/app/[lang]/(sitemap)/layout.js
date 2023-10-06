@@ -1,4 +1,4 @@
-import Layout from '../[...slug]/layout.js'
+import Layout from '../(pages)/[...slug]/layout.js'
 
 export default async function newLayout({
   children,
@@ -8,7 +8,7 @@ export default async function newLayout({
     children,
     params: {
       ...params,
-      slug: ['discover', 'sitemap']
+      slug: params.lang === 'fr' ?  ['decouvrir', 'plan-site'] : ['discover', 'sitemap']
     }
   })
 }
