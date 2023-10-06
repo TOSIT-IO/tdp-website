@@ -19,6 +19,14 @@ The work on the next release (maybe version 2) will start once 1.1 is available.
 
 TDP lib is the orchestration tools used to deploy and operate the TDP platform. It is a low level component driven by TDP UI and TDP CLI.
 
+Current work includes features for [operating a running cluster](https://github.com/TOSIT-IO/tdp-lib/issues/308) such as:
+
+- Deployment plan should be desynchronized from the actual deployment
+- TDP Lib execution is limited to reading a deployment plan and executes declared operations
+- Deployments can be limited to a single host or a group of host
+- Operations can be launched one host at a time in rolling fashion
+- State of a configuration on a host is stored in a database, whether it's synchronized or stale.
+
 ## TDP UI
 
 
