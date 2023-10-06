@@ -36,6 +36,7 @@ TDP server exposes TDP Lib as a REST service over the HTTP protocol. Work on TDP
 TDP UI exposes all the features of the Lib on a Web UI (through TDP Server). Work on TDP UI is pending on TDP Lib and TDP Server.
 
 Ergonomics and accessibility of the UI will follow [RGAA 4.1 guidelines](https://accessibilite.numerique.gouv.fr/doc/RGAA-v4.1.pdf).
+
 ## TDP Collection
 
 TDP collection follows the stack definition and reflects the supported components and features of TDP. TDP collection also improves on new functionnalities such as the support of heterogeneous infrastructures.
