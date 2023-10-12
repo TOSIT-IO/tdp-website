@@ -13,7 +13,7 @@ The stack refers to a specific combination of software components, their version
 
 Version 1.1 is currently in active development. We are targeting an overall version upgrade of all the components shipped in TDP with a focus on stability and smooth integration.
 
-The work on the next release (maybe version 2) will start once 1.1 is available. Historically, version 1.0 was aligned with the versions present inside the Hortonworks/Cloudera HDP distribution. Version 1.1 introduces some minor upgrades. With version 2, the aim is to integrate the latest major versions and features of the supported components. 
+The objectives of the future releases will be discussed and approved once 1.1 is available. Historically, version 1.0 was aligned with the versions present inside the Hortonworks/Cloudera HDP distribution. Version 1.1 introduces some minor upgrades. In the future, one objective is the integration of the latest major versions and features of the supported components. 
 
 ## TDP Lib
 
