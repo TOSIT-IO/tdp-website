@@ -66,10 +66,10 @@ export const LiRoot = function ({
   page,
 }) {
   return (
-    <li className="relative pb-2">
+    <li className="relative">
       <Link
         className={clsx(
-          "py-4",
+          "block pb-2",
           JSON.stringify(current) === JSON.stringify(page.slug)
           ? "text-white"
           : "text-white/70 hover:text-[#00FFFA]"
@@ -107,7 +107,7 @@ export const LiChildOfSection = function ({
   page,
 }) {
   return (
-    <li key={page.slug.join('/')} className="relative pb-2">
+    <li key={page.slug.join('/')} className="relative">
         {last ||
           <span className="absolute left-1 top-2 -ml-px h-full w-0.5 bg-white/40" aria-hidden="true" />
         }
@@ -123,7 +123,7 @@ export const LiChildOfSection = function ({
           <div className="space-y-1">
             <Link
               className={clsx(
-                "py-4",
+                "block pb-2",
                 JSON.stringify(current) === JSON.stringify(page.slug)
                 ? "text-white"
                 : "text-white/70 hover:text-[#00FFFA]"
