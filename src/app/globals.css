@@ -24,7 +24,7 @@ h3 {
   @apply relative;
 }
 .anchor.before {
-  @apply absolute -top-2 left-0 pr-2 -translate-x-full translate-y-[90%]	fill-slate-500	opacity-0 ease-in-out dark:fill-slate-300;
+  @apply absolute -top-2 left-1 pr-2 -translate-x-full translate-y-[90%]	fill-slate-500	opacity-0 ease-in-out dark:fill-slate-300;
 }
 h2:hover > .anchor.before,
 h3:hover > .anchor.before {
