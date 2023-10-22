@@ -6,9 +6,9 @@ description: |
 
 ## General notes
 
-Project is actively preparing for the release of TDP 1.1 The proposed bill of materials will be published under the project and is currently is a PR [tdp#90](https://github.com/TOSIT-IO/TDP/pull/90).
+Project is actively preparing for the release of TDP 1.1 The proposed bill of materials will be published in the project page and is currently is a PR [tdp#90](https://github.com/TOSIT-IO/TDP/pull/90).
 
-The focus of the release is to create coherence with upstreams Apache repositories as well as fixing minor issues.
+The focus of the release is to create coherence with upstreams Apache repositories, upgrading patch versions of some components as well as fixing minor issues.
 
 ## Pull Requests
 
