@@ -4,6 +4,12 @@ description: |
 --- 
 # Meeting notes October 20th, 2023
 
+## General notes
+
+Project is actively preparing for the release of TDP 1.1 The proposed bill of materials will be published under the project and is currently is a PR [tdp#90](https://github.com/TOSIT-IO/TDP/pull/90).
+
+The focus of the release is to create coherence with upstreams Apache repositories as well as fixing minor issues.
+
 ## Pull Requests
 
 - [tdp-observability#52](https://github.com/TOSIT-IO/tdp-observability/pull/52) : @kpgtek will review. DGFIP manages the subject
