@@ -1,7 +1,10 @@
-// export { CodeGroup } from '@/mdx/components/Code'
-export { Code as code, Pre as pre } from '@/mdx/components/Code'
-export { Tabs } from '@/mdx/components/Tabs'
-export { Properties, Property } from '@/mdx/components/Properties'
+
+// export { Code as code, Pre as pre } from '@/mdx/components/Code'
+// export { Properties, Property } from '@/mdx/components/Properties'
+// export { Tabs } from '@/mdx/components/Tabs'
+import { Code, Pre } from '@/mdx/components/Code'
+import { Properties, Property } from '@/mdx/components/Properties'
+import { Tabs } from '@/mdx/components/Tabs'
 
 const h1 = () => (
   <div>
@@ -9,5 +12,16 @@ const h1 = () => (
     the begining of a page.
   </div>
 )
+// export { h1 }
 
-export { h1 }
+// Fix error `Error: Cannot access Code.propTypes on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`
+// Introduced with Next.js version 13.5.6, was fine with version 13.4.16
+// See https://github.com/hashicorp/next-mdx-remote/issues/405
+export default {
+  h1: h1,
+  code: (props) => <Code {...props} />,
+  pre: (props) => <Pre {...props} />,
+  Properties: (props) => <Properties {...props} />,
+  Property: (props) => <Property {...props} />,
+  Tabs: (props) => <Tabs {...props} />,
+}

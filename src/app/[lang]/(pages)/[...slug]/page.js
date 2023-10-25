@@ -2,7 +2,7 @@ import 'server-only'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import * as components from '@/mdx/components/index.js'
+import components from '@/mdx/components/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
@@ -12,7 +12,7 @@ import recma from '/src/mdx/recma.js'
 // the values returned by `generateStaticParams`.
 // Leaving that settings with Next@13.5.3 generates the error:
 // Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
-export const dynamicParams = false
+// export const dynamicParams = false
 
 export async function generateMetadata({ params }) {
   return await redac([
