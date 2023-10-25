@@ -18,7 +18,7 @@ import Header from '@/layout/header'
 // the values returned by `generateStaticParams`.
 // Leaving that settings with Next@13.5.3 generates the error:
 // Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
-export const dynamicParams = false
+// export const dynamicParams = false
 
 export async function generateMetadata({ params }) {
   const i18n = await redac([
