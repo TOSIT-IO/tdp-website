@@ -1,7 +1,7 @@
 1:HL["/_next/static/media/122c360d7fe6d395-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/_next/static/css/14df86764872c516.css","style",{"crossOrigin":""}]
-0:["MZaUYNSccIiP1wXhHBxta",[[["",{"children":[["lang","fr","d"],{"children":["(sitemap)",{"children":["decouvrir",{"children":["plan-site",{"children":["__PAGE__?{\"lang\":\"fr\"}",{}]}]}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14df86764872c516.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
+0:["kDX6Z8Sst1TmLRWVM8K_-",[[["",{"children":[["lang","fr","d"],{"children":["(sitemap)",{"children":["decouvrir",{"children":["plan-site",{"children":["__PAGE__?{\"lang\":\"fr\"}",{}]}]}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14df86764872c516.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
 5:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"TDP open source big data platform"}],["$","meta","2",{"name":"description","content":"TDP is a 100% open source big data platform based on the Hadoop ecosystem."}],["$","link","3",{"rel":"author","href":"https://adaltas.com"}],["$","meta","4",{"name":"author","content":"David Worms"}],["$","meta","5",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","6",{"name":"category","content":"technology"}],["$","link","7",{"rel":"icon","href":"/favicon.svg"}],["$","meta","8",{"name":"next-size-adjust"}]]
 4:[null,"$L6",null]
 7:I[6954,[],""]

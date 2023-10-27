@@ -1,7 +1,7 @@
 1:HL["/_next/static/media/122c360d7fe6d395-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:HL["/_next/static/css/14df86764872c516.css","style",{"crossOrigin":""}]
-0:["MZaUYNSccIiP1wXhHBxta",[[["",{"children":[["lang","en","d"],{"children":["(reports)",{"children":["contribute",{"children":["reports",{"children":[["slug","230929-contributors","c"],{"children":["__PAGE__?{\"lang\":\"en\",\"slug\":[\"230929-contributors\"]}",{}]}]}]}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14df86764872c516.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
+0:["kDX6Z8Sst1TmLRWVM8K_-",[[["",{"children":[["lang","en","d"],{"children":["(reports)",{"children":["contribute",{"children":["reports",{"children":[["slug","230929-contributors","c"],{"children":["__PAGE__?{\"lang\":\"en\",\"slug\":[\"230929-contributors\"]}",{}]}]}]}]}]}]},"$undefined","$undefined",true],"$L4",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/14df86764872c516.css","precedence":"next","crossOrigin":""}]],"$L5"]]]]
 4:[null,"$L6",null]
 7:I[6954,[],""]
 8:I[7264,[],""]
