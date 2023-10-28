@@ -79,6 +79,7 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
+    "reportinit": "node bin/reportInit.mjs",
     "start": "serve out",
     "test": "npx mocha 'src/test/**/*.js'"
   },
