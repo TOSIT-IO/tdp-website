@@ -2,7 +2,7 @@
 type: contributors
 date: 2023-11-10
 description: |
-Review of PRs for collections, backport of patches for tdp stack componants and preparations for TDP-1.1
+  Review of PRs for collections, backport of patches for tdp stack componants and preparations for TDP-1.1
 ---
 
 # TDP contributors meeting notes
