@@ -2,7 +2,7 @@
 type: contributors
 date: 2023-11-17
 description: |
-Weekly meeting of the TDP contributors to discuss opens PR and particularly the ones related to the TDP 1.1 release.
+  Weekly meeting of the TDP contributors to discuss opens PR and particularly the ones related to the TDP 1.1 release.
 ---
 
 # TDP contributors meeting notes
@@ -14,7 +14,9 @@ Weekly meeting of the TDP contributors to discuss opens PR and particularly the 
 Weekly review of open PRs (in chronological order):
 
 - [hadoop#5](https://github.com/TOSIT-IO/hadoop/pull/5): Waiting for contributor answer.
-- [tdp-collection#799](https://github.com/TOSIT-IO/tdp-collection/pull/799): This is not stable and would be a "best effort" if implemented. ACID will be discussed with Hive 4.
+- [tdp-collection#799](https://github.com/TOSIT-IO/tdp-collection/pull/799): Patch for hive transactions and compactions on posgresql backend is still a WIP. Not all oprerations are functionnal.  
+  The patch will not garanty stable behaviour, as many known issues are only corrected in Hive 4. **This feature will be best effort only**. As discused, we will focus to bring transactions and compactions with Hive 4 in a future release.
+
 - [tdp-collection#816](https://github.com/TOSIT-IO/tdp-collection/pull/816): Merged.
 - [tdp-website#61](https://github.com/TOSIT-IO/tdp-website/pull/61): Merged.
 - [tdp-observability#59](https://github.com/TOSIT-IO/tdp-observability/pull/59): Promtail section should be checked. Spark is missing.
@@ -36,7 +38,7 @@ Weekly review of open PRs (in chronological order):
   - Tez 0.9.1
   - Hive 1.2.3
   - Spark 2.3.5
-  - Hive2.3.9
+  - Hive 2.3.9
 
   Some issues remain for:
 
@@ -44,7 +46,7 @@ Weekly review of open PRs (in chronological order):
   - HBase Connectors, which can't be build because it needs Spark 3 jars
   - HBase 2.1.10 is not compatible with Hadoop 3.1.4 because of a dependency upgrade (jetty) that is not backported on 2.1.10 (EOL and shaded in later versions). @Pierrotws is working on a PR to upgrade jetty on HBase 2.1.10.
 
-- [spark#3](https://github.com/TOSIT-IO/spark/pull/3): Issue with nvm install (see [spark-old#3](https://github.com/TOSIT-IO/spark-old/issues/3)). We need to try to buid Spark 3.2.4 with and without this PR to see if it improve the test output. Spark 2 is ok.
+- [spark#3](https://github.com/TOSIT-IO/spark/pull/3): Issue with `mvn install` (see [spark-old#3](https://github.com/TOSIT-IO/spark-old/issues/3)). We need to try to buid Spark 3.2.4 with and without this PR to see if it improve the test output. Spark 2 is ok.
 - [ranger#4](https://github.com/TOSIT-IO/ranger/pull/4): HBase plugin performance improvements that has not been released by Ranger but could be used. Merged.
 - [phoenix#5](https://github.com/TOSIT-IO/phoenix/pull/5): Merged. Build can be tested now.
 - [phoenix-queryserver#5](https://github.com/TOSIT-IO/phoenix-queryserver/pull/5) Merged. Build can be tested now.
