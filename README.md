@@ -1,5 +1,5 @@
 
-# TDP website
+# TDP Website
 
 ## Getting Started
 
