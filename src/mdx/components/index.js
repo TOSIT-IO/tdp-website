@@ -24,4 +24,14 @@ export default {
   Properties: (props) => <Properties {...props} />,
   Property: (props) => <Property {...props} />,
   Tabs: (props) => <Tabs {...props} />,
+  TODO: (props) => <p className="bg-amber-200 text-amber-800 border-amber-800 border rounded-md p-1" {...props}><span className='font-bold'>TODO</span> {props.children}</p>,
+  a: (props) => {
+    if (props.href && props.href !== '#') {
+      // href is defined
+      return <a {...props} />;
+    } else {
+      // href is not defined
+      return <a className="underline text-amber-200 decoration-amber-200 decoration-4 hover:decoration-amber-100 hover:text-amber-100" title="Missing link" {...props} />;
+    }
+  },
 }
