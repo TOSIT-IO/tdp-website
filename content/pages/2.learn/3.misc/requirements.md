@@ -111,7 +111,7 @@ Internal connections:
 The following network components have to be disabled inside of the cluster:
 
 - IPv6 disabled
-- IPTables disabled or configured properly for necessary ports of the TDP components (see [Ports and protocols used by TDP](./ports.md)).
+- IPTables or nftables backends properly configured or disabled for necessary ports of the TDP components (see [Ports and protocols used by TDP](./ports.md)).
 
 ## System
 
@@ -119,8 +119,9 @@ The following network components have to be disabled inside of the cluster:
 
 TDP has been tested using the following operating systems:
 
-- RHEL 7
 - CentOS 7
+- Rocky 8
+- AlmaLinux 8
 
 ## SELinux
 
@@ -143,7 +144,7 @@ echo '0' > /proc/sys/vm/swappiness
 
 #### Limits
 
-The `nproc` limit (max number of opened files) has to be set to `65536` or `262144`.
+The `nofile` limit (max number of opened files) is recommended at `65536`, can be increased to `262144` for processing nodes to prevent file limits problems.
 
 ### Partitioning
 
@@ -196,18 +197,18 @@ Note, activating the `noexec` flag on `/tmp` mounted partitions causes knows iss
 
 TDP create Hadoop users and groups if they do not exist without any control on the UID/GID.
 
-| User        | Groups                |
-| ----------- | --------------------- |
-| `hdfs`      | `hdfs`, `hadoop`      |
-| `yarn`      | `yarn`, `hadoop`      |
-| `mapred`    | `mapred`, `hadoop`    |
-| `hbase`     | `hbase`, `hadoop`     |
-| `hive`      | `hive`, `hadoop`      |
-| `knox`      | `knox`, `hadoop`      |
-| `oozie`     | `oozie`, `hadoop`     |
-| `ranger`    | `ranger`, `hadoop`    |
-| `spark`     | `spark`, `hadoop`     |
-| `zookeeper` | `zookeeper`, `hadoop` |
+| User                  | Groups                          |
+|-----------------------|---------------------------------|
+| `hdfs`                | `hdfs`, `hadoop`                |
+| `yarn`                | `yarn`, `hadoop`                |
+| `mapred`              | `mapred`, `hadoop`              |
+| `hbase`               | `hbase`, `hadoop`               |
+| `phoenix_queryserver` | `phoenix_queryserver`, `hadoop` |
+| `hive`                | `hive`, `hadoop`                |
+| `knox`                | `knox`, `hadoop`                |
+| `ranger`              | `ranger`, `hadoop`              |
+| `spark`               | `spark`, `hadoop`               |
+| `zookeeper`           | `zookeeper`, `hadoop`           |
 
 It is recommanded to create the users prior to installation in order to control the UID/GID used and prevent any potential collision with the existing AD/LDAP directory.
 
@@ -232,11 +233,12 @@ The compilation node will need access to the TDP GitHub repositories:
 - Tez: [https://github.com/TOSIT-IO/tez]
 - Spark: [https://github.com/TOSIT-IO/spark]
 - Ranger: [https://github.com/TOSIT-IO/ranger]
-- Oozie: [https://github.com/TOSIT-IO/oozie]
 - HBase: [https://github.com/TOSIT-IO/hbase]
 - Phoenix: [https://github.com/TOSIT-IO/phoenix]
 - Phoenix Query Server: [https://github.com/TOSIT-IO/phoenix-queryserver]
 - Knox: [https://github.com/TOSIT-IO/knox]
+- HBase-Connectors: [https://github.com/TOSIT-IO/hbase-connectors]
+- HBase-Operator-Tools: [https://github.com/TOSIT-IO/hbase-operator-tools]
 
 Access to the official Apache ZooKeeper repo is also needed to download release 3.4.6: [https://archive.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz]
 
@@ -247,11 +249,23 @@ The following packages are expected to be installed on all cluster nodes:
 - `yum`
 - `rpm`
 - `scp`
+- `tar`
+- `vim`
+- `java-1.8.0-openjdk`
+- `wget`
 - `curl`
 - `unzip`
-- `tar`
-- `wget`
-- `gcc`
+- `nmap-ncat`
+- `expect`
+- `python3`
+- `python3-pip`
+- `python3-setuptools`
+- `python3-virtualenv`
+- `python3-lxml`
+- `libcgroup-tools`
+- `authselect`
+- `python2`
+- `python3-cryptography`
 - `ntp` or `chrony` enabled
 - OpenSSL (v1.01, build 16 or later)
 - `krb5-workstation`
@@ -262,8 +276,10 @@ The following packages are expected to be installed on all cluster nodes:
 
 Extra packages for the Ansible host:
 
-- `ansible >= 2.9`
-- `python 2.7+/3.5+`
+- `ansible = 2.15.1`
+- `jmespath = 1.0.1`
+- `passlib=1.7.4`
+- `python 2.7+/3.9+`
 
 ### Java versions
 
@@ -284,9 +300,9 @@ The [Hadoop wiki](https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java
 [Cloudera](https://docs.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_java_requirements.html) list the following issues:
 
 > - JDK 8u271, JDK 8u281, and JDK 8u291 may cause socket leak issues due to JDK-8245417 and JDK-8256818. Pay attention to the build version of your JDK because some later builds are fixed as described in [JDK-8256818](https://bugs.openjdk.java.net/browse/JDK-8256818).  
->   Workaround: Consider using a more recent version of the JDK like 8u282, or builds of the JDK where the issue is fixed.
+    >   Workaround: Consider using a more recent version of the JDK like 8u282, or builds of the JDK where the issue is fixed.
 > - JDK 8u40, 8u45, and 8u60 are not supported due to JDK issues impacting CDH functionality:
->   - JDK 8u40 and 8u45 are affected by JDK-8077155, which affects HTTP authentication for certain web UIs.
+    >   - JDK 8u40 and 8u45 are affected by JDK-8077155, which affects HTTP authentication for certain web UIs.
 >   - JDK 8u60 is incompatible with the AWS SDK, and causes problem with DistCP. For more information, see the KB article.
 > - [Oozie Workflow Graph Display](http://gethue.com/improved-oozie-workflow-graph-display-in-hue-4-3/) in Hue does not work properly with JDK versions lower than 8u40.
 > - For JDK 8u241 and higher versions running on Kerberized clusters, you must disable referrals by setting sun.security.krb5.disableReferrals=true.
@@ -296,23 +312,47 @@ The [Hadoop wiki](https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java
 For Hive, Oozie and Ranger, the following databases are supported:
 
 | Database   | Supported versions |
-| ---------- | ------------------ |
+| ---------- |--------------------|
 | OracleDB   | 19, 12             |
-| PostgreSQL | 11, 10             |
+| PostgreSQL | 12, 11             |
 | MySQL      | 5.7                |
 | MariaDB    | 10.2               |
 
 ### Ansible node
 
-The Ansible roles used to deploy TDP are available in the repository [https://github.com/TOSIT-IO/ansible-tdp-roles].
+The Ansible roles used to deploy TDP are available in the repository [https://github.com/TOSIT-IO/tdp-collection].
 
 ## Security
 
 ### Kerberos
 
 - TDP currently requires the presence of a KDC and appropriately configured Kerberos clients on each node of the cluster.
-- A Kerberos admin principal should exist before any deployment (the admin credentials and realm will be used to automate service principal creation).
-- A `krb5.conf` file with this KDC's information should be available on the ansible host. The default location is `files/krb5.conf`.
+- A Kerberos admin principal should exist before any deployment (the admin credentials and realm will be used to automate service principal creation). With an external KDC, the principals an keytabs should be configured in each ansible role and the keytabs should be deployed manually on the corresponding host.
+- Kerberos' `krb5.conf` configuration file must be deployed on each host to allow contact the KDC. The default location is `/etc/krb5.conf`. Here is an example with a KDC on the machine `master-01` and the realm `TDP.LOCAL` :
+
+```ini
+[libdefaults]
+  dns_lookup_realm = false
+  ticket_lifetime = 24h
+  renew_lifetime = 7d 0h 0m 0s
+  forwardable = true
+  rdns = false
+  pkinit_anchors = FILE:/etc/pki/tls/certs/ca-bundle.crt
+  default_realm = TDP.LOCAL
+  default_ccache_name = /tmp/krb5cc_%{uid}
+  default_client_keytab_name = /home/%{username}/%{username}.keytab
+  canonicalize = true
+
+[realms]
+  REALM.TDP = {
+    kdc = master-01.tdp.local
+    admin_server = master-01.tdp.local
+    kpasswd_server = master-01.tdp.local
+  }
+
+[domain_realm]
+  .tdp.local = TDP.LOCAL
+```
 
 ### Certificate Authority
 
@@ -320,9 +360,9 @@ All external communication are encrypted using SSL/TLS. Deploying certificates i
 
 Both signed and unsigned authorities are supported. TDP also supports the usage of intermediate certificates. Wildcard certificates are not supported.
 
-The Ansible project used to deploy the cluster provides a `files` directory where certificates are expected to be found. It must contain the certificate authority (CA) under `files/root.pem` and, for each node, their public certificate under `files/${FQDN}.pem` and their respective private certificate under `files/${FQDN}.key`.
+The certificate authority (CA) certificate, the hosts public and private certificates are expected to be deployed on the hosts. The default directory is `/etc/ssl/certs` an can be changed through ansible variable `certs_dir`. Other SSL related variables can be found [here](https://github.com/TOSIT-IO/tdp-collection/blob/master/roles/utils/ssl_tls/defaults/main.yml).
 
-## Additionnal resources
+## Additional resources
 
 - [HP Reference Architecture for Hortonworks Data Platform 2.1](https://www.suse.com/partners/alliance/hpe/hp-reference-architecture.pdf)  
   See appendix B: Hadoop cluster tuning/optimization
