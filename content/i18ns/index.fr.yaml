@@ -18,18 +18,35 @@ features:
     description: |
       Le code de toutes les technologies utilisées est disponible sur
       notre Github publique avec une licence compatible Apache.
-  cost:
-    title: Gratuit
+  free:
+    title: 100% libre et communautaire
     description: |
-      Vous pouvez utiliser toutes les technologies et tous les services
-      et composants de TDP de façon gratuite.
-  endtoend:
-    title: Data centric
+      L'intégralité des développements est reversée par la communauté et
+      disponible gratuitement. La plateforme est construite par ses
+      utilisateurs pour répondre répondre aux exigences métiers critiques.
+  core:
+    title: Noyau solide
     description: |
-      TDP respecte le cycle de vie de la donnée en proposant des
-      technologies pour gérer la donnée de bout-en-bout.
-  deploy:
+      TDP fournit des composants ayant fait leurs preuves en termes de
+      performances et d'engagement communautaire.
+  independence:
+    title: Technological independence
+    description: |
+      TDP offre un contrôle total du déploiement sans dépendance vis-à-vis d'un
+      fournisseur et dans le respect des réglementations locales.
+  deployment:
     title: Déploiement
     description: |
-      Compatible à la fois avec des déploiements sur le cloud privé,
-      public ou on-premise.
+      Compatible à la fois avec les déploiements en environnements cloud privés,
+      cloud publics et architectures bare metal on-premise.
+  secured:
+    title: Secured by default
+    description: |
+      No compromise on security and stability, development and initial support
+      in secure mode and in HA with the aim of simplification and efficiency.
+  community:
+    title: Active community
+    description: |
+      Développeurs, utilisateurs et passionnés affinent, maintiennent et
+      étendent la plateforme TDP. Le code et la documentation sont publiés sur
+      GitHub et des réunions régulières réunissent développeurs et utilisateurs.
