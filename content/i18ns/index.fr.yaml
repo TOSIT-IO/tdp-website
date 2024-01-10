@@ -1,4 +1,3 @@
-
 title: TDP, la plateform big data entièrement libre de droit
 description: |
   La plateforme de données Trunk (TDP) est une infrastructure de gestion de
@@ -40,10 +39,10 @@ features:
       Compatible à la fois avec les déploiements en environnements cloud privés,
       cloud publics et architectures bare metal on-premise.
   secured:
-    title: Secured by default
+    title: Sécurisé par défaut
     description: |
-      No compromise on security and stability, development and initial support
-      in secure mode and in HA with the aim of simplification and efficiency.
+      Aucun compromis sur la sécurité et la stabilité. Développement et support
+      initial en mode sécurisé et en haute disponibilité.
   community:
     title: Active community
     description: |

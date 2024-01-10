@@ -1,4 +1,3 @@
-
 title: TDP, the open source big data platform
 description: |
   The Trunk Data Platform (TDP) is a data management infrastructure that
@@ -16,13 +15,13 @@ features:
   open:
     title: Open Source
     description: |
-      All the source code of the components in used is available on our GitHub
+      All the source code of the components in use is available on our GitHub
       with a compatible Apache license.
   free:
     title: 100% free and community driven
     description: |
       All the technologies and services delivered by the TDP project are free
-      of use. It is built by its user to answer critical business requirements.
+      of use. It is built by its users to answer critical business requirements.
   core:
     title: Robust core
     description: |
@@ -36,16 +35,16 @@ features:
   deployment:
     title: Deployment
     description: |
-      TDP is compatible with multiple targetted environments including public
-      and private clouds as well as on-premise bare metal infrastructures.
+      TDP targets multiple environments including public and private clouds as
+      well as on-premise bare metal infrastructures.
   secured:
     title: Secured by default
     description: |
-      No compromise on security and stability, development and initial support
+      No trade-off on security and stability, development and initial support
       in secure mode and in HA with the aim of simplification and efficiency.
   community:
     title: Active community
     description: |
       Developers, users, and enthusiasts refine, maintain, and expand
-      the TDP platorm. Code and documentation are plublished on GitHub and
+      the TDP platform. Code and documentation are published on GitHub and
       regular meetings are scheduled for developers and users.
