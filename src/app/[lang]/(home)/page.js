@@ -7,10 +7,7 @@ import Link from 'next/link'
 import Logo from '@/layout/home/logo.svg'
 import CirclesLeft from '@/layout/home/circles-left.svg'
 import CirclesRight from '@/layout/home/circles-right.svg'
-import FeaturesOpenSource from '@/layout/home/FeaturesOpenSource.svg'
-import FeaturesFree from '@/layout/home/FeaturesFree.svg'
-import FeaturesDataCentric from '@/layout/home/FeaturesDataCentric.svg'
-import FeaturesHybridation from '@/layout/home/FeaturesHybridation.svg'
+import * as features from '@/layout/home/features.js'
 import Header from '@/layout/header'
 
 // With Next@13.4.16, unregistered static params are not honored as 404 pages
@@ -196,21 +193,24 @@ export default async function Page({ params }) {
       <Header
         current={params.slug}
         home={true}
-        link_home={ params.lang === 'en' ? '/' : `/${params.lang}`}
+        link_home={params.lang === 'en' ? '/' : `/${params.lang}`}
         sitemap={sitemap}
-        className={clsx(
-          'fixed top-0 w-full z-10 h-[60px]',
-        )}
+        className={clsx('fixed top-0 w-full z-10 h-[60px]')}
         style={{
           background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
         }}
-        t9ns={[{
-          lang: params.lang === 'en' ? 'fr' : 'en',
-          slug: [],
-          data: {
-            title: params.lang === 'en' ? 'Accueil du projet TDP' : 'TDP project homepage',
-          }
-        }]}
+        t9ns={[
+          {
+            lang: params.lang === 'en' ? 'fr' : 'en',
+            slug: [],
+            data: {
+              title:
+                params.lang === 'en'
+                  ? 'Accueil du projet TDP'
+                  : 'TDP project homepage',
+            },
+          },
+        ]}
       />
       <section
         className={clsx('py-10', 'border-b border-slate-500')}
@@ -220,57 +220,63 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-4xl px-5 m-auto">
-          {broadcasts.length !== 0 &&
+          {broadcasts.length !== 0 && (
             <>
-            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.broadcasts.title}</h2>
-            <ul className="grid gap-3 mb-5">
-              {broadcasts.reverse().map((broadcast) => (
-                <li
-                  key={broadcast.slug.join('/')}
-                  className={clsx(
-                    'py-2 px-3',
-                    'text-white/70 hover:text-white/100 font-extralight',
-                    'rounded border border-white/40 hover:border-white/80'
-                  )}
-                  style={{
-                    background:
-                      'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                  }}
-                >
-                  <p>{broadcast.data.message}</p>
-                  <small>{broadcast.data.when}</small>
-                </li>
-              ))}
-            </ul>
-            </>
-          }
-          { reports.length !== 0 &&
-            <>
-            <h2 className={clsx('mb-5', 'text-xl font-extralight')}>{i18n.reports.title}</h2>
-            <ul className="grid gap-3 mb-5">
-              {reports.reverse().map((report) => (
-                <li
-                  key={report.slug.join('/')}
-                  className={clsx(
-                    'py-2 px-3',
-                    'text-white/70 hover:text-white/100 font-extralight',
-                    'rounded border border-white/40 hover:border-white/80'
-                  )}
-                  style={{
-                    background:
-                      'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                  }}
-                >
-                  <Link
-                    href={`/${params.lang}/contribute/reports/${report.slug.join('/')}`}
+              <h2 className={clsx('mb-5', 'text-xl font-extralight')}>
+                {i18n.broadcasts.title}
+              </h2>
+              <ul className="grid gap-3 mb-5">
+                {broadcasts.reverse().map((broadcast) => (
+                  <li
+                    key={broadcast.slug.join('/')}
+                    className={clsx(
+                      'py-2 px-3',
+                      'text-white/70 hover:text-white/100 font-extralight',
+                      'rounded border border-white/40 hover:border-white/80'
+                    )}
+                    style={{
+                      background:
+                        'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
+                    }}
                   >
-                    {report.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    <p>{broadcast.data.message}</p>
+                    <small>{broadcast.data.when}</small>
+                  </li>
+                ))}
+              </ul>
             </>
-          }
+          )}
+          {reports.length !== 0 && (
+            <>
+              <h2 className={clsx('mb-5', 'text-xl font-extralight')}>
+                {i18n.reports.title}
+              </h2>
+              <ul className="grid gap-3 mb-5">
+                {reports.reverse().map((report) => (
+                  <li
+                    key={report.slug.join('/')}
+                    className={clsx(
+                      'py-2 px-3',
+                      'text-white/70 hover:text-white/100 font-extralight',
+                      'rounded border border-white/40 hover:border-white/80'
+                    )}
+                    style={{
+                      background:
+                        'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
+                    }}
+                  >
+                    <Link
+                      href={`/${
+                        params.lang
+                      }/contribute/reports/${report.slug.join('/')}`}
+                    >
+                      {report.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </section>
       <section
@@ -280,29 +286,50 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-2xl px-5 m-auto py-20 grid gap-20">
-          <FeatureCard Feature={FeaturesOpenSource} title={i18n.features.open.title}>
-            <p>
-              {i18n.features.open.description}
-            </p>
-          </FeatureCard>
-          <FeatureCard Feature={FeaturesFree} reverse={true} title={i18n.features.cost.title}>
-            <p>
-            {i18n.features.cost.description}
-            </p>
-          </FeatureCard>
-          <FeatureCard Feature={FeaturesDataCentric} title={i18n.features.endtoend.title}>
-            <p>
-            {i18n.features.endtoend.description}
-            </p>
+          <FeatureCard
+            Feature={features.Open}
+            title={i18n.features.open.title}
+          >
+            <p>{i18n.features.open.description}</p>
           </FeatureCard>
           <FeatureCard
-            Feature={FeaturesHybridation}
+            Feature={features.Free}
             reverse={true}
-            title={i18n.features.deploy.title}
+            title={i18n.features.free.title}
           >
-            <p>
-              {i18n.features.deploy.description}
-            </p>
+            <p>{i18n.features.free.description}</p>
+          </FeatureCard>
+          <FeatureCard
+            Feature={features.Core}
+            title={i18n.features.core.title}
+          >
+            <p>{i18n.features.core.description}</p>
+          </FeatureCard>
+          <FeatureCard
+            Feature={features.Independance}
+            reverse={true}
+            title={i18n.features.independence.title}
+          >
+            <p>{i18n.features.independence.description}</p>
+          </FeatureCard>
+          <FeatureCard
+            Feature={features.Deployment}
+            title={i18n.features.deployment.title}
+          >
+            <p>{i18n.features.deployment.description}</p>
+          </FeatureCard>
+          <FeatureCard
+            Feature={features.Secured}
+            reverse={true}
+            title={i18n.features.secured.title}
+          >
+            <p>{i18n.features.secured.description}</p>
+          </FeatureCard>
+          <FeatureCard
+            Feature={features.Community}
+            title={i18n.features.community.title}
+          >
+            <p>{i18n.features.community.description}</p>
           </FeatureCard>
         </div>
       </section>
@@ -320,7 +347,7 @@ const FeatureCard = function ({ children, reverse, Feature, title }) {
       )}
     >
       <div className="w-[20%] m-auto flex sm:block">
-        <Feature />
+        {Feature && <Feature />}
       </div>
       <div className="sm:w-[80%]">
         <h2 className={clsx('text-2xl font-extralight mb-3')}>{title}</h2>
