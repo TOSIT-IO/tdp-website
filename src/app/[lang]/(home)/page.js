@@ -8,6 +8,7 @@ import Logo from '@/layout/home/logo.svg'
 import CirclesLeft from '@/layout/home/circles-left.svg'
 import CirclesRight from '@/layout/home/circles-right.svg'
 import * as features from '@/layout/home/features.js'
+import Logos from '@/layout/home/Logos'
 import Header from '@/layout/header'
 
 // With Next@13.4.16, unregistered static params are not honored as 404 pages
@@ -212,6 +213,15 @@ export default async function Page({ params }) {
           },
         ]}
       />
+      {/* <section
+          className={clsx('py-10', 'border-b border-slate-500')}
+          style={{
+            background:
+              'radial-gradient(43.58% 43.58% at 21.12% 25.63%, rgba(97, 130, 120, 0.2) 0%, rgba(122, 159, 132, 0) 100%), radial-gradient(64.91% 64.91% at 31.32% 63.18%, rgba(64, 86, 142, 0.2) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(19.81% 43.58% at 73.92% 40.01%, rgba(122, 159, 132, 0.2) 0%, rgba(40, 52, 59, 0.056) 100%), #263134',
+          }}
+        >
+        <Logos/>
+      </section> */}
       <section
         className={clsx('py-10', 'border-b border-slate-500')}
         style={{
@@ -219,6 +229,7 @@ export default async function Page({ params }) {
             'radial-gradient(43.58% 43.58% at 21.12% 25.63%, rgba(97, 130, 120, 0.2) 0%, rgba(122, 159, 132, 0) 100%), radial-gradient(64.91% 64.91% at 31.32% 63.18%, rgba(64, 86, 142, 0.2) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(19.81% 43.58% at 73.92% 40.01%, rgba(122, 159, 132, 0.2) 0%, rgba(40, 52, 59, 0.056) 100%), #263134',
         }}
       >
+      <Logos/>
         <div className="max-w-4xl px-5 m-auto">
           {broadcasts.length !== 0 && (
             <>
@@ -286,10 +297,7 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-2xl px-5 m-auto py-20 grid gap-20">
-          <FeatureCard
-            Feature={features.Open}
-            title={i18n.features.open.title}
-          >
+          <FeatureCard Feature={features.Open} title={i18n.features.open.title}>
             <p>{i18n.features.open.description}</p>
           </FeatureCard>
           <FeatureCard
@@ -299,10 +307,7 @@ export default async function Page({ params }) {
           >
             <p>{i18n.features.free.description}</p>
           </FeatureCard>
-          <FeatureCard
-            Feature={features.Core}
-            title={i18n.features.core.title}
-          >
+          <FeatureCard Feature={features.Core} title={i18n.features.core.title}>
             <p>{i18n.features.core.description}</p>
           </FeatureCard>
           <FeatureCard
