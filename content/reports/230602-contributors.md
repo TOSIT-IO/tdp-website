@@ -1,9 +1,10 @@
 ---
+type: contributors
 description: |
   Meeting discussions around TDP builder and the next release preparation.
 ---
 
-# Meeting notes from June 2nd, 2023
+# Notes from June 2nd, 2023
 
 ## Validated PRs
 

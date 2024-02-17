@@ -1,8 +1,10 @@
 ---
+type: contributors
 description: |
   Meeting notes covering open PRs.
---- 
-# Meeting notes October 20th, 2023
+---
+
+# Notes from October 20th, 2023
 
 ## General notes
 

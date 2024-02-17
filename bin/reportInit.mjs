@@ -72,14 +72,13 @@ function formatPulls(pulls) {
 function generateReportContent(pullsDetails, currentDate, reportType) {
   return `---
 type: ${reportType}
-date: ${currentDate.toISOString().split('T')[0]}
 description: |
-<main topics of the meeting>
+  <main topics of the meeting>
 ---
 
-# TDP ${reportType} meeting notes
+# Notes from <month> <day>, <year>
 
-<!-- general notes -->
+<!-- general notes, includes the most relevant discussed topics -->
 
 ## Pull Requests
 

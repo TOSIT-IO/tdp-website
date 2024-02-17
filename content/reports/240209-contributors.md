@@ -1,11 +1,10 @@
 ---
 type: contributors
-date: 2024-02-09
 description: |
   Weekly meeting of the TDP contributors to discuss open PRs and particularly of the TDP 1.1 release.
 ---
 
-# Meeting notes February 9th, 2024
+# Notes from February 9th, 2024
 
 Discussion about the compilation of TDP 1.1 stack.
 

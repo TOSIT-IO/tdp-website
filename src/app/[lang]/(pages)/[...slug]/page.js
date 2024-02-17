@@ -49,6 +49,9 @@ export async function generateStaticParams() {
     .filter((page) =>
       page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
     )
+    .filter((page) =>
+      page.data.jsx !== true
+    )
     .map((page) => ({
       lang: page.lang || 'en',
       slug: page.slug,

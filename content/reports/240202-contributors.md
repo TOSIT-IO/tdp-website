@@ -1,11 +1,10 @@
 ---
 type: contributors
-date: 2024-02-02
 description: |
   Review of PRs for collections, repositories management and preparations for TDP-1.1.
 ---
 
-# TDP contributors meeting notes
+# Notes from February 2th, 2024
 
 Discussions about current open PR and TDP 1.1 release. Subjects on TDP website, `tdp-observability` logging and dashboards, status update of the TDP Stack 1.1 development and TDP repositories management.
 
