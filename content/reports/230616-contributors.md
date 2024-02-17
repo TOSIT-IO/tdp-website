@@ -1,9 +1,12 @@
 ---
+type: contributors
 description: |
   Meeting notes covering open PRs, Hive and the creation of a setup project.
 ---
 
-# Meeting notes June 16th, 2023
+# Notes from June 16th, 2023
+
+The main discussed topics include open PRs, Hive and the creation of a setup project.
 
 ## Pull Requests
 

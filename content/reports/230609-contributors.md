@@ -1,9 +1,10 @@
 ---
+type: contributors
 description: |
   Meeting discussions around TDP builder, TDP website and Git Flow.
 ---
 
-# Meeting notes June 9th, 2023
+# Notes from June 9th, 2023
 
 - Docker Out Of Docker (DooD) and Gradle for tdp-builder: PR to be splited in 2 (Romain)
 - Close PR 0.8.0 and release 0.7.2 (Pierre)

@@ -46,7 +46,7 @@ export async function generateStaticParams() {
   ])
     .from('i18ns')
     .match([])
-    .map( i18n => ({lang: i18n.lang}))
+    .map((i18n) => ({ lang: i18n.lang }))
 }
 
 export default async function Page({ params }) {
@@ -60,7 +60,7 @@ export default async function Page({ params }) {
   ])
     .from('i18ns')
     .match(params.lang, [])
-    .map(params => params.data)
+    .map((params) => params.data)
     .get()
   const broadcasts = await redac([
     {
@@ -252,29 +252,41 @@ export default async function Page({ params }) {
                 {i18n.reports.title}
               </h2>
               <ul className="grid gap-3 mb-5">
-                {reports.reverse().map((report) => (
-                  <li
-                    key={report.slug.join('/')}
-                    className={clsx(
-                      'py-2 px-3',
-                      'text-white/70 hover:text-white/100 font-extralight',
-                      'rounded border border-white/40 hover:border-white/80'
-                    )}
-                    style={{
-                      background:
-                        'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                    }}
-                  >
-                    <Link
-                      href={`/${
-                        params.lang
-                      }/contribute/reports/${report.slug.join('/')}`}
+                {reports
+                  .reverse()
+                  .filter((_, i) => i < 5)
+                  .map((report) => (
+                    <li
+                      key={report.slug.join('/')}
+                      className={clsx(
+                        'py-2 px-3',
+                        'text-white/70 hover:text-white/100 font-extralight',
+                        'rounded border border-white/40 hover:border-white/80'
+                      )}
+                      style={{
+                        background:
+                          'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
+                      }}
                     >
-                      {report.title}
-                    </Link>
-                  </li>
-                ))}
+                      <Link
+                        href={`/${
+                          params.lang
+                        }/contribute/develop/reports/${report.slug.join('/')}`}
+                      >
+                        {report.title}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
+              {reports.length > 5 && (
+                <div className="text-right">
+                  <Link
+                    href={`/${
+                      params.lang
+                    }/contribute/develop/reports`}
+                  >More reports</Link>
+                </div>
+              )}
             </>
           )}
         </div>
@@ -286,10 +298,7 @@ export default async function Page({ params }) {
         }}
       >
         <div className="max-w-2xl px-5 m-auto py-20 grid gap-20">
-          <FeatureCard
-            Feature={features.Open}
-            title={i18n.features.open.title}
-          >
+          <FeatureCard Feature={features.Open} title={i18n.features.open.title}>
             <p>{i18n.features.open.description}</p>
           </FeatureCard>
           <FeatureCard
@@ -299,10 +308,7 @@ export default async function Page({ params }) {
           >
             <p>{i18n.features.free.description}</p>
           </FeatureCard>
-          <FeatureCard
-            Feature={features.Core}
-            title={i18n.features.core.title}
-          >
+          <FeatureCard Feature={features.Core} title={i18n.features.core.title}>
             <p>{i18n.features.core.description}</p>
           </FeatureCard>
           <FeatureCard

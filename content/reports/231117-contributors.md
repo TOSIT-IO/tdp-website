@@ -1,11 +1,10 @@
 ---
 type: contributors
-date: 2023-11-17
 description: |
   Weekly meeting of the TDP contributors to discuss opens PR and particularly the ones related to the TDP 1.1 release.
 ---
 
-# TDP contributors meeting notes
+# Notes from November 17th, 2023
 
 Weekly meeting of the TDP contributors to discuss opens PR and particularly the ones related to the TDP 1.1 release.
 

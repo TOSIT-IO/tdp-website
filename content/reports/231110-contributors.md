@@ -1,11 +1,10 @@
 ---
 type: contributors
-date: 2023-11-10
 description: |
   Review of PRs for collections, backport of patches for tdp stack componants and preparations for TDP-1.1
 ---
 
-# TDP contributors meeting notes
+# Notes from November 10th, 2023
 
 Discussions about current open PR regarding Knox compatibility with Livy, `tdp-observability` refactor and status update of the TDP Stack 1.1 development.
 

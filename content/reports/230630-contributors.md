@@ -1,9 +1,10 @@
 ---
+type: contributors
 description: |
   Meeting notes covering open PRs, tdp-website.
 ---
 
-# Meeting notes June 30rd, 2023
+# Notes from June 30rd, 2023
 
 ## Pull Requests
 

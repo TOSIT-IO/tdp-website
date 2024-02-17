@@ -1,9 +1,10 @@
 ---
+type: contributors
 description: |
   Meeting notes covering open PRs, cluster reconfiguration improvements and Python and Ansible versions.
 ---
 
-# Meeting notes July 7th, 2023
+# Notes from July 7th, 2023
 
 ## Pull Requests
 

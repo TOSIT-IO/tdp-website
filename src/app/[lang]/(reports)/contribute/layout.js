@@ -8,7 +8,7 @@ export default async function newLayout({
     children,
     params: {
       ...params,
-      slug: ['discover', 'sitemap']
+      slug: ['contribute', 'develop', 'reports']
     }
   })
 }
