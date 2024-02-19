@@ -253,8 +253,8 @@ export default async function Page({ params }) {
               </h2>
               <ul className="grid gap-3 mb-5">
                 {reports
+                  .slice(-5)
                   .reverse()
-                  .filter((_, i) => i < 5)
                   .map((report) => (
                     <li
                       key={report.slug.join('/')}
@@ -284,7 +284,7 @@ export default async function Page({ params }) {
                     href={`/${
                       params.lang
                     }/contribute/develop/reports`}
-                  >More reports</Link>
+                  >Browse all reports</Link>
                 </div>
               )}
             </>
