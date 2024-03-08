@@ -42,7 +42,7 @@ TDP stack 2.0
 
 Issue with user accounts written in uppercase letters
 
-- The issue encounterd by the EDF development cluster with user accounts written in uppercase letters has been solved by changing 2 variables in `TDP vars`.
+- The issue encounterd by the EDF R&D cluster with user accounts written in uppercase letters has been solved by changing 2 variables in `TDP vars`.
 
 JupyterHub
 
