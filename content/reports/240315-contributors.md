@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  TDP stack 2.0
+  Hive version for TDP stack 2.0
 ---
 
 # Notes from March 15th, 2024
 
-TDP stack 2.0
+Hive version for TDP stack 2.0
 
 ## Pull Requests
 
@@ -30,4 +30,4 @@ TDP stack 2.0
 
 - `Hive 4` is needed to integrate `Iceberg` which can be very valuable for TDP.
 
-- However, `Ranger` does  not compile with `Hive 4`, therefore, the solution would be to integrate both `Hive 3` and `Hive 4` in the stack.
+- However, `Ranger` does  not compile with `Hive 4`, therefore, the current proposal is to conserve both `Hive 3` and `Hive 4` for now.
