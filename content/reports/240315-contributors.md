@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  Hive version for TDP stack 2.0
+  Hive 3 nad Hive 4 issues with Hadoop 3.3 for TDP stack 2.0
 ---
 
 # Notes from March 15th, 2024
 
-Hive version for TDP stack 2.0
+Hive 3 and Hive 4 issues with Hadoop 3.3 for TDP stack 2.0
 
 ## Pull Requests
 
@@ -26,8 +26,10 @@ TDP stack 1.1
 
 TDP stack 2.0
 
+- `TDP stack 2.0` is not the final name of the stack. It is the temporary name used for the stack using `Hadoop 3.3` and may change in the future.
+
 - `Hive 3` does not compile with `Hadoop 3.3` unless using Apache Bigtop.
 
-- `Hive 4` is needed to integrate `Iceberg` which can be very valuable for TDP.
+- `Hive 4` is needed to integrate `Iceberg` which can be very valuable for TDP and we are currently looking at it.
 
-- However, `Ranger` does  not compile with `Hive 4`, therefore, the current proposal is to conserve both `Hive 3` and `Hive 4` for now.
+- However, `Ranger` does  not compile with `Hive 4` for now, therefore, the current proposal is to continue to work on both `Hive 3` and `Hive 4` with the priority given to the first version.
