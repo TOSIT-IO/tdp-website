@@ -1,15 +1,15 @@
-
 // export { Code as code, Pre as pre } from '@/mdx/components/Code'
 // export { Properties, Property } from '@/mdx/components/Properties'
 // export { Tabs } from '@/mdx/components/Tabs'
 import { Code, Pre } from '@/mdx/components/Code'
 import { Properties, Property } from '@/mdx/components/Properties'
 import { Tabs } from '@/mdx/components/Tabs'
+import { StackTables, stack31 } from './stacks'
 
 const h1 = () => (
   <div>
-    WARNING: heading 1 are handled by the template, only one is accepted at
-    the begining of a page.
+    WARNING: heading 1 are handled by the template, only one is accepted at the
+    begining of a page.
   </div>
 )
 // export { h1 }
@@ -23,6 +23,7 @@ export default {
   pre: (props) => <Pre {...props} />,
   Properties: (props) => <Properties {...props} />,
   Property: (props) => <Property {...props} />,
+  Stack31: () => <StackTables stack={stack31} />,
   Tabs: (props) => <Tabs {...props} />,
   TODO: (props) => <p className="bg-amber-200 text-amber-800 border-amber-800 border rounded-md p-1" {...props}><span className='font-bold'>TODO</span> {props.children}</p>,
   a: (props) => {
