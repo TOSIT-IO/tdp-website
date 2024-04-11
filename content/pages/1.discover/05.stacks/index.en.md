@@ -1,0 +1,20 @@
+---
+nav_title: Stacks
+---
+
+# TDP Stacks
+
+TDP is based on proven, reliable and scalable components from the Hadoop eco-system. Coherent set of components that has been tested and validated to work together are gathered in **stacks** (as it was called by HDP and Ambari).
+
+The following tables show the core TDP components and their versions for each stack. Two branches are curated for each component:
+
+- `-basic` branch, a fork of the original repository with the minimum changes to make it build.
+- `-fix` branch, based on the `-basic` branch, with fixes and features backported from the original repository.
+
+  Note: For some projects, the Apache foundation sometimes maintains branches on which are backported fixes and features. We will be using these branches as much as possible if they are maintained and compatible.
+
+## Stack 3.1
+
+Versions are approximately based on the [HDP 3.1.5 release](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/release-notes/content/hdp_relnotes.html).
+
+<Stack31 />
