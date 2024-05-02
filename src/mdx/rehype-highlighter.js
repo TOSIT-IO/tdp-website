@@ -1,4 +1,4 @@
-import shiki from 'shiki'
+import { getHighlighter, createCssVariablesTheme } from 'shiki'
 import { visit } from 'unist-util-visit'
 
 let highlighter
@@ -6,23 +6,42 @@ let highlighter
 export default function rehypeShiki() {
   return async (tree) => {
     highlighter =
-      highlighter ?? (await shiki.getHighlighter({ theme: 'css-variables' }))
+      highlighter ??
+      (await getHighlighter({
+        themes: [
+          // TDP custom theme, see /app/globals.css for color values
+          createCssVariablesTheme({
+            name: 'tdp',
+            variablePrefix: '--shiki-',
+            variableDefaults: {},
+            fontStyle: true,
+          }),
+        ],
+        langs: [
+          'go',
+          'javascript',
+          'js',
+          'json',
+          'jsx',
+          'php',
+          'python',
+          'bash',
+          'ts',
+          'ruby',
+          'typescript',
+          'yaml',
+        ],
+      }))
     visit(tree, 'element', (node) => {
       if (node.tagName === 'pre' && node.children[0]?.tagName === 'code') {
         let codeNode = node.children[0]
         let textNode = codeNode.children[0]
         node.properties.code = textNode.value
         if (node.properties.language) {
-          let tokens = highlighter.codeToThemedTokens(
-            textNode.value,
-            node.properties.language
-          )
-          textNode.value = shiki.renderToHtml(tokens, {
-            elements: {
-              pre: ({ children }) => children,
-              code: ({ children }) => children,
-              line: ({ children }) => `<span>${children}</span>`,
-            },
+          textNode.value = highlighter.codeToHtml(textNode.value, {
+            defaultColor: false,
+            lang: node.properties.language,
+            theme: 'tdp',
           })
         }
       }
