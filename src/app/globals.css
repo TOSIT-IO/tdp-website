@@ -1,6 +1,7 @@
 
+/* Shiki TDP theme  */
 :root {
-  --shiki-color-text: theme('colors.white');
+  --shiki-foreground: theme('colors.white');
   --shiki-token-constant: theme('colors.emerald.300');
   --shiki-token-string: theme('colors.emerald.300');
   --shiki-token-comment: theme('colors.zinc.500');
