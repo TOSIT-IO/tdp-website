@@ -25,7 +25,7 @@ const nextConfig = {
   swcMinify: true,
   // Handle SVG files
   // Issue after upgrading from 13.2.4
-  // Removed issuer, see https://github.com/vercel/next.js/issues/48177 
+  // Removed issuer, see https://github.com/vercel/next.js/issues/48177
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
