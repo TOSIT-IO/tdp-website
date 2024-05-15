@@ -165,22 +165,6 @@ export default async function Page({ params }) {
                 className={clsx(
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
-                  'rounded border border-white/40 hover:border-white/80'
-                )}
-                style={{
-                  background:
-                    'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
-                }}
-              >
-                {i18n.header.doc}
-              </Link>
-            </div>
-            <div className="sm:flex">
-              <Link
-                href="/en/learn/getting-started"
-                className={clsx(
-                  'py-2 px-3',
-                  'text-xl text-white/70 hover:text-white/100 font-extralight',
                   'bg-[#168E5E]/80 hover:bg-[#168E5E]/100',
                   'rounded border border-white/50 hover:border-white/80'
                 )}
