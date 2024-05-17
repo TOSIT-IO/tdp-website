@@ -19,6 +19,7 @@ export default function rehypeShiki() {
         ],
         langs: [
           'go',
+          'ini',
           'javascript',
           'js',
           'json',
