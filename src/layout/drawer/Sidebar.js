@@ -1,6 +1,6 @@
 'use client'
 import { Fragment } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
@@ -12,9 +12,9 @@ export default function Sidebar ({
   onOpen,
 }) {
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition show={open} as={Fragment}>
       <Dialog as="div" className="relative z-50 lg:hidden" onClose={onOpen}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
           enterFrom="opacity-0"
@@ -24,10 +24,10 @@ export default function Sidebar ({
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-gray-900/80" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 flex">
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="-translate-x-full"
@@ -36,8 +36,8 @@ export default function Sidebar ({
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
-              <Transition.Child
+            <DialogPanel className="relative mr-16 flex w-full max-w-xs flex-1">
+              <TransitionChild
                 as={Fragment}
                 enter="ease-in-out duration-300"
                 enterFrom="opacity-0"
@@ -60,7 +60,7 @@ export default function Sidebar ({
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
-              </Transition.Child>
+              </TransitionChild>
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div
                 className={clsx(
@@ -73,10 +73,10 @@ export default function Sidebar ({
               >
                 {children}
               </div>
-            </Dialog.Panel>
-          </Transition.Child>
+            </DialogPanel>
+          </TransitionChild>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   )
 }
