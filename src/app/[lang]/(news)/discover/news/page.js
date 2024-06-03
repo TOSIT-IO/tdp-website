@@ -2,12 +2,12 @@ import 'server-only'
 import clsx from 'clsx'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
-import Link from 'next/link'
+import yaml from 'redac/plugins/yaml'
 
 export async function generateMetadata() {
   return {
-    title: 'TDP contributors meetings',
-    description: 'List of all TDP contributors meeting notes scheduled every Friday.',
+    title: 'TDP news and events',
+    description: 'Latest news on TDP and list of past and future events.',
   }
 }
 
@@ -18,26 +18,35 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const reports = await redac([
+  const i18n = await redac([
     {
-      module: mdx,
-      config: './content/reports',
+      module: yaml,
+      config: './content/i18ns',
     },
   ])
-    .from('reports')
-    .map((report) => ({
-      slug: report.slug,
-      title: report.data.title,
-      lang: report.lang || 'en',
+    .from('i18ns')
+    .match(params.lang, [])
+    .map((params) => params.data)
+    .get()
+  const broadcasts = await redac([
+    {
+      module: yaml,
+      config: './content/broadcasts',
+    },
+  ])
+    .from('broadcasts')
+    .map((broadcast) => ({
+      ...broadcast,
+      lang: broadcast.lang || 'en',
     }))
-    .filter((report) => report.lang === params.lang)
+    .filter((broadcast) => broadcast.lang === params.lang)
   return (
     <div className="prose dark:prose-invert max-w-none">
-      <h1>TDP contributors meetings</h1>
+      <h1>{i18n.broadcasts.title}</h1>
       <ul className="grid gap-3 mb-5 not-prose">
-        {reports.reverse().map((report) => (
+        {broadcasts.reverse().map((broadcast) => (
           <li
-            key={report.slug.join('/')}
+            key={broadcast.slug.join('/')}
             className={clsx(
               'py-2 px-3',
               'text-white/70 hover:text-white/100 font-extralight',
@@ -48,13 +57,8 @@ export default async function Page({ params }) {
                 'radial-gradient(50% 50% at 50% 50%, rgba(37, 42, 40, 0.8) 0%, rgba(31, 38, 43, 0.8) 100%)',
             }}
           >
-            <Link
-              href={`/${
-                params.lang
-              }/contribute/develop/reports/${report.slug.join('/')}`}
-            >
-              {report.title}
-            </Link>
+            <p>{broadcast.data.message}</p>
+            <small>{broadcast.data.when}</small>
           </li>
         ))}
       </ul>
