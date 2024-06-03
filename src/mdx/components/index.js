@@ -17,7 +17,7 @@ const h1 = () => (
 // Fix error `Error: Cannot access Code.propTypes on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.`
 // Introduced with Next.js version 13.5.6, was fine with version 13.4.16
 // See https://github.com/hashicorp/next-mdx-remote/issues/405
-export default {
+const components = {
   h1: h1,
   code: (props) => <Code {...props} />,
   pre: (props) => <Pre {...props} />,
@@ -36,3 +36,4 @@ export default {
     }
   },
 }
+export default components
