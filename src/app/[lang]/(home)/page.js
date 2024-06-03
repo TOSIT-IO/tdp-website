@@ -74,7 +74,7 @@ export default async function Page({ params }) {
       ...broadcast,
       lang: broadcast.lang || 'en',
     }))
-    .filter((broadcast) => broadcast.lang === params.lang)
+    .filter((broadcast) => broadcast.lang === params.lang && broadcast.data.home === true)
   const reports = await redac([
     {
       module: mdx,
@@ -213,7 +213,7 @@ export default async function Page({ params }) {
             'radial-gradient(43.58% 43.58% at 21.12% 25.63%, rgba(97, 130, 120, 0.2) 0%, rgba(122, 159, 132, 0) 100%), radial-gradient(64.91% 64.91% at 31.32% 63.18%, rgba(64, 86, 142, 0.2) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(19.81% 43.58% at 73.92% 40.01%, rgba(122, 159, 132, 0.2) 0%, rgba(40, 52, 59, 0.056) 100%), #263134',
         }}
       >
-        <Logos/>
+        <Logos />
         <div className="max-w-4xl px-5 m-auto">
           {broadcasts.length !== 0 && (
             <>
@@ -239,6 +239,17 @@ export default async function Page({ params }) {
                   </li>
                 ))}
               </ul>
+              <div className="text-right">
+                <Link
+                  href={
+                    params.lang === 'fr'
+                      ? `/${params.lang}/decouvrir/actualites`
+                      : `/${params.lang}/discover/news`
+                  }
+                >
+                  {i18n.broadcasts.browse}
+                </Link>
+              </div>
             </>
           )}
           {reports.length !== 0 && (
@@ -275,11 +286,9 @@ export default async function Page({ params }) {
               </ul>
               {reports.length > 5 && (
                 <div className="text-right">
-                  <Link
-                    href={`/${
-                      params.lang
-                    }/contribute/develop/reports`}
-                  >Browse all reports</Link>
+                  <Link href={`/${params.lang}/contribute/develop/reports`}>
+                    {i18n.reports.browse}
+                  </Link>
                 </div>
               )}
             </>

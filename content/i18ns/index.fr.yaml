@@ -8,9 +8,11 @@ header:
   doc: Documentation
   start: Tutoriel
 broadcasts:
-  title: Nouveautés et évènements
+  title: Actualités et évènements
+  browse: Toutes les actualités
 reports:
   title: Compte rendus
+  browse: Voir plus
 features:
   open:
     title: Open Source

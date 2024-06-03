@@ -9,8 +9,10 @@ header:
   start: Getting started
 broadcasts:
   title: News and events
+  browse: Browse all news
 reports:
   title: TDP contributors meetings
+  browse: Browse all reports
 features:
   open:
     title: Open Source
