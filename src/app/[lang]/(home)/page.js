@@ -213,7 +213,7 @@ export default async function Page({ params }) {
             'radial-gradient(43.58% 43.58% at 21.12% 25.63%, rgba(97, 130, 120, 0.2) 0%, rgba(122, 159, 132, 0) 100%), radial-gradient(64.91% 64.91% at 31.32% 63.18%, rgba(64, 86, 142, 0.2) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(19.81% 43.58% at 73.92% 40.01%, rgba(122, 159, 132, 0.2) 0%, rgba(40, 52, 59, 0.056) 100%), #263134',
         }}
       >
-      <Logos/>
+        <Logos/>
         <div className="max-w-4xl px-5 m-auto">
           {broadcasts.length !== 0 && (
             <>

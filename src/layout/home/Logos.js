@@ -79,7 +79,7 @@ export default function TdpComponents() {
             // 'ring-1 ring-offet-2',
             'ring-offset ring-offset-4 ring-offset-slate-900',
             'ring-1 ring-[#009491]',
-            // '[&_svg]:h-20 [&_svg]:w-full',
+            '[&_svg]:w-full',
           )}
         >
           {logo.svg}
