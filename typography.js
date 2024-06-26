@@ -1,4 +1,5 @@
-export default ({ theme }) => ({
+
+const typography = ({ theme }) => ({
   DEFAULT: {
     css: {
       // '--tw-prose-body': theme('colors.zinc.700'),
@@ -362,3 +363,6 @@ export default ({ theme }) => ({
     },
   },
 })
+
+
+export default typography
