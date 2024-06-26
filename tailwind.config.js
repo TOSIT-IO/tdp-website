@@ -1,16 +1,16 @@
-
 import typographyPlugin from '@tailwindcss/typography'
 import typography from './typography'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
-export default {
+
+const tailwind = {
   content: [
     // "./app/**/*.{js,ts,jsx,tsx}",
     // "./pages/**/*.{js,ts,jsx,tsx}",
     // "./components/**/*.{js,ts,jsx,tsx}",
-    "./content/**/*.{md,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './content/**/*.{md,mdx}',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -37,3 +37,5 @@ export default {
     },
   },
 }
+
+export default tailwind
