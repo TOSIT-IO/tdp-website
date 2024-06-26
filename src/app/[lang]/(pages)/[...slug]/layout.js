@@ -22,7 +22,7 @@ export default async function Layout({
 }) {
   const content = redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])

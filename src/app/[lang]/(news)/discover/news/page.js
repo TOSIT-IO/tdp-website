@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const i18n = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
@@ -30,7 +30,7 @@ export default async function Page({ params }) {
     .get()
   const broadcasts = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/broadcasts',
     },
   ])

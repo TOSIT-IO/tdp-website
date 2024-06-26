@@ -17,7 +17,7 @@ import recma from '/src/mdx/recma.js'
 export async function generateMetadata({ params }) {
   return await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/reports',
     },
   ])
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams({ params }) {
   const reports = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/reports',
     },
   ])
@@ -55,7 +55,7 @@ export async function generateStaticParams({ params }) {
 export default async function Page({ params }) {
   const report = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/reports',
     },
   ])
