@@ -80,7 +80,7 @@ export default async function Page({ params }) {
     <div className="prose dark:prose-invert max-w-none">
       <h1>{page.data.title}</h1>
       <MDXRemote
-        source={page.content_md}
+        source={page.content_raw}
         components={components}
         options={{
           parseFrontmatter: true,
