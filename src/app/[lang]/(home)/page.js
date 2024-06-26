@@ -21,7 +21,7 @@ import Header from '@/layout/header'
 export async function generateMetadata({ params }) {
   const i18n = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   return redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
@@ -55,7 +55,7 @@ export default async function Page({ params }) {
   params.lang = params.lang ?? 'en'
   const i18n = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
@@ -65,7 +65,7 @@ export default async function Page({ params }) {
     .get()
   const broadcasts = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/broadcasts',
     },
   ])
@@ -77,7 +77,7 @@ export default async function Page({ params }) {
     .filter((broadcast) => broadcast.lang === params.lang && broadcast.data.home === true)
   const reports = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/reports',
     },
   ])
@@ -90,7 +90,7 @@ export default async function Page({ params }) {
     .filter((report) => report.lang === params.lang)
   const sitemap = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])

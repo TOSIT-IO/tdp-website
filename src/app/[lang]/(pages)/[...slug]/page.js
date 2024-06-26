@@ -17,7 +17,7 @@ import recma from '/src/mdx/recma.js'
 export async function generateMetadata({ params }) {
   return await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   return redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])
@@ -61,7 +61,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const page = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])
@@ -80,7 +80,7 @@ export default async function Page({ params }) {
     <div className="prose dark:prose-invert max-w-none">
       <h1>{page.data.title}</h1>
       <MDXRemote
-        source={page.content_md}
+        source={page.content_raw}
         components={components}
         options={{
           parseFrontmatter: true,

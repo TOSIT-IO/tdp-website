@@ -24,7 +24,7 @@ export default async function Page({ params }) {
 export const fetchI18n = async ({ lang}) =>
   await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
@@ -35,7 +35,7 @@ export const fetchI18n = async ({ lang}) =>
 export const fetchPages = async ({ i18n, lang }) =>
   await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/pages',
     },
   ])

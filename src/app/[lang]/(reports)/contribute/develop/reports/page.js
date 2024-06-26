@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const reports = await redac([
     {
-      module: mdx,
+      plugin: mdx,
       config: './content/reports',
     },
   ])

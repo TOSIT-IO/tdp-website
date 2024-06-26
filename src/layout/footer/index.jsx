@@ -12,7 +12,7 @@ export default async function Footer({
   lang = lang ?? 'en'
   const i18n = await redac([
     {
-      module: yaml,
+      plugin: yaml,
       config: './content/i18ns',
     },
   ])
