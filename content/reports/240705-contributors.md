@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  PR tdp-collection#850 and the use of Alluxio
+  PR tdp-collection#850 and the use of Alluxio.
 ---
 
 # Notes from July 5th, 2024
 
-PR tdp-collection#850 and the use of Alluxio
+PR tdp-collection#850 and the use of Alluxio.
 
 ## Pull Requests
 
@@ -23,4 +23,4 @@ Weekly review of open PRs (in chronological order):
 
 Added patches for Hive 3 which gives us the release 3.1.3-2.3.
 
-Work on the integration of PrestoSQL has started. However, Alluxio might be used instead as it will work more efficiently with Hive as it uses a cache and will run with Yarn, has better capacity scheduling for multiple users as well as enables to manage S3 permissions with Ranger. To be further discussed, but work has started on it.
+However, Alluxio might be used instead. Its usage by Hive is of particular interest, leveraging its cache layer and YARN integration. Additionally, we are interested by its capacity scheduling for multiple users as well as its ability to manage S3 permissions with Ranger. To be further discussed, but work has started on it.
