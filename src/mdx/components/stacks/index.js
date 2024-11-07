@@ -53,9 +53,9 @@ export const stack31 = {
             'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.0/apache-hive-3.1.3-2.0-bin.tar.gz',
         },
         fix: {
-          tag: '3.1.3-2.1',
+          tag: '3.1.3-2.3',
           binaryUrl:
-            'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.1/apache-hive-3.1.3-2.1-bin.tar.gz',
+            'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.3/apache-hive-3.1.3-2.3-bin.tar.gz',
         },
       },
     },
