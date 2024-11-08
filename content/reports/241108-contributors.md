@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  The use of tdp-vagrant with libvirt as provider for tdp-dev.
+  The use of tdp-vagrant for the project tdp-dev and the use of tdp-incus for more advanced development purposes.
 ---
 
 # Notes from November 08, 2024
 
-The use of tdp-vagrant with libvirt as provider for tdp-dev.
+The use of tdp-vagrant for the project tdp-dev and the use of tdp-incus for more advanced development purposes.
 
 ## Pull Requests
 
@@ -23,4 +23,4 @@ Weekly review of open PRs (in chronological order):
 
 ## Open topics
 
-For the project `tdp-dev` the submodule `tdp-vagrant` with libvirt as default provider will be used to launch the VM's and not `tdp-incus`. However, `tdp-incus` will be maintained for more advanced development.
+For the project `tdp-dev` the submodule `tdp-vagrant` with libvirt as default provider will be used to launch the VM's and not `tdp-incus`. The reason is that Vagrant is much easier to use than Incus and more common. However, since Incus has got more functionalities (the possibility to manage several VMs in different physical machines, manage LXC containers ...etc), `tdp-incus` will be maintained for more advanced development purposes.
