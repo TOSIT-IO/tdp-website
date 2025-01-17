@@ -53,9 +53,9 @@ export const stack31 = {
             'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.0/apache-hive-3.1.3-2.0-bin.tar.gz',
         },
         fix: {
-          tag: '3.1.3-2.1',
+          tag: '3.1.3-2.3',
           binaryUrl:
-            'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.1/apache-hive-3.1.3-2.1-bin.tar.gz',
+            'https://github.com/TOSIT-IO/hive/releases/download/3.1.3-2.3/apache-hive-3.1.3-2.3-bin.tar.gz',
         },
       },
     },
@@ -234,14 +234,9 @@ export const stack31 = {
       tosit: {
         repositoryUrl: 'https://github.com/TOSIT-IO/phoenix-queryserver',
         basic: {
-          tag: '6.0.0-0.0',
+          tag: '6.0.0-1.0',
           binaryUrl:
-            'https://github.com/TOSIT-IO/phoenix-queryserver/releases/download/6.0.0-0.0/phoenix-queryserver-6.0.0-0.0-bin.tar.gz',
-        },
-        fix: {
-          tag: '6.0.0-0.1',
-          binaryUrl:
-            'https://github.com/TOSIT-IO/phoenix-queryserver/releases/download/6.0.0-0.1/phoenix-queryserver-6.0.0-0.1-bin.tar.gz',
+            'https://github.com/TOSIT-IO/phoenix-queryserver/releases/download/6.0.0-1.0/phoenix-queryserver-6.0.0-1.0-bin.tar.gz',
         },
       },
     },
