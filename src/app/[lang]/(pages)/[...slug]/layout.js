@@ -2,9 +2,10 @@ import 'server-only'
 import path from 'node:path'
 import clsx from 'clsx'
 import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
+import redacMemory from 'redac/plugins/memory'
 import Header from '@/layout/header'
 import Left from '@/layout/left'
+import pages from '/.redac/pages.mjs'
 
 // Util function
 const extractSharedPath = (name) => {
@@ -22,8 +23,8 @@ export default async function Layout({
 }) {
   const content = redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: pages,
     },
   ])
   const sitemap = await content

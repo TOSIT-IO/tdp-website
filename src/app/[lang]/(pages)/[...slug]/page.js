@@ -1,11 +1,12 @@
 import 'server-only'
 import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
+import redacMemory from 'redac/plugins/memory'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import components from '@/mdx/components/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
+import pages from '/.redac/pages.mjs'
 
 // With Next@13.4.16, unregistered static params are not honored as 404 pages
 // and are treated as dynamic pages. Setting `dynamicParams` to `false` enforce
@@ -17,8 +18,8 @@ import recma from '/src/mdx/recma.js'
 export async function generateMetadata({ params }) {
   return await redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: pages,
     },
   ])
     .from('pages')
@@ -37,8 +38,8 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   return redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: pages,
     },
   ])
     .from('pages')
@@ -61,8 +62,8 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const page = await redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: pages,
     },
   ])
     .from('pages')

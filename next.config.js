@@ -1,7 +1,8 @@
-
 import mdx from '@next/mdx'
 import remark from './src/mdx/remark.js'
 import rehype from './src/mdx/rehype.js'
+import redac from 'redac/next'
+import redacMdx from 'redac/plugins/mdx'
 
 const nextConfig = {
   // Static Exports
@@ -47,7 +48,7 @@ const nextConfig = {
 const withMDX = mdx({
   extension: /\.(md|mdx)$/,
   experimental: {
-    // Rust based MDX compiler 
+    // Rust based MDX compiler
     // https://nextjs.org/docs/advanced-features/using-mdx#using-rust-based-mdx-compiler-experimental
     // mdxRs: true,
   },
@@ -62,4 +63,14 @@ const withMDX = mdx({
   },
 })
 
-export default withMDX(nextConfig)
+const withRedac = redac([
+  {
+    plugin: redacMdx,
+    config: {
+      cache: '.redac/pages.mjs',
+      target: './content/pages',
+    },
+  },
+])
+
+export default withRedac(withMDX(nextConfig))

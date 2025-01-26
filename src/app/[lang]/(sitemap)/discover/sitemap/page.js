@@ -1,8 +1,9 @@
 import 'server-only'
 import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
-import yaml from 'redac/plugins/yaml'
+import redacMemory from 'redac/plugins/memory'
+import redacYaml from 'redac/plugins/yaml'
 import Link from 'next/link'
+import pages from '/.redac/pages.mjs'
 
 export async function generateStaticParams() {
   return [{
@@ -24,7 +25,7 @@ export default async function Page({ params }) {
 export const fetchI18n = async ({ lang}) =>
   await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/i18ns',
     },
   ])
@@ -35,8 +36,8 @@ export const fetchI18n = async ({ lang}) =>
 export const fetchPages = async ({ i18n, lang }) =>
   await redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: pages,
     },
   ])
     .from('pages')
