@@ -1,19 +1,22 @@
 import 'server-only'
+import Link from 'next/link'
+// Content
 import redac from 'redac'
 import redacMemory from 'redac/plugins/memory'
 import redacYaml from 'redac/plugins/yaml'
-import Link from 'next/link'
-import pages from '/.redac/pages.mjs'
+import redacPages from '/.redac/pages.mjs'
 
 export async function generateStaticParams() {
-  return [{
-    lang: 'en'
-  }]
+  return [
+    {
+      lang: 'en',
+    },
+  ]
 }
 
 export default async function Page({ params }) {
-  const i18n = await fetchI18n({ lang: params.lang})
-  const pages = await fetchPages({ lang: params.lang})
+  const i18n = await fetchI18n({ lang: params.lang })
+  const pages = await fetchPages({ lang: params.lang })
   return (
     <div className="prose dark:prose-invert max-w-none">
       <h1>Project sitemap</h1>
@@ -22,7 +25,7 @@ export default async function Page({ params }) {
   )
 }
 
-export const fetchI18n = async ({ lang}) =>
+export const fetchI18n = async ({ lang }) =>
   await redac([
     {
       plugin: redacYaml,
@@ -37,7 +40,7 @@ export const fetchPages = async ({ i18n, lang }) =>
   await redac([
     {
       plugin: redacMemory,
-      config: pages,
+      config: redacPages,
     },
   ])
     .from('pages')
@@ -54,7 +57,7 @@ export const fetchPages = async ({ i18n, lang }) =>
     }))
     .filter((page) => page.lang === lang)
     .filter((page) =>
-      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
     )
     .tree()
 
@@ -64,12 +67,14 @@ export const Sitemap = ({ pages }) => {
       {pages.map((page) => (
         <li key={page.slug.join('/')}>
           <p>
-            <Link href={page.data.redirect || `/${page.lang}/${page.slug.join('/')}`}>
+            <Link
+              href={
+                page.data.redirect || `/${page.lang}/${page.slug.join('/')}`
+              }
+            >
               {page.data.title}
             </Link>
-            { page.data.redirect &&
-              <span className="text-sm"> (english)</span>
-            }
+            {page.data.redirect && <span className="text-sm"> (english)</span>}
           </p>
           {page.data.description && <p>{page.data.description}</p>}
           {page.children?.length > 1 && (
@@ -77,12 +82,17 @@ export const Sitemap = ({ pages }) => {
               {page.children.map((page) => (
                 <li key={page.slug.join('/')}>
                   <p>
-                    <Link href={page.data.redirect || `/${page.lang}/${page.slug.join('/')}`}>
+                    <Link
+                      href={
+                        page.data.redirect ||
+                        `/${page.lang}/${page.slug.join('/')}`
+                      }
+                    >
                       {page.data.title}
                     </Link>
-                    { page.data.redirect &&
+                    {page.data.redirect && (
                       <span className="text-sm"> (english)</span>
-                    }
+                    )}
                   </p>
                   {page.data.description && <p>{page.data.description}</p>}
                 </li>

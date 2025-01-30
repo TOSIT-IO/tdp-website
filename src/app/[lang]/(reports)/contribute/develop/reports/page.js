@@ -1,27 +1,32 @@
 import 'server-only'
 import clsx from 'clsx'
-import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
 import Link from 'next/link'
+// Content
+import redac from 'redac'
+import redacMemory from 'redac/plugins/memory'
+import redacReports from '/.redac/reports.mjs'
 
 export async function generateMetadata() {
   return {
     title: 'TDP contributors meetings',
-    description: 'List of all TDP contributors meeting notes scheduled every Friday.',
+    description:
+      'List of all TDP contributors meeting notes scheduled every Friday.',
   }
 }
 
 export async function generateStaticParams() {
-  return [{
-    lang: 'en'
-  }]
+  return [
+    {
+      lang: 'en',
+    },
+  ]
 }
 
 export default async function Page({ params }) {
   const reports = await redac([
     {
-      plugin: mdx,
-      config: './content/reports',
+      plugin: redacMemory,
+      config: redacReports,
     },
   ])
     .from('reports')
@@ -41,7 +46,7 @@ export default async function Page({ params }) {
             className={clsx(
               'py-2 px-3',
               'text-white/70 hover:text-white/100 font-extralight',
-              'rounded border border-white/40 hover:border-white/80'
+              'rounded border border-white/40 hover:border-white/80',
             )}
             style={{
               background:

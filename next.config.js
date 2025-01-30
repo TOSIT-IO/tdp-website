@@ -71,6 +71,13 @@ const withRedac = redac([
       target: './content/pages',
     },
   },
+  {
+    plugin: redacMdx,
+    config: {
+      cache: '.redac/reports.mjs',
+      target: './content/reports',
+    },
+  },
 ])
 
 export default withRedac(withMDX(nextConfig))

@@ -1,11 +1,13 @@
 import 'server-only'
-import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import components from '@/mdx/components/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
 import recma from '/src/mdx/recma.js'
+// Content
+import redac from 'redac'
+import redacMemory from 'redac/plugins/memory'
+import redacReports from '/.redac/reports.mjs'
 
 // With Next@13.4.16, unregistered static params are not honored as 404 pages
 // and are treated as dynamic pages. Setting `dynamicParams` to `false` enforce
@@ -17,15 +19,15 @@ import recma from '/src/mdx/recma.js'
 export async function generateMetadata({ params }) {
   return await redac([
     {
-      plugin: mdx,
-      config: './content/reports',
+      plugin: redacMemory,
+      config: redacReports,
     },
   ])
     .from('reports')
     .filter(
       (report) =>
-      report.lang === params.lang &&
-        JSON.stringify(report.slug) === JSON.stringify(params.slug)
+        report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug),
     )
     .map(async (report) => ({
       title: report.data.title,
@@ -37,13 +39,13 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams({ params }) {
   const reports = await redac([
     {
-      plugin: mdx,
-      config: './content/reports',
+      plugin: redacMemory,
+      config: redacReports,
     },
   ])
     .from('reports')
-    .filter(
-      (report) => report.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    .filter((report) =>
+      report.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
     )
     .map((report) => ({
       lang: report.lang || 'en',
@@ -55,19 +57,19 @@ export async function generateStaticParams({ params }) {
 export default async function Page({ params }) {
   const report = await redac([
     {
-      plugin: mdx,
-      config: './content/reports',
+      plugin: redacMemory,
+      config: redacReports,
     },
   ])
     .from('reports')
-    .map(report => ({
+    .map((report) => ({
       ...report,
-      lang: report.lang || 'en'
+      lang: report.lang || 'en',
     }))
     .filter(
       (report) =>
-      report.lang === params.lang &&
-        JSON.stringify(report.slug) === JSON.stringify(params.slug)
+        report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug),
     )
     .get()
   return (
@@ -83,7 +85,7 @@ export default async function Page({ params }) {
             rehypePlugins: rehype,
             recmaPlugins: recma,
             format: 'mdx',
-          }
+          },
         }}
       />
     </div>

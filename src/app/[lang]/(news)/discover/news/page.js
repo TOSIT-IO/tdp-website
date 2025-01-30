@@ -1,8 +1,8 @@
 import 'server-only'
 import clsx from 'clsx'
+// Content
 import redac from 'redac'
-import mdx from 'redac/plugins/mdx'
-import yaml from 'redac/plugins/yaml'
+import redacYaml from 'redac/plugins/yaml'
 
 export async function generateMetadata() {
   return {
@@ -12,15 +12,17 @@ export async function generateMetadata() {
 }
 
 export async function generateStaticParams() {
-  return [{
-    lang: 'en'
-  }]
+  return [
+    {
+      lang: 'en',
+    },
+  ]
 }
 
 export default async function Page({ params }) {
   const i18n = await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/i18ns',
     },
   ])
@@ -30,7 +32,7 @@ export default async function Page({ params }) {
     .get()
   const broadcasts = await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/broadcasts',
     },
   ])
@@ -50,7 +52,7 @@ export default async function Page({ params }) {
             className={clsx(
               'py-2 px-3',
               'text-white/70 hover:text-white/100 font-extralight',
-              'rounded border border-white/40 hover:border-white/80'
+              'rounded border border-white/40 hover:border-white/80',
             )}
             style={{
               background:

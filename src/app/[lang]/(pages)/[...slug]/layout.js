@@ -1,30 +1,28 @@
 import 'server-only'
 import path from 'node:path'
 import clsx from 'clsx'
-import redac from 'redac'
-import redacMemory from 'redac/plugins/memory'
 import Header from '@/layout/header'
 import Left from '@/layout/left'
-import pages from '/.redac/pages.mjs'
+import redacPages from '/.redac/pages.mjs'
+// Content
+import redac from 'redac'
+import redacMemory from 'redac/plugins/memory'
 
 // Util function
 const extractSharedPath = (name) => {
   const basename = path.basename(name)
-  if (/^(\d+\.)?index\./.test(basename)){
+  if (/^(\d+\.)?index\./.test(basename)) {
     return path.dirname(name)
   } else {
     return path.dirname(name) + '/' + /^((\d+\.)?\w+)\./.exec(basename)?.[1]
   }
 }
 
-export default async function Layout({
-  children,
-  params
-}) {
+export default async function Layout({ children, params }) {
   const content = redac([
     {
       plugin: redacMemory,
-      config: pages,
+      config: redacPages,
     },
   ])
   const sitemap = await content
@@ -42,7 +40,7 @@ export default async function Layout({
     }))
     .filter((page) => page.lang === params.lang)
     .filter((page) =>
-      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
     )
     .tree()
   // Current page
@@ -54,13 +52,14 @@ export default async function Layout({
       lang: page.lang || 'en',
     }))
     // .match(params.lang, params.slug)
-    .filter( page => {
-      if(page.lang !== params.lang) return false
-      if(JSON.stringify(page.slug) !== JSON.stringify(params.slug)) return false
+    .filter((page) => {
+      if (page.lang !== params.lang) return false
+      if (JSON.stringify(page.slug) !== JSON.stringify(params.slug))
+        return false
       return true
     })
-    .map(page => ({
-      path_t9n: extractSharedPath(page.path_relative)
+    .map((page) => ({
+      path_t9n: extractSharedPath(page.path_relative),
     }))
     .get()
   // Page translations if any, share the same parent directory
@@ -72,32 +71,28 @@ export default async function Layout({
       lang: page.lang || 'en',
     }))
     // Redirect pages are no translation
-    .filter(page => !page.data.redirect)
+    .filter((page) => !page.data.redirect)
     // This is a bit touchy, maybe redac could provide with
     // a parent property, doing it here for now
-    .filter(page => {
+    .filter((page) => {
       const path_t9n = extractSharedPath(page.path_relative)
       return page.lang !== params.lang && currentPage?.path_t9n === path_t9n
     })
-    .map(page => ({
+    .map((page) => ({
       lang: page.lang,
       slug: page.slug,
       data: {
         title: page.data.title,
       },
     }))
-  const menuLeft = sitemap.filter( page =>
-    page.slug[0] === params.slug[0]
-  )[0]
+  const menuLeft = sitemap.filter((page) => page.slug[0] === params.slug[0])[0]
   return (
     <>
       <Header
         current={params.slug}
         link_home={params.lang === 'en' ? '/' : `/${params.lang}`}
         sitemap={sitemap}
-        className={clsx(
-          'fixed top-0 w-full z-10 h-[60px]',
-        )}
+        className={clsx('fixed top-0 w-full z-10 h-[60px]')}
         style={{
           background: `radial-gradient(50% 50% at 50% 50%, rgba(14, 11, 22, 0.12) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(17.86% 94.3% at 87.98% 36.67%, rgba(27, 83, 83, 0.18) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50.96% 97.73% at 18.2% 68.08%, rgba(28, 74, 74, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(44, 48, 49, 0.90)`,
         }}
@@ -111,20 +106,18 @@ export default async function Layout({
       >
         <div
           className={clsx(
-            "hidden lg:block",
+            'hidden lg:block',
             'pt-[8rem] pb-5',
-            "w-[300px] min-w-[300px] xl:w-[400px]",
-            "[&>*]:xl:w-[300px] [&>*]:mx-6 [&>*]:xl:ml-[80px] [&>*]:xl:mr-[20px]",
-            'border-r border-r-white/40'
+            'w-[300px] min-w-[300px] xl:w-[400px]',
+            '[&>*]:xl:w-[300px] [&>*]:mx-6 [&>*]:xl:ml-[80px] [&>*]:xl:mr-[20px]',
+            'border-r border-r-white/40',
           )}
           style={{
             background: `rgba(0, 0, 0, 0.13)`,
           }}
         >
           <Left
-            className={clsx(
-              "sticky top-20 text-sm",
-            )}
+            className={clsx('sticky top-20 text-sm')}
             current={params.slug}
             menuLeft={menuLeft}
           />

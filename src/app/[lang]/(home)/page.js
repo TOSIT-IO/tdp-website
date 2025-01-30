@@ -1,8 +1,5 @@
 import 'server-only'
 import clsx from 'clsx'
-import redac from 'redac'
-import yaml from 'redac/plugins/yaml'
-import mdx from 'redac/plugins/mdx'
 import Link from 'next/link'
 import Logo from '@/layout/home/logo.svg'
 import CirclesLeft from '@/layout/home/circles-left.svg'
@@ -10,6 +7,12 @@ import CirclesRight from '@/layout/home/circles-right.svg'
 import * as features from '@/layout/home/features.js'
 import Logos from '@/layout/home/Logos'
 import Header from '@/layout/header'
+// Content
+import redac from 'redac'
+import redacYaml from 'redac/plugins/yaml'
+import redacMemory from 'redac/plugins/memory'
+import redacReports from '/.redac/reports.mjs'
+import redacPages from '/.redac/pages.mjs'
 
 // With Next@13.4.16, unregistered static params are not honored as 404 pages
 // and are treated as dynamic pages. Setting `dynamicParams` to `false` enforce
@@ -21,7 +24,7 @@ import Header from '@/layout/header'
 export async function generateMetadata({ params }) {
   const i18n = await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/i18ns',
     },
   ])
@@ -41,7 +44,7 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   return redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/i18ns',
     },
   ])
@@ -55,7 +58,7 @@ export default async function Page({ params }) {
   params.lang = params.lang ?? 'en'
   const i18n = await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/i18ns',
     },
   ])
@@ -65,7 +68,7 @@ export default async function Page({ params }) {
     .get()
   const broadcasts = await redac([
     {
-      plugin: yaml,
+      plugin: redacYaml,
       config: './content/broadcasts',
     },
   ])
@@ -74,11 +77,14 @@ export default async function Page({ params }) {
       ...broadcast,
       lang: broadcast.lang || 'en',
     }))
-    .filter((broadcast) => broadcast.lang === params.lang && broadcast.data.home === true)
+    .filter(
+      (broadcast) =>
+        broadcast.lang === params.lang && broadcast.data.home === true,
+    )
   const reports = await redac([
     {
-      plugin: mdx,
-      config: './content/reports',
+      plugin: redacMemory,
+      config: redacReports,
     },
   ])
     .from('reports')
@@ -90,8 +96,8 @@ export default async function Page({ params }) {
     .filter((report) => report.lang === params.lang)
   const sitemap = await redac([
     {
-      plugin: mdx,
-      config: './content/pages',
+      plugin: redacMemory,
+      config: redacPages,
     },
   ])
     .from('pages')
@@ -108,7 +114,7 @@ export default async function Page({ params }) {
     }))
     .filter((page) => page.lang === params.lang)
     .filter((page) =>
-      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
     )
     .tree()
   return (
@@ -116,7 +122,7 @@ export default async function Page({ params }) {
       <div
         className={clsx(
           'relative h-[500px] xl:h-[600px] 2xl:h-[650px]',
-          'border-b border-slate-500'
+          'border-b border-slate-500',
         )}
         style={{
           background:
@@ -136,7 +142,7 @@ export default async function Page({ params }) {
             'absolute text-center flex flex-col',
             'top-[14%] bottom-[5%] left-[8%] right-[8%]',
             'md:top-[20%] md:bottom-[10%] md:left-[15%] md:right-[20%]',
-            'gap-14 md:gap-5'
+            'gap-14 md:gap-5',
           )}
         >
           <Logo className="h-auto" />
@@ -151,7 +157,7 @@ export default async function Page({ params }) {
                 className={clsx(
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
-                  'rounded border border-white/40 hover:border-white/80'
+                  'rounded border border-white/40 hover:border-white/80',
                 )}
                 style={{
                   background:
@@ -166,7 +172,7 @@ export default async function Page({ params }) {
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
                   'bg-[#168E5E]/80 hover:bg-[#168E5E]/100',
-                  'rounded border border-white/50 hover:border-white/80'
+                  'rounded border border-white/50 hover:border-white/80',
                 )}
               >
                 {i18n.header.start}
@@ -227,7 +233,7 @@ export default async function Page({ params }) {
                     className={clsx(
                       'py-2 px-3',
                       'text-white/70 font-extralight',
-                      'rounded border border-white/40'
+                      'rounded border border-white/40',
                     )}
                     style={{
                       background:
@@ -270,11 +276,11 @@ export default async function Page({ params }) {
                       }}
                     >
                       <Link
-                      className={clsx(
-                        'py-2 px-3 block',
-                        'text-white/70 hover:text-white/100 font-extralight',
-                        'rounded border border-white/40 hover:border-white/80'
-                      )}
+                        className={clsx(
+                          'py-2 px-3 block',
+                          'text-white/70 hover:text-white/100 font-extralight',
+                          'rounded border border-white/40 hover:border-white/80',
+                        )}
                         href={`/${
                           params.lang
                         }/contribute/develop/reports/${report.slug.join('/')}`}
@@ -353,7 +359,7 @@ const FeatureCard = function ({ children, reverse, Feature, title }) {
       className={clsx(
         'flex gap-3 sm:gap-20 flex-col sm:flex-row',
         'text-center sm:text-left',
-        reverse && 'sm:flex-row-reverse'
+        reverse && 'sm:flex-row-reverse',
       )}
     >
       <div className="w-[10%] sm:w-[20%] m-auto">
