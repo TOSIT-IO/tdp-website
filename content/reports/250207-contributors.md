@@ -13,7 +13,7 @@ Testing Ranger 2.6.0 in the TDP stack 2.0.
 Weekly review of open PRs (in chronological order):
 
 - [tdp-website#133](https://github.com/TOSIT-IO/tdp-website/pull/133): status of "feat(reports): contributors report 31st of january 2025". PR merged.
-- [tdp-observability#128](https://github.com/TOSIT-IO/tdp-observability/pull/128): status of "ci: bump ansible version". PR has been closed since the issue has been resoleved with PR [tdp-observability#129](https://github.com/TOSIT-IO/tdp-observability/pull/129).
+- [tdp-observability#128](https://github.com/TOSIT-IO/tdp-observability/pull/128): status of "ci: bump ansible version". PR has been closed since the issue has been resolved with PR [tdp-observability#129](https://github.com/TOSIT-IO/tdp-observability/pull/129).
 
 ## Open topics
 
