@@ -6,7 +6,11 @@ description: |
 
 # Notes from February 14th, 2025
 
-TDP 2.0 will use Rocky8 
+TDP 2.0 will use Rocky8. 
+
+Due to current incompatility with YARN and cgroups v2, which is now default in 
+RHEL9 family OS, TDP1 and 2 is now targeting to support only RHEL8 OS. If one 
+must use RHEL9 OS contributions are required.
 
 ## Pull Requests
 
