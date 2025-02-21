@@ -18,6 +18,11 @@ Weekly review of open PRs (in chronological order):
 
 Hue stores folders containing temporary scripts in the /tmp folder and causes Hue to crash. Investigations are underway.
 
-In the ansible_collection, the tdp_vars pluggin do not allows to remove an entire key value variable if the key is defined as null in the tdp_vars_overrides yml configuration files. The key, with an empty value, remains in the configuration. The solution can be: 
-- To delete it from the tdp_vars_defaults yml configuration files. In this case, we will have to define it in the tdp_vars_overrides yml configuration files if we need the it.
-- To refactor the source code to ensure that the key value variable is entirely remove if it is define as null in the tdp_vars_overrides yml configuration files.
+In the ansible_collection, the tdp_vars plugin does not allow to remove a variable since it will always read what is defined in the tdp_vars_default. If the variable (not the string, the YAML *null* value), the key will still exists and will most likely be rendered by jinja.
+
+Ways to work around for now: 
+
+- Delete key from the tdp_vars_defaults yml configuration files. In this case, the user will have to define it in the tdp_vars (or overrides) configuration files if needed. Since this requires a tdp_collection modification it is definetely not user friendly
+- Rewrite the jinja templates to not render a key when the value is *null*. Same issue with patching the collection though.
+
+A more appropriate fix could be by leveraging the tdp_vars plugin. By managing *null* value in the tdp_vars and delete the key if defined to null. This might create issue when user requires a value to be *null* (through its own tdp_vars), but after years of working with TDP we dont see that as a use case. Also tdp_vars plugin could accept settings, whether through environment variables or ansible.cfg settings. These settings could affect this behaviour
