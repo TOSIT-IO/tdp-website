@@ -1,7 +1,7 @@
 ---
 type: contributors
 description: |
-  Managed to run Phoenix-Queryserver in TDP stack 2.0.
+  TDP 2.0 will use Rocky8. 
 ---
 
 # Notes from February 14th, 2025
