@@ -12,14 +12,17 @@ const extractSharedPath = (name) => {
   if (/^(\d+\.)?index\./.test(basename)){
     return path.dirname(name)
   } else {
-    return path.dirname(name) + '/' + /^((\d+\.)?\w+)\./.exec(basename)?.[1]
+    return path.dirname(name) + '/' + /^((\d+\.)?\w+)\./.exec(basename)?.[1];
   }
 }
 
-export default async function Layout({
-  children,
-  params
-}) {
+export default async function Layout(props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   const content = redac([
     {
       plugin: mdx,

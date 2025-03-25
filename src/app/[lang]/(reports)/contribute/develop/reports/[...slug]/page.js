@@ -1,7 +1,7 @@
 import 'server-only'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import components from '@/mdx/components/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
@@ -14,7 +14,8 @@ import recma from '/src/mdx/recma.js'
 // Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
 // export const dynamicParams = false
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params
   return await redac([
     {
       plugin: mdx,
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }) {
     .from('reports')
     .filter(
       (report) =>
-      report.lang === params.lang &&
-        JSON.stringify(report.slug) === JSON.stringify(params.slug)
+        report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug),
     )
     .map(async (report) => ({
       title: report.data.title,
@@ -42,8 +43,8 @@ export async function generateStaticParams({ params }) {
     },
   ])
     .from('reports')
-    .filter(
-      (report) => report.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
+    .filter((report) =>
+      report.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
     )
     .map((report) => ({
       lang: report.lang || 'en',
@@ -52,7 +53,8 @@ export async function generateStaticParams({ params }) {
   return reports
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params
   const report = await redac([
     {
       plugin: mdx,
@@ -60,14 +62,14 @@ export default async function Page({ params }) {
     },
   ])
     .from('reports')
-    .map(report => ({
+    .map((report) => ({
       ...report,
-      lang: report.lang || 'en'
+      lang: report.lang || 'en',
     }))
     .filter(
       (report) =>
-      report.lang === params.lang &&
-        JSON.stringify(report.slug) === JSON.stringify(params.slug)
+        report.lang === params.lang &&
+        JSON.stringify(report.slug) === JSON.stringify(params.slug),
     )
     .get()
   return (
@@ -83,7 +85,7 @@ export default async function Page({ params }) {
             rehypePlugins: rehype,
             recmaPlugins: recma,
             format: 'mdx',
-          }
+          },
         }}
       />
     </div>

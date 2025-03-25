@@ -18,7 +18,8 @@ import Header from '@/layout/header'
 // Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
 // export const dynamicParams = false
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const i18n = await redac([
     {
       plugin: yaml,
@@ -50,7 +51,8 @@ export async function generateStaticParams() {
     .map((i18n) => ({ lang: i18n.lang }))
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   // Homepage prefered address is `/` and not `/en`
   params.lang = params.lang ?? 'en'
   const i18n = await redac([
