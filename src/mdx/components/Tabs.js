@@ -62,7 +62,7 @@ function CopyButton({ code }) {
     <button
       type="button"
       className={clsx(
-        'group/button absolute top-3.5 right-4 overflow-hidden rounded-full py-1 pl-2 pr-3 text-2xs font-medium opacity-0 backdrop-blur transition focus:opacity-100 group-hover:opacity-100',
+        'group/button absolute top-3.5 right-4 overflow-hidden rounded-full py-1 pl-2 pr-3 text-2xs font-medium opacity-0 backdrop-blur-sm transition focus:opacity-100 group-hover:opacity-100',
         copied
           ? 'bg-emerald-400/10 ring-1 ring-inset ring-emerald-400/20'
           : 'bg-white/5 hover:bg-white/7.5 dark:bg-white/2.5 dark:hover:bg-white/5'
@@ -144,7 +144,7 @@ export const TabsHeader = function TabsHeader({ title, children, selectedIndex }
     return null
   }
   return (
-    <div className="flex min-h-[calc(theme(spacing.12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent">
+    <div className="flex min-h-[calc(--spacing(12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent">
       {title && (
         <h3 className="mr-auto pt-3 text-sm font-semibold text-white">
           {title}
@@ -155,7 +155,7 @@ export const TabsHeader = function TabsHeader({ title, children, selectedIndex }
           {Children.map(children, (child, childIndex) => (
             <TabUi
               className={clsx(
-                'border-b py-3 transition focus:[&:not(:focus-visible)]:outline-none',
+                'border-b py-3 transition focus:not-focus-visible:outline-hidden',
                 childIndex === selectedIndex
                   ? 'border-emerald-500 text-emerald-400'
                   : 'border-transparent text-zinc-400 hover:text-zinc-300'

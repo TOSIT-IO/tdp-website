@@ -51,7 +51,7 @@ export default function Sidebar ({
                     type="button"
                     className={clsx(
                       "m-3 p-2",
-                      'rounded-full dark:bg-green-500/20 hover:dark:bg-green-500/40',
+                      'rounded-full dark:bg-green-500/20 dark:hover:bg-green-500/40',
                       'text-white/80 hover:text-white',
                     )}
                     onClick={() => onOpen(false)}

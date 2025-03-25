@@ -113,7 +113,7 @@ export default async function Layout({
             "hidden lg:block",
             'pt-[8rem] pb-5',
             "w-[300px] min-w-[300px] xl:w-[400px]",
-            "[&>*]:xl:w-[300px] [&>*]:mx-6 [&>*]:xl:ml-[80px] [&>*]:xl:mr-[20px]",
+            "xl:*:w-[300px] *:mx-6 xl:*:ml-[80px] xl:*:mr-[20px]",
             'border-r border-r-white/40'
           )}
           style={{

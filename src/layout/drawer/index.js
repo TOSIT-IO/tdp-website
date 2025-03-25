@@ -13,7 +13,7 @@ export default function LayoutDrawer ({children}) {
         type="button"
         className={clsx(
           "flex items-center pl-3",
-          "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+          "hover:text-[#00FFFA] hover:[&>svg_*]:fill-[#00FFFA]",
         )}
         onClick={() => {setOpen(true)}}
         title="Toggle drawer"

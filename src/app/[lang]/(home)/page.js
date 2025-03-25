@@ -151,7 +151,7 @@ export default async function Page({ params }) {
                 className={clsx(
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
-                  'rounded border border-white/40 hover:border-white/80'
+                  'rounded-sm border border-white/40 hover:border-white/80'
                 )}
                 style={{
                   background:
@@ -166,7 +166,7 @@ export default async function Page({ params }) {
                   'py-2 px-3',
                   'text-xl text-white/70 hover:text-white/100 font-extralight',
                   'bg-[#168E5E]/80 hover:bg-[#168E5E]/100',
-                  'rounded border border-white/50 hover:border-white/80'
+                  'rounded-sm border border-white/50 hover:border-white/80'
                 )}
               >
                 {i18n.header.start}
@@ -227,7 +227,7 @@ export default async function Page({ params }) {
                     className={clsx(
                       'py-2 px-3',
                       'text-white/70 font-extralight',
-                      'rounded border border-white/40'
+                      'rounded-sm border border-white/40'
                     )}
                     style={{
                       background:
@@ -273,7 +273,7 @@ export default async function Page({ params }) {
                       className={clsx(
                         'py-2 px-3 block',
                         'text-white/70 hover:text-white/100 font-extralight',
-                        'rounded border border-white/40 hover:border-white/80'
+                        'rounded-sm border border-white/40 hover:border-white/80'
                       )}
                         href={`/${
                           params.lang

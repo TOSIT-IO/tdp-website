@@ -41,7 +41,7 @@ export default async function Page({ params }) {
             className={clsx(
               'py-2 px-3',
               'text-white/70 hover:text-white/100 font-extralight',
-              'rounded border border-white/40 hover:border-white/80'
+              'rounded-sm border border-white/40 hover:border-white/80'
             )}
             style={{
               background:
