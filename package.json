@@ -43,7 +43,7 @@
     "remark-table-of-content": "^0.5.2",
     "remark-title-to-frontmatter": "^0.1.13",
     "server-only": "^0.0.1",
-    "shiki": "^1.9.1",
+    "shiki": "^3.2.1",
     "tailwindcss": "^4.0.16",
     "tailwindcss-font-inter": "^4.0.0",
     "unified": "^11.0.5",

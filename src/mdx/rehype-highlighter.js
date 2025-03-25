@@ -1,4 +1,4 @@
-import { getHighlighter, createCssVariablesTheme } from 'shiki'
+import { createHighlighter, createCssVariablesTheme } from 'shiki'
 import { visit } from 'unist-util-visit'
 
 let highlighter
@@ -7,7 +7,7 @@ export default function rehypeShiki() {
   return async (tree) => {
     highlighter =
       highlighter ??
-      (await getHighlighter({
+      (await createHighlighter({
         themes: [
           // TDP custom theme, see /app/globals.css for color values
           createCssVariablesTheme({
