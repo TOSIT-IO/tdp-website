@@ -73,7 +73,7 @@ export default function Header({
             <a
               className={clsx(
                 "flex items-center px-3",
-                "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+                "hover:text-[#00FFFA] hover:[&>svg_*]:fill-[#00FFFA]",
               )}
               href="https://github.com/TOSIT-FR/TDP"
               title="GitHub project repository"
@@ -87,7 +87,7 @@ export default function Header({
               <Link
                 className={clsx(
                   "flex items-center pl-3",
-                  "hover:text-[#00FFFA] [&>svg_*]:hover:fill-[#00FFFA]",
+                  "hover:text-[#00FFFA] hover:[&>svg_*]:fill-[#00FFFA]",
                 )}
                 href={`/${t9ns[0].lang}/${t9ns[0].slug.join('/')}`}
                 title={t9ns[0].title}
