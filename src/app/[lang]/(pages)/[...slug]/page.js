@@ -1,7 +1,7 @@
 import 'server-only'
 import redac from 'redac'
 import mdx from 'redac/plugins/mdx'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import components from '@/mdx/components/index.js'
 import rehype from '/src/mdx/rehype.js'
 import remark from '/src/mdx/remark.js'
@@ -14,7 +14,8 @@ import recma from '/src/mdx/recma.js'
 // Error: Page "/[lang]/(home)/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
 // export const dynamicParams = false
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params
   return await redac([
     {
       plugin: mdx,
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }) {
     .filter(
       (page) =>
         page.lang === params.lang &&
-        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+        JSON.stringify(page.slug) === JSON.stringify(params.slug),
     )
     .map(async (page) => ({
       title: page.data.title,
@@ -35,30 +36,31 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  return redac([
-    {
-      plugin: mdx,
-      config: './content/pages',
-    },
-  ])
-    .from('pages')
-    // Section are not page, only use in left menu
-    .filter((page) => page.data.section !== true)
-    // Redirect pages are no translation, only use in header menu
-    .filter(page => !page.data.redirect)
-    .filter((page) =>
-      page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true
-    )
-    .filter((page) =>
-      page.data.jsx !== true
-    )
-    .map((page) => ({
-      lang: page.lang || 'en',
-      slug: page.slug,
-    }))
+  return (
+    redac([
+      {
+        plugin: mdx,
+        config: './content/pages',
+      },
+    ])
+      .from('pages')
+      // Section are not page, only use in left menu
+      .filter((page) => page.data.section !== true)
+      // Redirect pages are no translation, only use in header menu
+      .filter((page) => !page.data.redirect)
+      .filter((page) =>
+        page.slug[0] === 'dev' ? process.env.NODE_ENV === 'development' : true,
+      )
+      .filter((page) => page.data.jsx !== true)
+      .map((page) => ({
+        lang: page.lang || 'en',
+        slug: page.slug,
+      }))
+  )
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params
   const page = await redac([
     {
       plugin: mdx,
@@ -66,14 +68,14 @@ export default async function Page({ params }) {
     },
   ])
     .from('pages')
-    .map(page => ({
+    .map((page) => ({
       ...page,
-      lang: page.lang || 'en'
+      lang: page.lang || 'en',
     }))
     .filter(
       (page) =>
         page.lang === params.lang &&
-        JSON.stringify(page.slug) === JSON.stringify(params.slug)
+        JSON.stringify(page.slug) === JSON.stringify(params.slug),
     )
     .get()
   return (
@@ -89,7 +91,7 @@ export default async function Page({ params }) {
             rehypePlugins: rehype,
             recmaPlugins: recma,
             format: 'mdx',
-          }
+          },
         }}
       />
     </div>

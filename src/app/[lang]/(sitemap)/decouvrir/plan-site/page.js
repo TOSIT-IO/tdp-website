@@ -7,7 +7,8 @@ export async function generateStaticParams() {
   }]
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const i18n = await fetchI18n({ lang: params.lang})
   const pages = await fetchPages({ lang: params.lang })
   return (

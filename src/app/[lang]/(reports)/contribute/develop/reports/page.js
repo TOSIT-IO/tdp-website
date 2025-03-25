@@ -17,7 +17,8 @@ export async function generateStaticParams() {
   }]
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const reports = await redac([
     {
       plugin: mdx,
