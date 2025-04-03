@@ -1,7 +1,7 @@
 ---
 type: contributors
 description: |
-Preparing TDP2 development
+  Preparing TDP2 development
 ---
 
 # Notes from March 14th, 2025
@@ -37,4 +37,3 @@ Creation of Tag 1.0 on the following TDP project branches:
 - [TDP Extra](https://github.com/TOSIT-IO/tdp-collection-extras)
 - [TDP Observability](https://github.com/TOSIT-IO/tdp-observability)
 - [TDP Prerequisites](https://github.com/TOSIT-IO/tdp-collection-prerequisites)
-
