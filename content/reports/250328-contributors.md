@@ -4,7 +4,7 @@ description: |
   Preparing TDP2 development
 ---
 
-# Notes from March 14th, 2025
+# Notes from March 28th, 2025
  
 Website update and formatting of repositories to welcome the new version of TDP: TDP2
 
