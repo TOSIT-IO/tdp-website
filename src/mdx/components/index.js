@@ -4,7 +4,8 @@
 import { Code, Pre } from '@/mdx/components/Code'
 import { Properties, Property } from '@/mdx/components/Properties'
 import { Tabs } from '@/mdx/components/Tabs'
-import { StackTables, stack31 } from './stacks'
+import stacks from './stacks/data'
+import Stack from './stacks/stack'
 
 const h1 = () => (
   <div>
@@ -23,16 +24,29 @@ const components = {
   pre: (props) => <Pre {...props} />,
   Properties: (props) => <Properties {...props} />,
   Property: (props) => <Property {...props} />,
-  Stack31: () => <StackTables stack={stack31} />,
+  Stack11: () => <Stack stack={stacks['tdp-1.1']} />,
   Tabs: (props) => <Tabs {...props} />,
-  TODO: (props) => <p className="bg-amber-200 text-amber-800 border-amber-800 border rounded-md p-1" {...props}><span className='font-bold'>TODO</span> {props.children}</p>,
+  TODO: (props) => (
+    <p
+      className="bg-amber-200 text-amber-800 border-amber-800 border rounded-md p-1"
+      {...props}
+    >
+      <span className="font-bold">TODO</span> {props.children}
+    </p>
+  ),
   a: (props) => {
     if (props.href && props.href !== '#') {
       // href is defined
-      return <a {...props} />;
+      return <a {...props} />
     } else {
       // href is not defined
-      return <a className="underline text-amber-200 decoration-amber-200 decoration-4 hover:decoration-amber-100 hover:text-amber-100" title="Missing link" {...props} />;
+      return (
+        <a
+          className="underline text-amber-200 decoration-amber-200 decoration-4 hover:decoration-amber-100 hover:text-amber-100"
+          title="Missing link"
+          {...props}
+        />
+      )
     }
   },
 }
