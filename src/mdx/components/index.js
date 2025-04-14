@@ -25,6 +25,7 @@ const components = {
   Properties: (props) => <Properties {...props} />,
   Property: (props) => <Property {...props} />,
   Stack11: () => <Stack stack={stacks['tdp-1.1']} />,
+  Stack20: () => <Stack stack={stacks['tdp-2.0']} />,
   Tabs: (props) => <Tabs {...props} />,
   TODO: (props) => (
     <p

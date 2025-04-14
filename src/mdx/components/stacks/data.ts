@@ -1,6 +1,8 @@
 import { Stack } from './types'
 
-const stacks: { 'tdp-1.1': Stack } = {
+type StackNames = 'tdp-1.1' | 'tdp-2.0'
+
+const stacks: { [k in StackNames]: Stack } = {
   'tdp-1.1': {
     manager: {
       lib: {
@@ -332,6 +334,24 @@ const stacks: { 'tdp-1.1': Stack } = {
           },
         },
       ],
+    },
+    extras: {
+      repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection-extras',
+      tag: '1.0.0',
+      components: [],
+    },
+    observability: {
+      repositoryUrl: 'https://github.com/TOSIT-IO/tdp-observability',
+      tag: '1.0.1',
+      components: [],
+    },
+  },
+  'tdp-2.0': {
+    core: {
+      repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection',
+      tag: '',
+      components: [],
+      buildDependencies: [],
     },
     extras: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection-extras',
