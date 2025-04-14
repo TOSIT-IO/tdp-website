@@ -1,6 +1,8 @@
 import { Stack } from './types'
 
-const stacks: { 'tdp-1.1': Stack } = {
+type StackNames = 'tdp-1.1' | 'tdp-2.0'
+
+const stacks: { [k in StackNames]: Stack } = {
   'tdp-1.1': {
     components: [
       {
@@ -323,6 +325,10 @@ const stacks: { 'tdp-1.1': Stack } = {
         },
       },
     ],
+  },
+  'tdp-2.0': {
+    components: [],
+    buildDependencies: [],
   },
 }
 
