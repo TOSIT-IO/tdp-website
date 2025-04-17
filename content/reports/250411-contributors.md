@@ -6,7 +6,7 @@ description: |
 
 # Notes from April 11th, 2025
  
-All 1.0.0 tags have been created on the various TDP directories.
+All 1.0.0 tags have been created on the various TDP repositories.
 
 ## Pull Requests
 
