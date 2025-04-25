@@ -1,0 +1,1 @@
+tbody:hover td[rowspan],tbody:hover th[rowspan],tr:hover td,tr:hover th{background-color:color-mix(in oklab,var(--color-black) 10%,transparent);transition:background-color .2s ease-in-out}
