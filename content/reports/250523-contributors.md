@@ -4,7 +4,7 @@ description: |
   Building TDP2 with a stack based on Hadoop 3.4
 ---
 
-# Notes from May 23th, 2025
+# Notes from May 23rd, 2025
 
 Testing of a stack based on hadoop 3.4 is still in progress. 
 
