@@ -6,7 +6,7 @@ description: |
 
 # Notes from June 13th, 2025
 
-Part of Hive-acid does not work. In Hive 3, the location variable manages both external tables and managed tables. In hive 4 there are 2 different variables: location and managedlocation. Due to this change, a lambda user can no longer access the managed table in Hive 4 in the same way as in Hive 3The solution for hive 4 to have ACID properties could be to use iceberg. Investigation in progress.
+Part of Hive-acid does not work. In Hive 3, the location variable manages both external tables and managed tables. In hive 4 there are 2 different variables: location and managedlocation. Due to this change, a lambda user can no longer access the managed table in Hive 4 in the same way as in Hive 3. The solution for hive 4 to have ACID properties could be to use iceberg. Investigation in progress.
 
 ## Pull Requests
 
@@ -25,7 +25,7 @@ Weekly review of open PRs (in chronological order):
 ## Open Topics
 
 ### PR explanation
-With log4j2 you can't add RFA and DRFA together, so pull requests 947 and 948 add a condition for choosing the appender in Hive and Phoenix Query Server.
+With log4j2 you can't add RFA and DRFA together, so pull requests 947 and 948 add a condition for choosing the appender in Hive and Phoenix Query Server. These changes have also been made in knox and spark history server in PR 945 and 946.
 PR 918 enables iceberg to work properly with Hive.
 
 ### CVE
