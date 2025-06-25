@@ -535,18 +535,376 @@ const stacks: { [k in StackNames]: Stack } = {
   'tdp-2.0': {
     core: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection',
-      tag: '',
-      components: [],
-      buildDependencies: [],
+      tag: 'master',
+      components: [
+        {
+          name: 'Apache Zookeeper',
+          upstream: {
+            label: 'Apache',
+            version: '3.8.4',
+            repositoryUrl: 'https://github.com/apache/zookeeper',
+            tag: 'release-3.8.4',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/zookeeper',
+            releases: {
+              basic: {
+                tag: '3.8.4-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/zookeeper/releases/download/3.8.4-0.0/apache-zookeeper-3.8.4-0.0-bin.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Hadoop',
+          upstream: {
+            label: 'Apache',
+            version: '3.3.6',
+            repositoryUrl: 'https://github.com/apache/hadoop',
+            tag: 'rel/release-3.3.6',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/hadoop',
+            releases: {
+              basic: {
+                tag: '3.3.6-1.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hadoop/releases/download/3.3.6-1.0/hadoop-3.3.6-1.0.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Hive 4',
+          upstream: {
+            label: 'Apache',
+            version: '4.0.0',
+            repositoryUrl: 'https://github.com/apache/hive',
+            tag: 'rel/release-4.0.0',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/hive',
+            releases: {
+              basic: {
+                tag: '4.0.0-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hive/releases/download/4.0.0-0.0/apache-hive-4.0.0-0.0-bin.tar.gz',
+              },
+              fix: {
+                tag: '4.0.0-1.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hive/releases/download/4.0.0-1.0/apache-hive-4.0.0-1.0-bin.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Tez',
+          upstream: {
+            label: 'Apache',
+            version: '0.10.4',
+            repositoryUrl: 'https://github.com/apache/tez',
+            tag: 'rel/release-0.10.4',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/tez',
+            releases: {
+              basic: {
+                tag: '0.10.4-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/tez/releases/download/0.10.4-0.0/tez-0.10.4-0.0.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Spark 3',
+          upstream: {
+            label: 'Apache',
+            version: '3.5.6',
+            repositoryUrl: 'https://github.com/apache/spark',
+            tag: 'v3.5.6',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/spark',
+            releases: {
+              basic: {
+                tag: '3.5.6-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.6-0.0/spark-3.5.6-0.0-bin-tdp.tgz',
+              },
+              fix: {
+                tag: '3.5.6-1.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.6-1.0/spark-3.5.6-1.0-bin-tdp.tgz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Iceberg',
+          upstream: {
+            label: 'Apache',
+            version: '1.4.3',
+            repositoryUrl: 'https://github.com/apache/iceberg',
+            tag: 'apache-iceberg-1.4.3',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/iceberg',
+            releases: {
+              basic: {
+                tag: '1.4.3-0.0',
+                binaryUrl: [
+                  'https://github.com/TOSIT-IO/iceberg/releases/download/1.4.3-0.0/iceberg-spark-runtime-3.5_2.12-1.4.3-0.0.jar',
+                  'https://github.com/TOSIT-IO/iceberg/releases/download/1.4.3-0.0/iceberg-mr-1.4.3-0.0.jar',
+                ],
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Ranger',
+          upstream: {
+            label: 'Apache',
+            version: '2.6.0',
+            repositoryUrl: 'https://github.com/apache/ranger',
+            tag: 'release-ranger-2.6.0',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/ranger',
+            releases: {
+              basic: {
+                tag: '2.6.0-1.0',
+                binaryUrl: [
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-admin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hbase-plugin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hdfs-plugin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hive-plugin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-kafka-plugin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-kms.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-knox-plugin.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-usersync.tar.gz',
+                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-yarn-plugin.tar.gz',
+                ],
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Solr (for Ranger)',
+          upstream: {
+            label: 'Apache',
+            version: '8.11.3',
+            repositoryUrl: 'https://github.com/apache/lucene-solr',
+            tag: 'releases/lucene-solr/8.11.3',
+            binaryUrl:
+              'https://archive.apache.org/dist/lucene/solr/8.11.3/solr-8.11.3.tgz',
+          },
+        },
+        {
+          name: 'Apache HBase',
+          upstream: {
+            label: 'Apache',
+            version: '2.6.1',
+            repositoryUrl: 'https://github.com/apache/hbase',
+            tag: 'rel/2.6.1',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/hbase',
+            releases: {
+              basic: {
+                tag: '2.6.1-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hbase/releases/download/2.6.1-0.0/hbase-2.6.1-0.0-bin.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache HBase Operator tools',
+          upstream: {
+            label: 'Apache',
+            version: '1.3.0-SNAPSHOT',
+            repositoryUrl: 'https://github.com/apache/hbase-operator-tools',
+            tag: 'fd5a5fb90755949a90c502c76de8313130403fa3',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/hbase-operator-tools',
+            releases: {
+              basic: {
+                tag: '1.3.0-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hbase-operator-tools/releases/download/1.3.0-0.0/hbase-hbck2-1.3.0-0.0.jar',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Phoenix',
+          upstream: {
+            label: 'Apache',
+            version: '5.2.1',
+            repositoryUrl: 'https://github.com/apache/phoenix',
+            tag: '5.2.1',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/phoenix',
+            releases: {
+              basic: {
+                tag: '5.2.1-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/phoenix/releases/download/5.2.1-0.0/phoenix-hbase-2.6-5.2.1-0.0-bin.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Phoenix Query Server',
+          upstream: {
+            label: 'Apache',
+            version: '6.0.0',
+            repositoryUrl: 'https://github.com/apache/phoenix-queryserver',
+            tag: '3a7ffde42ae19fd31de986b6475fce4f977c4c26',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/phoenix-queryserver',
+            releases: {
+              basic: {
+                tag: '6.0.0-2.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/phoenix-queryserver/releases/download/6.0.0-2.0/phoenix-queryserver-6.0.0-2.0-bin.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Apache Knox',
+          upstream: {
+            label: 'Apache',
+            version: '2.0.0',
+            repositoryUrl: 'https://github.com/apache/knox',
+            tag: 'v2.0.0-RC2',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/knox',
+            releases: {
+              basic: {
+                tag: '2.0.0-0.0',
+                binaryUrl: [
+                  'https://github.com/TOSIT-IO/knox/releases/download/2.0.0-0.0/knox-2.0.0-0.0.tar.gz',
+                  'https://github.com/TOSIT-IO/knox/releases/download/2.0.0-0.0/knoxshell-2.0.0-0.0.tar.gz',
+                ],
+              },
+            },
+          },
+        },
+      ],
     },
     extras: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection-extras',
-      tag: '1.0.0',
-      components: [],
+      tag: 'master',
+      components: [
+        {
+          name: 'Apache Livy',
+          upstream: {
+            label: 'Apache',
+            version: '0.9.0-incubating-SNAPSHOT',
+            repositoryUrl: 'https://github.com/apache/incubator-livy',
+            tag: '710c0784dae73aa7c5a6ce0bac264bcfdefd7681',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/incubator-livy',
+            releases: {
+              fix: {
+                tag: '0.9.0-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/incubator-livy/releases/download/0.9.0-0.0/apache-livy-0.9.0-0.0_2.12-bin.zip',
+              },
+            },
+          },
+        },
+        {
+          name: 'Cloudera Hue',
+          upstream: {
+            label: 'Cloudera',
+            version: '4.11.0',
+            repositoryUrl: 'https://github.com/cloudera/hue',
+            tag: 'release-4.11.0',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/hue',
+            releases: {
+              fix: {
+                tag: 'hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/hue/releases/download/hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64/hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'JupyterHub',
+          upstream: {
+            label: 'JupyterHub',
+            version: '2.3.1',
+            repositoryUrl: 'https://github.com/jupyterhub/jupyterhub',
+            tag: '2.3.1',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/jupyterhub',
+            releases: {
+              basic: {
+                tag: '2.3.1-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/jupyterhub/releases/download/2.3.1-0.0/jupyterhub-2.3.1-0.0.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'JupyterLab',
+          upstream: {
+            label: 'JupyterLab',
+            version: '3.2.9',
+            repositoryUrl: 'https://github.com/jupyterlab/jupyterlab',
+            tag: 'v3.2.9',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/jupyterlab',
+            releases: {
+              basic: {
+                tag: '3.2.9-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/jupyterlab/releases/download/3.2.9-0.0/jupyterlab-3.2.9-0.0.tar.gz',
+              },
+            },
+          },
+        },
+        {
+          name: 'Sparkmagic',
+          upstream: {
+            label: 'jupyter-incubator',
+            version: '0.21.0',
+            repositoryUrl: 'https://github.com/jupyter-incubator/sparkmagic',
+            tag: '0.21.0',
+          },
+          tosit: {
+            repositoryUrl: 'https://github.com/TOSIT-IO/sparkmagic',
+            releases: {
+              basic: {
+                tag: '0.21.0-0.0',
+                binaryUrl:
+                  'https://github.com/TOSIT-IO/sparkmagic/releases/download/0.21.0-0.0/sparkmagic-0.21.0-0.0.tar.gz',
+              },
+            },
+          },
+        },
+      ],
     },
     observability: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-observability',
-      tag: '1.0.1',
+      tag: 'master',
       components: [],
     },
   },
