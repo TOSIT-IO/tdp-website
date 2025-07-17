@@ -1,7 +1,7 @@
 ---
 type: contributors
 description: |
-Compilation error of HBCK2 with HBase 2.6.0.
+  Compilation error of HBCK2 with HBase 2.6.0
 ---
 
 # Notes from July 11th, 2025
