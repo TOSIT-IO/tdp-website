@@ -4,7 +4,7 @@ description: |
 Compilation error of HBCK2 with HBase 2.6.0.
 ---
 
-# Notes from July 4th, 2025
+# Notes from July 11th, 2025
 
 Compilation error of HBCK2 with HBase 2.6.0.
 Potential fix found [HBASE-28375](https://github.com/apache/hbase-operator-tools/pull/140/files).
@@ -29,9 +29,9 @@ Weekly review of open PRs (in chronological order):
 What's new:
 - The update command in tdp-lib has been merged. ([tdp-lib#647](https://github.com/TOSIT-IO/tdp-lib/pull/647))
 - Merge variables update and init logics. ([tdp-lib#648](https://github.com/TOSIT-IO/tdp-lib/pull/648))
-- Added a wrapper that returns the git repo when a GitRepository error occurs, to make it easier to identify the problem. ([tdp-lib#655](https://github.com/TOSIT-IO/tdp-lib/pull/655))
+- Added a wrapper that returns the git repo when a GitRepository error occurs, to make it easier to identify the problem. ([tdp-lib#654](https://github.com/TOSIT-IO/tdp-lib/pull/654))
 - Replace Black with Ruff formatter. ([tdp-lib#651](https://github.com/TOSIT-IO/tdp-lib/pull/651))
-- Cleaning up imports at CLI level to add them at function definition level in order to speed up imports and increase readability on the console. ([tdp-lib#654](https://github.com/TOSIT-IO/tdp-lib/pull/654))
+- Cleaning up imports at CLI level to add them at function definition level in order to speed up imports and increase readability on the console. ([tdp-lib#655](https://github.com/TOSIT-IO/tdp-lib/pull/655))
 
 What's Next:
 - Renaming the configuration variable in the code to make the code more readable.
