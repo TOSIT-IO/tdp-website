@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  The hive-4.0.0-fix and branch-1.3.0-SNAPSHOT-basic branches have been published
+  The branch-hive-4.0.0-fix and branch-1.3.0-SNAPSHOT-basic branches have been published
 ---
 
 # Notes from July 18th, 2025
 
-The hive-4.0.0-fix and branch-1.3.0-SNAPSHOT-basic branches have been published
+The branch-hive-4.0.0-fix and branch-1.3.0-SNAPSHOT-basic branches have been published
 
 ## Pull Requests
 
@@ -23,7 +23,7 @@ After several merge requests, 2 bugs have been detected and fixed. There is stil
 
 ### Hive
 
-The branch hive-4.0.0-fix has been published. It fixes "CTAS with an additional AS for data file format failed" with [this merged PR](https://github.com/apache/hive/pull/5414) in the master branch.
+The branch branch-hive-4.0.0-fix has been published. It fixes "CTAS with an additional AS for data file format failed" with [this merged PR](https://github.com/apache/hive/pull/5414) in the master branch.
 
 ### hbase-operators-tools
 
