@@ -6,7 +6,7 @@ description: |
 
 # Notes from July 18th, 2025
 
-The branch-hive-4.0.0-fix and branch-1.3.0-SNAPSHOT-basic branches have been published
+The hive branch-4.0.0-fix and hbase branch-1.3.0-SNAPSHOT-basic branches have been published
 
 ## Pull Requests
 
