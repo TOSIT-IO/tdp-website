@@ -1,7 +1,7 @@
 ---
 type: contributors
 description: |
-  Release of a TDP version aligned with master to fix DataFrame creation issue on Jupyter
+  Develop two TDP deployment topologies
 ---
 
 # Notes from September 5th, 2025
@@ -33,7 +33,7 @@ Addition of a critical patch to Livy last week. This component must be built fro
 
 ### Monitoring
 
-PromptAil is depracated and expected to reach EOL in march 2026.
+Promtail is depracated and expected to reach EOL in march 2026.
 
 ### Ansible Version
 
