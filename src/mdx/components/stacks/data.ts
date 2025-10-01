@@ -905,7 +905,74 @@ const stacks: { [k in StackNames]: Stack } = {
     observability: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-observability',
       tag: 'master',
-      components: [],
+      components: [
+        {
+          name: 'Node Exporter',
+          upstream: {
+            label: 'Prometheus',
+            version: '1.9.1',
+            repositoryUrl: 'https://github.com/prometheus/node_exporter',
+            tag: 'v1.9.1',
+            binaryUrl:
+              'https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz',
+          },
+        },
+        {
+          name: 'Grafana',
+          upstream: {
+            label: 'Grafana',
+            version: '12.1.1',
+            repositoryUrl: 'https://github.com/grafana/grafana',
+            tag: 'v12.1.1',
+            binaryUrl:
+              'https://dl.grafana.com/oss/release/grafana-12.1.1.linux-amd64.tar.gz',
+          },
+        },
+        {
+          name: 'Loki',
+          upstream: {
+            label: 'Grafana Loki',
+            version: '3.5.4',
+            repositoryUrl: 'https://github.com/grafana/loki',
+            tag: 'v3.5.4',
+            binaryUrl:
+              'https://github.com/grafana/loki/releases/download/v3.5.4/loki-linux-amd64.zip',
+          },
+        },
+        {
+          name: 'Alloy',
+          upstream: {
+            label: 'Grafana Alloy',
+            version: '1.10.2',
+            repositoryUrl: 'https://github.com/grafana/alloy',
+            tag: 'v1.10.2',
+            binaryUrl:
+              'https://github.com/grafana/alloy/releases/download/v1.10.2/alloy-linux-amd64.zip',
+          },
+        },
+        {
+          name: 'Prometheus',
+          upstream: {
+            label: 'Prometheus',
+            version: '3.5.0',
+            repositoryUrl: 'https://github.com/prometheus/prometheus',
+            tag: 'v3.5.0',
+            binaryUrl:
+              'https://github.com/prometheus/prometheus/releases/download/v3.5.0/prometheus-3.5.0.linux-amd64.tar.gz',
+          },
+        },
+        {
+          name: 'Alertmanager',
+          upstream: {
+            label: 'Prometheus',
+            version: '0.28.1',
+            repositoryUrl: 'https://github.com/prometheus/prometheus',
+            tag: 'v0.28.1',
+            binaryUrl:
+              'https://github.com/prometheus/alertmanager/releases/download/v0.28.1/alertmanager-0.28.1.linux-amd64.tar.gz',
+          },
+        },
+      ],
     },
   },
 }
