@@ -20,7 +20,7 @@ Weekly review of open PRs (in chronological order):
 - [tdp-observability#138](https://github.com/TOSIT-IO/tdp-observability/pull/138): status of "Update meta playbooks". PR merged.
 - [tdp-collection#981](https://github.com/TOSIT-IO/tdp-collection/pull/981): status of "refactor(spark): use catalog iceberg for iceberg operations and leave…". PR merged.
 - [tdp-collection#982](https://github.com/TOSIT-IO/tdp-collection/pull/982): status of "fix: Move ranger_admin_password to tdp_cluster". PR merged.
-- [tdp-collection#983](https://github.com/TOSIT-IO/tdp-collection/pull/983): status of "fix(ranger-kms): one </configuration> to much in kms-site.xml". PR merged.
+- [tdp-collection#983](https://github.com/TOSIT-IO/tdp-collection/pull/983): status of "fix(ranger-kms): one 'configuration' tag to much in kms-site.xml". PR merged.
 - [tdp-observability#139](https://github.com/TOSIT-IO/tdp-observability/pull/139): status of "feat: prometheus 3.5". PR merged.
 - [tdp-observability#140](https://github.com/TOSIT-IO/tdp-observability/pull/140): status of "feat: node-exporter 1.9". PR merged.
 - [tdp-observability#142](https://github.com/TOSIT-IO/tdp-observability/pull/142): status of "feat(topology): added leightweight topology without alertmanager". PR merged.
