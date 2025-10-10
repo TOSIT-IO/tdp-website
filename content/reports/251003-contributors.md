@@ -4,7 +4,7 @@ description: |
   Investigation of changes in Spark behaviour between TDP1 and TDP2
 ---
 
-# Notes from September 26th, 2025
+# Notes from October 3rd, 2025
 
 Iceberg tables created with Hive and Spark do not have the same default properties. For example, with the following properties:
 table-override.external.table.purge and table-override.iceberg.orc.files.only.
