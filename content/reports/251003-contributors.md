@@ -1,13 +1,12 @@
 ---
 type: contributors
 description: |
-  Investigation of changes in Spark behaviour between TDP1 and TDP2
+  tdp-lib: a problem between Spark and YARN has been detected
 ---
 
 # Notes from October 3rd, 2025
 
-Iceberg tables created with Hive and Spark do not have the same default properties. For example, with the following properties:
-table-override.external.table.purge and table-override.iceberg.orc.files.only.
+In the tdp-lib YARN wants to create a symbolic link to the Spark3 JAR, but it cannot because Spark3 is deployed after YARN.
 
 ## Pull Requests
 
