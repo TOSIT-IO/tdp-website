@@ -4,7 +4,7 @@ description: |
   Accessing the spark ui through the resourceManager proxy requires double kerberos authentication when displaying an html file
 ---
 
-# Notes from October 17th, 2025
+# Notes from October 24th, 2025
 
 Accessing the spark ui through the resourceManager proxy requires double kerberos authentication when displaying an html file.
 
