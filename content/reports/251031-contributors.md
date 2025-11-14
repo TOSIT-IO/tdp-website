@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  Problem configuring Knox with SPnego.
+  Problem configuring Knox with SPNEGO.
 ---
 
 # Notes from October 31st, 2025
 
-Problem configuring Knox with SPnego.
+Problem configuring Knox with SPNEGO.
 
 ## Pull Requests
 
@@ -20,7 +20,7 @@ Weekly review of open PRs (in chronological order):
 
 ### Knox - Hue
 Problem configuring Knox for use in full HA.
-We need to add a typology in Knox to be able to use it with SPnego.
+We need to add a typology in Knox to be able to use it with SPNEGO.
 Currently, this operation requires creating a ticket and performing a curl negotiate on the various services. 
 However, in this case, impersonation is customised and not variabilised.
 This impersonation works with webhdfs but does not work with jhs. Upon investigation, we found that Hue offers a doAs function for jhs that does not work because of impersonation. Changing the spelling to doas, as is the case for webhdfs, should make it work.
