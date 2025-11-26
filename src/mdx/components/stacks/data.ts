@@ -836,9 +836,9 @@ const stacks: { [k in StackNames]: Stack } = {
             repositoryUrl: 'https://github.com/TOSIT-IO/hue',
             releases: {
               fix: {
-                tag: 'hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64',
+                tag: 'hue-release-4.11.0-2.0-cp38-cp38-manylinux2014_x86_64',
                 binaryUrl:
-                  'https://github.com/TOSIT-IO/hue/releases/download/hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64/hue-release-4.11.0-1.0-cp38-cp38-manylinux2014_x86_64.tar.gz',
+                  'https://github.com/TOSIT-IO/hue/releases/download/hue-release-4.11.0-2.0-cp38-cp38-manylinux2014_x86_64/hue-release-4.11.0-2.0-cp38-cp38-manylinux2014_x86_64.tar.gz',
               },
             },
           },
