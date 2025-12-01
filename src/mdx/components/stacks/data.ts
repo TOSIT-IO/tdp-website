@@ -15,6 +15,17 @@ const stacks: { [k in StackNames]: Stack } = {
       tag: '1.0.0',
       components: [
         {
+          name: 'Prometheus JMX',
+          upstream: {
+            label: 'Prometheus',
+            version: '0.20.0',
+            repositoryUrl: 'https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent',
+            tag: '',
+            binaryUrl:
+              'https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.20.0/jmx_prometheus_javaagent-0.20.0.jar',
+          },
+        },
+        {
           name: 'Apache Zookeeper',
           upstream: {
             label: 'Apache',
@@ -537,6 +548,17 @@ const stacks: { [k in StackNames]: Stack } = {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection',
       tag: 'master',
       components: [
+        {
+          name: 'Prometheus JMX',
+          upstream: {
+            label: 'Prometheus',
+            version: '0.20.0',
+            repositoryUrl: 'https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent',
+            tag: '',
+            binaryUrl:
+              'https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.20.0/jmx_prometheus_javaagent-0.20.0.jar',
+          },
+        },
         {
           name: 'Apache Zookeeper',
           upstream: {
