@@ -25,7 +25,7 @@ Weekly review of open PRs (in chronological order):
 
 ## Open Topics
 
-### Tdp lib
+### Tdp collection
 Consider removing the reading of default tdp vars in the inventory
 
 ## Knox HA 
