@@ -26,9 +26,10 @@ Weekly review of open PRs (in chronological order):
 ## Open Topics
 
 ### Tdp collection
+
 Consider removing the reading of default tdp vars in the inventory
 
-## Knox HA 
+### Knox HA
 
 No progress 
 Knox with 2 edges. Knox works, but there is a problem with Hue accessing httpfs and jhs. If Hue points to the HA proxy, which points to the Knox services, it works. However, if we set up an external DNS for the HA proxy and use it with Hue pointing to the two Knox servers, we need to create a principal that points to the DNS. Nevertheless, we still get 404 errors. We conclude that Kerberos does not accept an external DNS name, i.e. a name that is different from the machine name.
