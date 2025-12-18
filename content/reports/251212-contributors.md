@@ -1,12 +1,12 @@
 ---
 type: contributors
 description: |
-  Done 
+  Finish the work in progress on Inventory before tagging collection 2.0 
 ---
 
 # Notes from December 12th, 2025
 
-Done 
+Finish the work in progress on Inventory before tagging collection 2.0
 
 ## Pull Requests
 
@@ -26,6 +26,4 @@ Weekly review of open PRs (in chronological order):
 
 ### Tag TDP2 :
 
-Regarder les issues
-Inventory plugin avant de tag la collection
-Est ce qu'il faudrait pas archiver les vieux repo pas maintenues qui ne seront pas supporter pour le 2.0
+Open question on archiving old, unmaintained repositories that will not be supported in TDP 2.0.
