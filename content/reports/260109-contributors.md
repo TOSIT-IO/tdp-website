@@ -4,7 +4,7 @@ description: |
   Wait for PR validation on proxy users before tagging version 2.0.
 ---
 
-# Notes from December 9th, 2026
+# Notes from January 9th, 2026
 
 Wait for PR validation on proxy users before tagging version 2.0.
 
