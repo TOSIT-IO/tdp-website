@@ -644,22 +644,22 @@ const stacks: { [k in StackNames]: Stack } = {
           name: 'Apache Spark 3',
           upstream: {
             label: 'Apache',
-            version: '3.5.6',
+            version: '3.5.8',
             repositoryUrl: 'https://github.com/apache/spark',
-            tag: 'v3.5.6',
+            tag: 'v3.5.8',
           },
           tosit: {
             repositoryUrl: 'https://github.com/TOSIT-IO/spark',
             releases: {
               basic: {
-                tag: '3.5.6-0.0',
+                tag: '3.5.8-0.0',
                 binaryUrl:
-                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.6-0.0/spark-3.5.6-0.0-bin-tdp.tgz',
+                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.8-0.0/spark-3.5.8-0.0-bin-tdp.tgz',
               },
               fix: {
-                tag: '3.5.6-1.0',
+                tag: '3.5.8-1.0',
                 binaryUrl:
-                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.6-1.0/spark-3.5.6-1.0-bin-tdp.tgz',
+                  'https://github.com/TOSIT-IO/spark/releases/download/3.5.8-1.0/spark-3.5.8-1.0-bin-tdp.tgz',
               },
             },
           },
