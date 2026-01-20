@@ -703,7 +703,6 @@ const stacks: { [k in StackNames]: Stack } = {
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hbase-plugin.tar.gz',
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hdfs-plugin.tar.gz',
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-hive-plugin.tar.gz',
-                  'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-kafka-plugin.tar.gz',
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-kms.tar.gz',
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-knox-plugin.tar.gz',
                   'https://github.com/TOSIT-IO/ranger/releases/download/2.6.0-1.0/ranger-2.6.0-1.0-usersync.tar.gz',
