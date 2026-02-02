@@ -12,7 +12,7 @@ const stacks: { [k in StackNames]: Stack } = {
     },
     core: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection',
-      tag: '1.0.0',
+      tag: '1.0.1',
       components: [
         {
           name: 'Prometheus JMX',
@@ -544,9 +544,15 @@ const stacks: { [k in StackNames]: Stack } = {
     },
   },
   'tdp-2.0': {
+    manager: {
+      lib: {
+        repositoryUrl: 'https://github.com/TOSIT-IO/tdp-lib',
+        tag: '2.0.0',
+      },
+    },
     core: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection',
-      tag: 'master',
+      tag: '2.0.0',
       components: [
         {
           name: 'Prometheus JMX',
@@ -824,7 +830,7 @@ const stacks: { [k in StackNames]: Stack } = {
     },
     extras: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-collection-extras',
-      tag: 'master',
+      tag: '2.0.0',
       components: [
         {
           name: 'Apache Livy',
@@ -925,7 +931,7 @@ const stacks: { [k in StackNames]: Stack } = {
     },
     observability: {
       repositoryUrl: 'https://github.com/TOSIT-IO/tdp-observability',
-      tag: 'master',
+      tag: '2.0.0',
       components: [
         {
           name: 'Node Exporter',
